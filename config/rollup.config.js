@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import filesize from 'rollup-plugin-filesize';
 import {uglify} from 'rollup-plugin-uglify';
+import postcss from 'rollup-plugin-postcss';
 import pkg from '../package.json';
 
 let 
@@ -38,6 +39,11 @@ export default {
     input: path.resolve(__dirname, '../', 'src/index.js'),
     output,
     plugins: [
+        // 处理css
+        postcss({
+            minimize: true
+        }),
+
         // 显示文件大小
         filesize(),
         // 编译es6

@@ -4,9 +4,9 @@
  * ---------------------------------
  */
 
-// tip pop style
-// import showTipsStyle from '../styles/showTips.less';
+import '../style/showTips.less';
 import {appendDomByStr} from '../util/Tool';
+
 
 let 
 showTipsDelay = 1000, 
@@ -41,29 +41,35 @@ export const Normal = {
         // 引入样式
         // showTipsStyle.use();
 
+        const _showTips = () => {
+            document.getElementById('__Fecmplugin_text').innerHTML = text;
+            showTipsObj.style.opacity = 1;
+            showTipsObj.style.visibility = 'visible';
+            showTipsDelay = delay;
+
+            if (autoClose) {
+                const totalTime = showTipsAniTime + showTipsDelay;
+                this
+                .wait(totalTime)
+                .then(() => {
+                    showTipsObj.style.opacity = 0;
+                    return this.wait(showTipsAniTime);
+                })
+                .then(() => {
+                    showTipsObj.style.visibility = 'hidden';
+                })
+            }
+        }
+
+
         // 插入dom
         if (!showTipsObj) {
             // console.log(this);
             appendDomByStr(showTipsObjStr);
             showTipsObj = document.getElementById('__Fecmplugin_tip_pop');
-        } 
-        
-        document.getElementById('__Fecmplugin_text').innerHTML = text;
-        showTipsObj.style.opacity = 1;
-        showTipsObj.style.visibility = 'visible';
-        showTipsDelay = delay;
-
-        if (autoClose) {
-            const totalTime = showTipsAniTime + showTipsDelay;
-            this
-            .wait(totalTime)
-            .then(() => {
-                showTipsObj.style.opacity = 0;
-                return this.wait(showTipsAniTime);
-            })
-            .then(() => {
-                showTipsObj.style.visibility = 'hidden';
-            })
+            this.wait(0).then(() => _showTips());
+        } else {
+            _showTips()
         }
     },
 
