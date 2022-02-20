@@ -1,5 +1,5 @@
 // export Normal method
-export {Normal} from './modules/Normal';
+export {Common} from './modules/Common';
 
 // export Form Validation
 export {Form} from './modules/Form';

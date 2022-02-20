@@ -1,17 +1,18 @@
 {
   "name": "fecmjs",
-  "version": "0.0.4",
-  "description": "Front end common method collection",
+  "version": "0.0.5",
+  "description": "Collection of common front-end methods to facilitate normal development. Applicable to mobile terminal (some methods come from the Internet).Modular development for easy reference.Support 'tree shaking' to reduce packing volume",
   "main": "./libs/fecmjs.cjs.js",
   "module": "./libs/fecmjs.esm.js",
   "files": [
     "libs",
-    "dist"
+    "dist",
+    "README_CN.md"
   ],
   "scripts": {
     "clean": "rimraf ./libs && rimraf ./dist",
-    "build:dev": "cross-env NODE_ENV=development rollup -c ./config/rollup.config.js",
-    "build:pro": "cross-env NODE_ENV=production rollup -c ./config/rollup.config.js",
+    "build:dev": "cross-env NODE_ENV=development rollup -c ./rollup.config.js",
+    "build:pro": "cross-env NODE_ENV=production rollup -c ./rollup.config.js",
     "prePublish": "npm run clean && npm run build:dev && npm run build:pro"
   },
   "repository": {
@@ -48,6 +49,7 @@
     "rollup-plugin-uglify": "^6.0.4"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.17.2"
+    "@babel/runtime-corejs3": "^7.17.2",
+    "axios": "^0.26.0"
   }
 }

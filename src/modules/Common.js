@@ -14,7 +14,7 @@ showTipsAniTime = 500,
 showTipsObjStr = `<section class="__Fecmplugin_tip_pop" id="__Fecmplugin_tip_pop"><p class="__Fecmplugin_text" id="__Fecmplugin_text"></p></section>`,
 showTipsObj = null;
 
-export const Normal = {
+export const Common = {
     // 加载图片
     loadImage(src = '') {
         return new Promise((resolve, reject) => {
@@ -36,11 +36,9 @@ export const Normal = {
     showTips({
         autoClose = true,
         delay = 1000,
-        text = 'loading...'
+        text = 'loading...',
+        closedFn = () => {}
     } = {}) {
-        // 引入样式
-        // showTipsStyle.use();
-
         const _showTips = () => {
             document.getElementById('__Fecmplugin_text').innerHTML = text;
             showTipsObj.style.opacity = 1;
@@ -57,10 +55,10 @@ export const Normal = {
                 })
                 .then(() => {
                     showTipsObj.style.visibility = 'hidden';
+                    closedFn();
                 })
             }
         }
-
 
         // 插入dom
         if (!showTipsObj) {
@@ -85,10 +83,10 @@ export const Normal = {
     },
 
     // 元素是否出现在可视区
-    isPartOfElementInViewport(el) {
+    isPartOfElementInViewport(domEle = {}) {
         // el为要检测的dom对象
         const
-        rect         = el.getBoundingClientRect(),
+        rect         = domEle.getBoundingClientRect(),
         windowHeight = (window.innerHeight || document.documentElement.clientHeight),
         windowWidth  = (window.innerWidth || document.documentElement.clientWidth),
         vertInView   = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0),

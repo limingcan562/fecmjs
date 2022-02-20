@@ -5,7 +5,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import filesize from 'rollup-plugin-filesize';
 import {uglify} from 'rollup-plugin-uglify';
 import postcss from 'rollup-plugin-postcss';
-import pkg from '../package.json';
+import pkg from './package.json';
 
 let 
 IS_PRO = process.env.NODE_ENV.includes('pro') ? true : false,
@@ -36,7 +36,7 @@ else {
 }
 
 export default {
-    input: path.resolve(__dirname, '../', 'src/index.js'),
+    input: path.resolve(__dirname, './', 'src/index.js'),
     output,
     plugins: [
         // 处理css
