@@ -6,7 +6,7 @@ English | [中文](https://github.com/limingcan562/fecmjs/blob/main/README_CN.md
 
 1. Collection of common front-end methods to facilitate normal development
 
-2. Applicable to mobile terminal (some methods come from the Internet)
+2. Applicable to mobile terminal, `PC` terminal, mobile terminal first (some methods come from the Internet)
 
 3. Modular development for easy reference
 
