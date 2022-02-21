@@ -6,3 +6,6 @@ export {Form} from './modules/Form';
 
 // export Device info
 export {Info} from './modules/Info';
+
+// export Request API
+export {Request} from './modules/Request';

@@ -47,6 +47,7 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.17.2"
+    "@babel/runtime-corejs3": "^7.17.2",
+    "@fdaciuk/ajax": "^3.0.4"
   }
 }
