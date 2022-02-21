@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "clean": "rimraf ./libs && rimraf ./dist",
-    "build:dev": "cross-env NODE_ENV=development rollup -c ./rollup.config.js",
-    "build:pro": "cross-env NODE_ENV=production rollup -c ./rollup.config.js",
+    "build:dev": "cross-env NODE_ENV=development rollup -c ./config/rollup.config.js",
+    "build:pro": "cross-env NODE_ENV=production rollup -c ./config/rollup.config.js",
     "prePublish": "npm run clean && npm run build:dev && npm run build:pro"
   },
   "repository": {

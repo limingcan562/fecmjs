@@ -281,3 +281,4 @@ attribute name | description | value description
 `platform`| is the mobile terminal or the `pc` terminal. | `pc`: pc side<br>`mobile`: mobile side
 `screenType`| mobile phone screen type | `X`: full screen<br> `normal`: normal screen (iphone5, 6, 7)<br> `short`: smaller screen than normal screen
 `sysTem`| device system | `ios`: `ios` system <br> `android`: `android` Android system <br> `not moblie`: current non-mobile terminal
+`isWechat`| Is the current WeChat environment | `true`: the current WeChat environment <br> `false`: the current non-WeChat environment

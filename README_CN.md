@@ -273,6 +273,7 @@ console.log(str); // hello, IamlMC
 `platform`| 是移动端还是`pc`端。 | `pc`：pc端<br>`mobile`：移动端
 `screenType`|  手机屏幕类型 | `X`：全面屏<br> `normal`：普通屏幕（iphone5, 6, 7）<br> `short`：比普通屏幕还要小的屏幕
 `sysTem`|  设备系统 | `ios`：`ios`系统 <br> `android`：`android`安卓系统 <br> `not moblie`：当前非移动端
+`isWechat`|  当前是不是微信环境 | `true`：当前为微信环境 <br> `false`：当前为非微信环境
 
 
 
