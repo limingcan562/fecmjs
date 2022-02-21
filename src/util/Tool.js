@@ -54,7 +54,7 @@ export function isPC() {
     return flag;
 }
 
-
+// 判断是什么系统
 export function sysTem() {
     const u = navigator.userAgent;
     const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
@@ -69,4 +69,9 @@ export function sysTem() {
     else {
         return 'not moblie';
     }
+}
+
+// 当前是不是微信环境
+export function isWechat() {
+    return (/MicroMessenger/i.test(window.navigator.userAgent));
 }

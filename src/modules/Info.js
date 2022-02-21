@@ -4,12 +4,14 @@
  * ---------------------------------
  */
 
-import {isPC, sysTem, checkScreenType} from '../util/Tool';
+import {isPC, sysTem, checkScreenType, isWechat} from '../util/Tool';
 
 export const Info = {
     platform: isPC() ? 'pc' : 'mobile',
 
     sysTem: sysTem(),
 
-    screenType: checkScreenType()
+    screenType: checkScreenType(),
+
+    isWechat: isWechat(),
 }
