@@ -1,21 +1,147 @@
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
-var ajax_min = {exports: {}};
-
-/**!
- * ajax - v3.0.4
- * Ajax module in Vanilla JS
- * https://github.com/fdaciuk/ajax
-
- * Thu Oct 25 2018 15:30:50 GMT-0300 (-03)
- * MIT (c) Fernando Daciuk
-*/
+var ajax$1 = {exports: {}};
 
 (function (module, exports) {
-!function(e,t){module.exports=t();}(commonjsGlobal,function(){function e(e){var r=["get","post","put","delete"];return e=e||{},e.baseUrl=e.baseUrl||"",e.method&&e.url?n(e.method,e.baseUrl+e.url,t(e.data),e):r.reduce(function(r,o){return r[o]=function(r,u){return n(o,e.baseUrl+r,t(u),e)},r},{})}function t(e){return e||null}function n(e,t,n,u){var c=["then","catch","always"],i=c.reduce(function(e,t){return e[t]=function(n){return e[t]=n,e},e},{}),f=new XMLHttpRequest,p=r(t,n,e);return f.open(e,p,!0),f.withCredentials=u.hasOwnProperty("withCredentials"),o(f,u.headers,n),f.addEventListener("readystatechange",a(i,f),!1),f.send(s(n)?JSON.stringify(n):n),i.abort=function(){return f.abort()},i}function r(e,t,n){if("get"!==n.toLowerCase()||!t)return e;var r=i(t),o=e.indexOf("?")>-1?"&":"?";return e+o+r}function o(e,t,n){t=t||{},u(t)||(t["Content-Type"]=s(n)?"application/json":"application/x-www-form-urlencoded"),Object.keys(t).forEach(function(n){t[n]&&e.setRequestHeader(n,t[n]);});}function u(e){return Object.keys(e).some(function(e){return "content-type"===e.toLowerCase()})}function a(e,t){return function n(){t.readyState===t.DONE&&(t.removeEventListener("readystatechange",n,!1),e.always.apply(e,c(t)),t.status>=200&&t.status<300?e.then.apply(e,c(t)):e["catch"].apply(e,c(t)));}}function c(e){var t;try{t=JSON.parse(e.responseText);}catch(n){t=e.responseText;}return [t,e]}function i(e){return s(e)?f(e):e}function s(e){return "[object Object]"===Object.prototype.toString.call(e)}function f(e,t){return Object.keys(e).map(function(n){if(e.hasOwnProperty(n)&&void 0!==e[n]){var r=e[n];return n=t?t+"["+n+"]":n,null!==r&&"object"==typeof r?f(r,n):p(n)+"="+p(r)}}).filter(Boolean).join("&")}function p(e){return encodeURIComponent(e)}return e});
-}(ajax_min));
+(function (root, factory) {
+  /* istanbul ignore next */
+  {
+    module.exports = factory();
+  }
+})(commonjsGlobal, function () {
 
-var ajax = ajax_min.exports;
+  function ajax (options) {
+    var methods = ['get', 'post', 'put', 'delete'];
+    options = options || {};
+    options.baseUrl = options.baseUrl || '';
+    if (options.method && options.url) {
+      return xhrConnection(
+        options.method,
+        options.baseUrl + options.url,
+        maybeData(options.data),
+        options
+      )
+    }
+    return methods.reduce(function (acc, method) {
+      acc[method] = function (url, data) {
+        return xhrConnection(
+          method,
+          options.baseUrl + url,
+          maybeData(data),
+          options
+        )
+      };
+      return acc
+    }, {})
+  }
+
+  function maybeData (data) {
+    return data || null
+  }
+
+  function xhrConnection (type, url, data, options) {
+    var returnMethods = ['then', 'catch', 'always'];
+    var promiseMethods = returnMethods.reduce(function (promise, method) {
+      promise[method] = function (callback) {
+        promise[method] = callback;
+        return promise
+      };
+      return promise
+    }, {});
+    var xhr = new XMLHttpRequest();
+    var featuredUrl = getUrlWithData(url, data, type);
+    xhr.open(type, featuredUrl, true);
+    xhr.withCredentials = options.hasOwnProperty('withCredentials');
+    setHeaders(xhr, options.headers, data);
+    xhr.addEventListener('readystatechange', ready(promiseMethods, xhr), false);
+    xhr.send(isObject(data) ? JSON.stringify(data) : data);
+    promiseMethods.abort = function () {
+      return xhr.abort()
+    };
+    return promiseMethods
+  }
+
+  function getUrlWithData (url, data, type) {
+    if (type.toLowerCase() !== 'get' || !data) {
+      return url
+    }
+    var dataAsQueryString = objectToQueryString(data);
+    var queryStringSeparator = url.indexOf('?') > -1 ? '&' : '?';
+    return url + queryStringSeparator + dataAsQueryString
+  }
+
+  function setHeaders (xhr, headers, data) {
+    headers = headers || {};
+    if (!hasContentType(headers)) {
+      headers['Content-Type'] = isObject(data)
+        ? 'application/json'
+        : 'application/x-www-form-urlencoded';
+    }
+    Object.keys(headers).forEach(function (name) {
+      (headers[name] && xhr.setRequestHeader(name, headers[name]));
+    });
+  }
+
+  function hasContentType (headers) {
+    return Object.keys(headers).some(function (name) {
+      return name.toLowerCase() === 'content-type'
+    })
+  }
+
+  function ready (promiseMethods, xhr) {
+    return function handleReady () {
+      if (xhr.readyState === xhr.DONE) {
+        xhr.removeEventListener('readystatechange', handleReady, false);
+        promiseMethods.always.apply(promiseMethods, parseResponse(xhr));
+
+        if (xhr.status >= 200 && xhr.status < 300) {
+          promiseMethods.then.apply(promiseMethods, parseResponse(xhr));
+        } else {
+          promiseMethods.catch.apply(promiseMethods, parseResponse(xhr));
+        }
+      }
+    }
+  }
+
+  function parseResponse (xhr) {
+    var result;
+    try {
+      result = JSON.parse(xhr.responseText);
+    } catch (e) {
+      result = xhr.responseText;
+    }
+    return [ result, xhr ]
+  }
+
+  function objectToQueryString (data) {
+    return isObject(data) ? getQueryString(data) : data
+  }
+
+  function isObject (data) {
+    return Object.prototype.toString.call(data) === '[object Object]'
+  }
+
+  function getQueryString (obj, prefix) {
+    return Object.keys(obj).map(function (key) {
+      if (obj.hasOwnProperty(key) && undefined !== obj[key]) {
+        var val = obj[key];
+        key = prefix ? prefix + '[' + key + ']' : key;
+        return val !== null && typeof val === 'object' ? getQueryString(val, key) : encode(key) + '=' + encode(val)
+      }
+    })
+      .filter(Boolean)
+      .join('&')
+  }
+
+  function encode (value) {
+    return encodeURIComponent(value)
+  }
+
+  return ajax
+});
+}(ajax$1));
+
+var ajax = ajax$1.exports;
 
 /**
  * ---------------------------------

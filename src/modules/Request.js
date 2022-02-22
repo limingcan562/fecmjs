@@ -5,36 +5,50 @@
  * ---------------------------------
  */
 
-let _plugin = null;
-let _config = {};
+let _ajax = null;
+
+// 查看是否有注册插件
+const checkRegisterPlugin = () => (!_ajax && console.error('Please register the @fdaciuk/ajax plug-in first'));
 
 export const Request = {
-    registerPlugin(
-        plugin = null, 
-        config = {
-            headers: {
-                'content-type': 'application/json',
-                // 'x-access-token': '123@abc'
-            },
-            baseUrl: '',
-        }
-    ) {
-        _plugin = plugin;
-        _config = config;
+    Ajax: null,
+
+    // register method
+    registerPlugin(plugin = null) {
+        _ajax = plugin;
     },
 
     // get requst
-    get(url, data) {
-        _plugin()
-        .get(url, data)
-        .then((response, xhr) => {
-            console.log(response, xhr);
+    getConnectInfo(
+        {
+            baseUrl = '',
+            headers = {
+                'content-type': 'application/json'
+            },
+            method = "GET", 
+            url = '',
+            data = {}
+        } = {}
+    ) {
+        checkRegisterPlugin();
+        return new Promise((resolve, reject) => {
+            this.Ajax = _ajax({
+                baseUrl,
+                headers,
+                method,
+                url,
+                data
+            })
+            // 成功回调
+            .then((response, xhr) => {
+                resolve(response, xhr);
+            })
+            .catch((responseError, xhrObject) => {
+                reject(responseError, xhrObject);
+            })
+            .always((response, xhrObject) => {
+                console.log('always' + response, xhrObject);
+            });
         })
-        .catch((responseError, xhrObject) => {
-            console.log(responseError, xhrObject, 2);
-        })
-        .always((response, xhrObject) => {
-            console.log(response, xhrObject, 3);
-        });
     }
 }
