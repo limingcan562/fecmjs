@@ -1,18 +1,9 @@
+import Data from './rollup.data';
 import pkg from '../package.json';
 import path from 'path';
 
-// banner 数据
-const bannerData =
-`/**!
- * fecmjs: - v${pkg.version}
- * ${pkg.repository.url.split('+')[1]}
- * @author: ${pkg.author}
- * @date: ${new Date().getFullYear()}.${parseInt(new Date().getMonth()+1)}.${new Date().getDate()}
- * @contact: leemimgcan@gmail.com
- */`;
-
+// 获取当前路径方法
 const getDirSrc = src => path.resolve(__dirname, '../', src);
-
 
 export default {
     config: [
@@ -22,26 +13,26 @@ export default {
                 {
                     file: pkg.main,
                     format: 'cjs',
-                    banner: bannerData
+                    banner: Data.bannerData
                 },
                 {
                     file: pkg.module,
                     format: 'esm',
-                    banner: bannerData
+                    banner: Data.bannerData
                 },
                 {
-                    file: getDirSrc('dist/fecmjs.js'),
+                    file: getDirSrc(`${Data.compressedFiles}/fecmjs.js`),
                     format: 'umd',
                     name: 'Fecmjs',
-                    banner: bannerData
+                    banner: Data.bannerData
                 },
             ],
             proOutput: [
                 {
-                    file: getDirSrc('dist/fecmjs.min.js'),
+                    file: getDirSrc(`${Data.compressedFiles}/fecmjs.min.js`),
                     format: 'umd',
                     name: 'Fecmjs',
-                    banner: bannerData
+                    banner: Data.bannerData
                 },
             ]
         },
@@ -50,18 +41,18 @@ export default {
             input: getDirSrc('src/plugin/ajax.js'),
             devOutput: [
                 {
-                    file: getDirSrc('libs/plugin/ajax.esm.js'),
+                    file: getDirSrc(`${Data.pluginFiles}/ajax.esm.js`),
                     format: 'esm',
                 },
                 {
-                    file: getDirSrc('dist/ajax.js'),
+                    file: getDirSrc(`${Data.compressedFiles}/ajax.js`),
                     format: 'umd',
                     name: 'ajax'
                 },
             ],
             proOutput: [
                 {
-                    file: getDirSrc('dist/ajax.min.js'),
+                    file: getDirSrc(`${Data.compressedFiles}/ajax.min.js`),
                     format: 'umd',
                     name: 'ajax'
                 },
