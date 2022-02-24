@@ -14,7 +14,7 @@ English | [中文](https://github.com/limingcan562/fecmjs/blob/main/README_CN.md
 
 
 ## Introduce
-This tool is currently divided into three modules
+This tool is currently divided into four modules
 1. `Form`: It contains general form validation methods, character judgment of user input information, etc.
 2. `Common`: It contains some methods that are often used in mobile terminal development
 3. `Info`: It contains some information about the current mobile device
