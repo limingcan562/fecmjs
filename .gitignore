@@ -108,4 +108,3 @@ dist
 .git
 package-lock.json
 libs
-plugin
