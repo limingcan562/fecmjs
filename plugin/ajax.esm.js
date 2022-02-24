@@ -1,3 +1,10 @@
+/**!
+* fecmjs: - v0.0.8
+* https://github.com/limingcan562/fecmjs.git
+* @author: limingcan
+* @date: 2022.2.24
+* @contact: leemimgcan@gmail.com
+*/
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
 var check = function (it) {
@@ -4133,13 +4140,16 @@ function commonConnect(_xhr, config) {
   type === 'post' && _xhr.send(dataStr);
 }
 
-var config1 = {
+// response config
+var responseConfig = {
   fieldName: 'ret',
   successCode: 0,
   failCode: -1,
   responseDataName: 'data'
 };
-var config2 = {
+
+// request config
+var requestConfig = {
   type: 'post',
   // 请求类型（默认post）
   debug: 1,
@@ -4155,66 +4165,27 @@ var config2 = {
   // 是否异步
   timeout: 3000,
   // 超时时间
-  success: function success() {
-    return console.log('interface success');
-  },
+  success: function success() {},
   // 状态码200 成功
-  fail: function fail() {
-    return console.log('interface fail');
-  },
+  fail: function fail() {},
   // 状态码非200 失败
-  always: function always() {
-    return console.log('interface always');
-  },
+  always: function always() {},
   // 成功失败都会触发的函数
-  timeoutFn: function timeoutFn() {
-    return console.log('interface timeout');
-  },
+  timeoutFn: function timeoutFn() {},
   // 超时函数
-  error: function error() {
-    return console.log('interface error');
-  } // 出错函数
+  error: function error() {} // 出错函数
 
 };
-var Ajax = {
-  config: {},
-  // config: {
-  //     fieldName: 'ret',
-  //     successCode: 0,
-  //     failCode: -1,
-  //     responseDataName: 'data',
-  //     type: 'post', // 请求类型（默认post）
-  //     debug: 1, // 是否开启调试
-  //     headers: { // 设置请求头
-  //         // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-  //     },
-  //     url: '', // 请求地址
-  //     data: {}, // 请求参数
-  //     async: true, // 是否异步
-  //     timeout: 3000, // 超时时间
-  //     success: () => console.log('interface success'), // 状态码200 成功
-  //     fail: () => console.log('interface fail'), // 状态码非200 失败
-  //     always: () => console.log('interface always'), // 成功失败都会触发的函数
-  //     timeoutFn: () => console.log('interface timeout'), // 超时函数
-  //     error: () => console.log('interface error'), // 出错函数
-  // },
+
+var defaultConfig = _objectSpread2(_objectSpread2({}, requestConfig), responseConfig);
+
+var index = {
+  config: defaultConfig,
   // 初始化配置
   init: function init(myConfig) {
-    var obj = {};
-
-    for (var key in config1) {
-      obj[key] = config1[key];
-    }
-
-    for (var _key in config2) {
-      obj[_key] = config1[_key];
-    }
-
-    this.config = obj;
-
-    for (var _key2 in myConfig) {
-      if (this.config[_key2]) {
-        this.config[_key2] = myConfig[_key2];
+    for (var key in myConfig) {
+      if (this.config[key]) {
+        this.config[key] = myConfig[key];
       }
     }
   },
@@ -4282,6 +4253,5 @@ var Ajax = {
     });
   }
 };
-Ajax.init();
 
-export { Ajax };
+export { index as default };

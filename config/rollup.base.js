@@ -43,18 +43,22 @@ export default {
                 {
                     file: getDirSrc(`${Data.pluginFiles}/ajax.esm.js`),
                     format: 'esm',
+                    banner: Data.bannerData
                 },
                 {
                     file: getDirSrc(`${Data.compressedFiles}/ajax.js`),
                     format: 'umd',
-                    name: 'ajax'
+                    name: 'Ajax',
+                    banner: Data.bannerData
                 },
             ],
             proOutput: [
                 {
                     file: getDirSrc(`${Data.compressedFiles}/ajax.min.js`),
                     format: 'umd',
-                    name: 'ajax'
+                    name: 'Ajax',
+                    banner: Data.bannerData
+                    
                 },
             ]
         },
