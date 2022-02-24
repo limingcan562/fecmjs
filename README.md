@@ -282,3 +282,148 @@ attribute name | description | value description
 `screenType`| mobile phone screen type | `X`: full screen<br> `normal`: normal screen (iphone5, 6, 7)<br> `short`: smaller screen than normal screen
 `sysTem`| device system | `ios`: `ios` system <br> `android`: `android` Android system <br> `not moblie`: current non-mobile terminal
 `isWechat`| Is the current WeChat environment | `true`: the current WeChat environment <br> `false`: the current non-WeChat environment
+
+
+## `Ajax` module
+
+### `init(config)` initialize configuration
+
+> Equivalent to a global configuration
+
+parameter name | description | default value
+------| ----| -----
+`config.type` | request type | `POST`
+`config.debug`| Whether to enable interface printing information (recommended to be disabled in production environment) | `1`
+`config.headers`| Set request headers. <br>`GET` request, it will not be set;<br>`POST` request, the value is: `application/x-www-form-urlencoded; charset=UTF-8`;<br>When passed ` When data` is of type `FormData`, the setting will be invalid| `{}`
+`config.url`| request URL| `''`
+`config.data` | request parameters | `{}`
+`config.timeout` | interface timeout | `3000`
+`config.success`| Status code `200` Successful callback, `res` is the `result` returned by the interface | `res => {}`
+`config.fail`| The status code is not `200` The failure callback, `res` is the `result` returned by the interface | `res => {}`
+`config.always`| A callback triggered on success or failure, `res` is the `result` returned by the interface | `res => {}`
+`config.timeoutFn`| Interface timeout callback, `res` native event callback object | `res => {}`
+`config.error`| interface error callback, `res` native event callback object | `res => {}`
+`config.fieldName`| The field representing the status code returned by the backend | `ret`
+`config.successCode`| The success status value returned by the backend | `success`
+`config.responseDataName`| backend data field name | `data`
+
+Example:
+```javascript
+Ajax.int({
+    debug: 0,
+    url: 'xxxxx',
+    timeout: 2000
+});
+```
+
+## `base(config)` request method
+The input parameters are the same as those in the `init` method. If you pass them in again, the configuration of the `init` method will be overwritten.
+
+Example:
+````javascript
+Ajax.base({
+    type: 'get',
+    debug: 0,
+    url: 'xxxxx',
+    timeout: 2000,
+    success: res => {
+        console.log('status code 200 success');
+        if (ret.ret === 0) {
+            // do something
+        } else {
+            // fail
+        }
+    },
+    fail: res => {
+        console.log('Failure with status code other than 200');
+    }
+});
+````
+
+## `rebuild(config)` wraps the `base` method
+> This method is encapsulated once again with the `base` method according to the data format returned by the backend. So when you want to use it, you need to configure `fieldName`, `successCode`, `failCode`, `responseDataName` in the `init` method.
+The input parameters are the same as those in the `init` method. If you pass them in again, the configuration of the `init` method will be overwritten.
+
+- When the status code is `200` and the success status returned by the backend is satisfied, then the function is successful and returns a `Promise`. The parameters in the `then` function are the data returned by the backend
+- When the status code is `200`, and the non-successful status returned by the backend is satisfied, or it is triggered when the interface is called, `timeFn`, `error` will trigger the `catch` function
+
+Example:
+````javascript
+// 1. Suppose the data returned by the backend successfully is in the format:
+/**
+ * @ret is config.fieldName
+ * @success is config.successCode
+ * @data is config.responseDataName
+ */
+{
+    ret: 'success',
+    data: {
+        name: 'lmc',
+        age: 27
+    }
+}
+
+// 2. Initialize configuration
+Ajax.int({
+    fieldName: 'ret',
+    successCode: 'success',
+    responseDataName: 'data'
+});
+
+// 3. call
+Ajax.rebuild({
+    type: 'get',
+    debug: 0,
+    url: 'xxxxx',
+    timeout: 2000,
+})
+// interface succeeded
+.then(res => {
+    // res ==> data: {name: 'lmc', age: 27}
+})
+// If ret !== 'success', fail (including timeFn, error, will trigger catch)
+.catch(err => {
+
+})
+````
+
+## other
+In `dis/ajax.min.js`, there is a separate `Ajax` module, which can also be used directly
+
+````javascript
+import Ajax from 'fecmjs/plugin/ajax.esm';
+Ajax.base({
+    type: 'get',
+    url: 'xxxx',
+    data: {
+        type: 5,
+    },
+    timeout: 1000,
+    success: res => {
+        console.log('succss', res);
+    },
+    fail: res => {
+        console.log('fail', res);
+    }
+});
+````
+
+```html
+<script src="./ajax.min.js"></script>
+<script>
+    Ajax.rebuild({
+        type: 'get',
+        url: 'xxxx',
+        data: {
+            type: 5,
+        },
+        timeout: 1000,
+    })
+    .then(res => {
+        console.log('succss', res);
+    })
+    .catch(res => {
+        console.log('fail', res);
+    });
+</script>
+````

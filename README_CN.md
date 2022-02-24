@@ -11,6 +11,7 @@
 1. `Common`：里面包含移动端开发时，经常会用到的一些方法
 2. `Form`：里面包含通用的表单验证方法，用户输入信息的字符判断等方法
 3. `Info`：里面包含当前手机设备的一些信息
+4. `Ajax`：里面包含封装好的`ajax`请求方法
 
 ## 用法
 - 使用`npm`方式  
@@ -275,8 +276,150 @@ console.log(str); // hello, IamlMC
 `sysTem`|  设备系统 | `ios`：`ios`系统 <br> `android`：`android`安卓系统 <br> `not moblie`：当前非移动端
 `isWechat`|  当前是不是微信环境 | `true`：当前为微信环境 <br> `false`：当前为非微信环境
 
+## `Ajax` 模块
+
+### `init(config)` 初始化配置
+
+> 相当于一个全局配置  
+
+参数名 | 说明  | 默认值
+------| ----| -----
+`config.type`| 请求类型| `POST` 
+`config.debug`| 是否开启接口打印信息（生产环境建议关闭）| `1` 
+`config.headers`| 设置请求头。<br>`GET`请求时，不会设置；<br>`POST`请求时，值为：`application/x-www-form-urlencoded; charset=UTF-8`；<br>当传递的`data`为`FormData`类型时，改设置会失效| `{}` 
+`config.url`| 请求地址| `''` 
+`config.data`| 请求参数| `{}` 
+`config.timeout`| 接口超时时间| `3000` 
+`config.success`| 状态码`200` 成功回调，`res`为接口返回的`result` | `res => {}` 
+`config.fail`| 状态码非`200` 失败回调，`res`为接口返回的`result` | `res => {}` 
+`config.always`| 成功失败都会触发的回调，`res`为接口返回的`result` | `res => {}` 
+`config.timeoutFn`| 接口超时回调，`res`原生事件回调对象 | `res => {}` 
+`config.error`| 接口出错回调，`res`原生事件回调对象 | `res => {}` 
+`config.fieldName`| 后端返回的代表状态码的字段 | `ret` 
+`config.successCode`| 后端返回的成功状态值 | `0` 
+`config.responseDataName`| 后端数据字段名 | `data` 
+
+示例:
+```javascript
+Ajax.int({
+    debug: 0,
+    url: 'xxxxx',
+    timeout: 2000
+});
+```
+
+### `base(config)` 请求方法
+入参与`init`方法里面的入参一样，再次传入，则会覆盖`init`方法的配置
+
+示例:
+```javascript
+Ajax.base({
+    type: 'get',
+    debug: 0,
+    url: 'xxxxx',
+    timeout: 2000,
+    success: res => {
+        console.log('状态码200 成功');
+        if (ret.ret === 0) {
+            // do someting
+        } else {
+            // fail
+        }
+    },
+    fail: res => {
+        console.log('状态码非200 失败');
+    }
+});
+```
+
+### `rebuild(config)` 封装`base`方法
+> 此方法是根据后端返回的数据格式，用`base`方法再次封装了一次。所以要用时，需要在`init`方法配置`fieldName`，`successCode`，`failCode`，`responseDataName`。  
+入参与`init`方法里面的入参一样，再次传入，则会覆盖`init`方法的配置
+
+- 当状态码为`200`的时候，并且满足后端返回的成功状态，这时函数是成功的，返回一个`Promise`，`then`函数里面的参数，就是后台返回的数据
+- 当状态码为`200`的时候，并且满足后端返回的非成功状态，或者调用接口时触发了，`timeFn`，`error`，都会触发`catch`函数
 
 
+示例：
+```javascript
+// 1. 假设后端成功返回的数据为格式为：
+/**
+ * @ret 为config.fieldName
+ * @success 为config.successCode
+ * @data 为config.responseDataName
+ */
+{
+    ret: 'success',
+    data: {
+        name: 'lmc', 
+        age: 27
+    }
+}
+
+// 2. 初始化配置
+Ajax.int({
+    fieldName: 'ret',
+    successCode: 'success',
+    responseDataName: 'data'
+});
+
+// 3. 调用
+Ajax.rebuild({
+    type: 'get',
+    debug: 0,
+    url: 'xxxxx',
+    timeout: 2000,
+})
+// 接口成功
+.then(res => {
+    // res ==> data: {name: 'lmc', age: 27}
+})
+// 如果ret !== 'success'，则失败（包含timeFn，error，都会触发catch）
+.catch(err => {
+
+})
+```
+
+## 其他
+在`dis/ajax.min.js`里，有单独抽出的`Ajax`模块，也可以直接用
+
+```javascript
+import Ajax from 'fecmjs/plugin/ajax.esm';
+Ajax.base({
+    type: 'get',
+    url: 'xxxx',
+    data: {
+        type: 5,
+    },
+    timeout: 1000,
+    success: res => {
+        console.log('succss', res);
+    },
+    fail: res => {
+        console.log('fail', res);
+    }
+});
+```
+
+```html
+<script src="./ajax.min.js"></script>
+<script>
+    Ajax.rebuild({
+        type: 'get',
+        url: 'xxxx',
+        data: {
+            type: 5,
+        },
+        timeout: 1000,
+    })
+    .then(res => {
+        console.log('succss', res);
+    })
+    .catch(res => {
+        console.log('fail', res);
+    });
+</script>
+```
 
 
 

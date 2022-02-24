@@ -1,8 +1,8 @@
 /**!
-* fecmjs: - v0.0.8
+* fecmjs: - v0.0.9
 * https://github.com/limingcan562/fecmjs.git
 * @author: limingcan
-* @date: 2022.2.24
+* @date: 2022.2.25
 * @contact: leemimgcan@gmail.com
 */
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
@@ -4144,7 +4144,6 @@ function commonConnect(_xhr, config) {
 var responseConfig = {
   fieldName: 'ret',
   successCode: 0,
-  failCode: -1,
   responseDataName: 'data'
 };
 
