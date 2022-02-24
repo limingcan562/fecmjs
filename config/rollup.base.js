@@ -38,7 +38,7 @@ export default {
         },
         
         {
-            input: getDirSrc('src/plugin/ajax.js'),
+            input: getDirSrc('src/plugin/ajax/index.js'),
             devOutput: [
                 {
                     file: getDirSrc(`${Data.pluginFiles}/ajax.esm.js`),
