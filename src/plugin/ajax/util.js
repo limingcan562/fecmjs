@@ -60,3 +60,7 @@ export function debugAjax(xhr) {
             break;
     }
 }
+
+export function logRequestData(config) {
+    console.log(config);
+}

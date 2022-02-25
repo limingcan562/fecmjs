@@ -1,5 +1,5 @@
 // implementation core
-import {objectToQueryString, parseResponse, debugAjax, isFormData} from './util';
+import {objectToQueryString, parseResponse, debugAjax, isFormData, logRequestData} from './util';
 
 // 建立了连接以后，公用的方法
 export function commonConnect(_xhr, config) {
@@ -16,6 +16,8 @@ export function commonConnect(_xhr, config) {
         always,
         error,
     } = config;
+
+    debug && logRequestData(config);
 
     // 拼接传入的data对象
     let 

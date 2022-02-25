@@ -29,24 +29,11 @@ export default {
     },
 
     // 根据后台返回的状态码，重构base接口
-    rebuild(
-        {
-            type,
-            debug,
-            headers = {},
-            url,
-            data,
-            timeout,
-        }
-    ) {
+    rebuild(config = {}) {
+        const requestData = {...this.config, ...config};
         return new Promise((resolve, reject) => {
             this.base({
-                type,
-                debug,
-                headers,
-                url,
-                data,
-                timeout,
+                ...requestData,
                 // 覆盖base方法里面的方法
                 success: res => {
                     try {
