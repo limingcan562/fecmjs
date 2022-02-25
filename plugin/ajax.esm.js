@@ -1,5 +1,5 @@
 /**!
-* fecmjs: - v0.0.9
+* fecmjs: - v0.0.10
 * https://github.com/limingcan562/fecmjs.git
 * @author: limingcan
 * @date: 2022.2.25
@@ -4073,6 +4073,9 @@ function debugAjax(xhr) {
       break;
   }
 }
+function logRequestData(config) {
+  console.log(config);
+}
 
 function commonConnect(_xhr, config) {
   var type = config.type,
@@ -4085,7 +4088,8 @@ function commonConnect(_xhr, config) {
       fail = config.fail,
       timeoutFn = config.timeoutFn,
       always = config.always,
-      error = config.error; // 拼接传入的data对象
+      error = config.error;
+  debug && logRequestData(config); // 拼接传入的data对象
 
   var queryStringSeparator = indexOf(url).call(url, '?') > -1 ? '&' : '?',
       dataStr = objectToQueryString(data),
@@ -4207,24 +4211,15 @@ var index = {
     commonConnect(_xhr, requestData);
   },
   // 根据后台返回的状态码，重构base接口
-  rebuild: function rebuild(_ref) {
+  rebuild: function rebuild() {
     var _this = this;
 
-    var type = _ref.type,
-        debug = _ref.debug,
-        _ref$headers = _ref.headers,
-        headers = _ref$headers === void 0 ? {} : _ref$headers,
-        url = _ref.url,
-        data = _ref.data,
-        timeout = _ref.timeout;
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    var requestData = _objectSpread2(_objectSpread2({}, this.config), config);
+
     return new promise(function (resolve, reject) {
-      _this.base({
-        type: type,
-        debug: debug,
-        headers: headers,
-        url: url,
-        data: data,
-        timeout: timeout,
+      _this.base(_objectSpread2(_objectSpread2({}, requestData), {}, {
         // 覆盖base方法里面的方法
         success: function success(res) {
           try {
@@ -4248,7 +4243,7 @@ var index = {
         error: function error(res) {
           return reject(res);
         }
-      });
+      }));
     });
   }
 };
