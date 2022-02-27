@@ -11,7 +11,7 @@ import {appendDomByStr} from '../util/Tool';
 let 
 showTipsDelay = 1000, 
 showTipsAniTime = 500, 
-showTipsObjStr = `<section class="__Fecmplugin_tip_pop" id="__Fecmplugin_tip_pop"><p class="__Fecmplugin_text" id="__Fecmplugin_text"></p></section>`,
+showTipsObjStr = `<section class="__fecmjs_tip_pop" id="__fecmjs_tip_pop"><p class="__fecmjs_tip_pop_text" id="__fecmjs_tip_pop_text"></p></section>`,
 showTipsObj = null;
 
 export const Common = {
@@ -40,7 +40,7 @@ export const Common = {
         closedFn = () => {}
     } = {}) {
         const _showTips = () => {
-            document.getElementById('__Fecmplugin_text').innerHTML = text;
+            document.getElementById('__fecmjs_tip_pop_text').innerHTML = text;
             showTipsObj.style.opacity = 1;
             showTipsObj.style.visibility = 'visible';
             showTipsDelay = delay;
@@ -64,7 +64,7 @@ export const Common = {
         if (!showTipsObj) {
             // console.log(this);
             appendDomByStr(showTipsObjStr);
-            showTipsObj = document.getElementById('__Fecmplugin_tip_pop');
+            showTipsObj = document.getElementById('__fecmjs_tip_pop');
             this.wait(0).then(() => _showTips());
         } else {
             _showTips()

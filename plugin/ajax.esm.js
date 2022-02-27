@@ -1,5 +1,5 @@
 /**!
-* fecmjs: - v1.0.0
+* fecmjs: - v1.0.2
 * https://github.com/limingcan562/fecmjs.git
 * @author: limingcan
 * @date: 2022.2.27
