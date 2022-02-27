@@ -114,7 +114,7 @@ Common
 Common.closeTips();
 ```
 
-### `isPartOfElementInViewport(domEle)` 元素是否出现在可视区
+### `isVisibleArea(domEle)` 元素是否出现在可视区
 
 参数名 | 说明  | 默认值
 ------| ----| -----
@@ -123,7 +123,7 @@ Common.closeTips();
 示例:
 ```javascript
 const dom = document.getElementById('ele');
-const isShow = Common.isPartOfElementInViewport(dom);
+const isShow = Common.isVisibleArea(dom);
 // 元素在可视区内
 if (isShow) {
 
@@ -333,11 +333,21 @@ Ajax.base({
 ```
 
 ### `rebuild(config)` 封装`base`方法
-> 此方法是根据后端返回的数据格式，用`base`方法再次封装了一次。所以要用时，需要在`init`方法配置`fieldName`，`successCode`，`failCode`，`responseDataName`。  
-入参与`init`方法里面的入参一样，再次传入，则会覆盖`init`方法的配置
-
+- 此方法是根据后端返回的数据格式，用`base`方法再次封装了一次。所以要用时，需要在`init`方法配置`fieldName`，`successCode`，`failCode`，`responseDataName`。  
+- 入参与`init`方法里面的入参一样，再次传入，则会覆盖`init`方法的配置
 - 当状态码为`200`的时候，并且满足后端返回的成功状态，这时函数是成功的，返回一个`Promise`，`then`函数里面的参数，就是后台返回的数据
 - 当状态码为`200`的时候，并且满足后端返回的非成功状态，或者调用接口时触发了，`timeFn`，`error`，都会触发`catch`函数
+
+> 当进入到`catch`函数，可以根据`catch`函数的形参`err`来判断当前出错是什么类型
+
+`catch`函数`err._type`（形参）的可能值：
+ 可能的值 | 值说明
+---- | ----
+`connect error` | 连接错误
+`connect timeout` | 连接超时
+`interface success` | 连接成功，接口返回成功
+`interface fail` | 连接成功，接口返回非成功状态码
+`other errors`| 其他错误，可能是自己的代码书写有误
 
 
 示例：
@@ -376,7 +386,22 @@ Ajax.rebuild({
 })
 // 如果ret !== 'success'，则失败（包含timeFn，error，都会触发catch）
 .catch(err => {
+    // connect error
+    if (err._type === 'connect error') {
 
+    }
+    // connect timeout
+    else if (err._type === 'connect timeout') {
+
+    }
+    // interface fail
+    else if (err._type === 'interface fail') {
+        
+    }
+    // other errors
+    else if (err._type === 'other errors') {
+        
+    }
 })
 ```
 

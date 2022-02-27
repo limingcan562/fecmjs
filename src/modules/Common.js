@@ -83,7 +83,7 @@ export const Common = {
     },
 
     // 元素是否出现在可视区
-    isPartOfElementInViewport(domEle = {}) {
+    isVisibleArea(domEle = {}) {
         // el为要检测的dom对象
         const
         rect         = domEle.getBoundingClientRect(),

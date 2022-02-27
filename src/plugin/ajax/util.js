@@ -40,27 +40,34 @@ export function parseResponse (responseText) {
     return result
 }
 
-// debug模式下，调试接口
-export function debugAjax(xhr) {
-    switch (xhr.readyState) {
-        case 0:
-            console.log(`----debug ${xhr.readyState}.代理被创建，但尚未调用 open() 方法----`);
-            break;
-        case 1:
-            console.log(`----debug ${xhr.readyState}.open() 方法已经被调用----`);
-            break;
-        case 2:
-            console.log(`----debug ${xhr.readyState}.send() 方法已经被调用，并且头部和状态已经可获得----`);
-            break;
-        case 3:
-            console.log(`----debug ${xhr.readyState}.下载中； responseText 属性已经包含部分数据----`);
-            break;
-        case 4:
-            console.log(`----debug ${xhr.readyState}.下载操作已完成----`);
-            break;
-    }
-}
+export const DEBUG = {
+    baseLog() {
+        console.log('---------debug ------');
+    },
 
-export function logRequestData(config) {
-    console.log(config);
+    log(text) {
+        this.baseLog();
+        console.log(text);
+    },
+
+    // debug模式下，调试接口
+    debugAjax(xhr) {
+        switch (xhr.readyState) {
+            case 0:
+                this.log(`${xhr.readyState}.代理被创建，但尚未调用 open() 方法`);
+                break;
+            case 1:
+                this.log(`${xhr.readyState}.open() 方法已经被调用`);
+                break;
+            case 2:
+                this.log(`${xhr.readyState}.send() 方法已经被调用，并且头部和状态已经可获得`);
+                break;
+            case 3:
+                this.log(`${xhr.readyState}.下载中； responseText 属性已经包含部分数据`);
+                break;
+            case 4:
+                this.log(`${xhr.readyState}.下载操作已完成`);
+                break;
+        }
+    }
 }

@@ -1,5 +1,6 @@
 // implementation core
-import {objectToQueryString, parseResponse, debugAjax, isFormData, logRequestData} from './util';
+import {objectToQueryString, parseResponse, DEBUG, isFormData} from './util';
+import errorData from './data/errorData';
 
 // 建立了连接以后，公用的方法
 export function commonConnect(_xhr, config) {
@@ -17,7 +18,8 @@ export function commonConnect(_xhr, config) {
         error,
     } = config;
 
-    debug && logRequestData(config);
+    // 打印请求参数
+    debug && DEBUG.log(config);
 
     // 拼接传入的data对象
     let 
@@ -46,32 +48,46 @@ export function commonConnect(_xhr, config) {
         });
     }
 
+    // ! ---------- 绑定相关事件 -----------//
     // 出错
-    _xhr.onerror = error;
-
+    _xhr.onerror = evt => {
+        debug && DEBUG.log(errorData.errorConnect);
+        evt._type = errorData.errorConnect;
+        error(evt);
+    };
 
     // 请求成功完成时触发
     _xhr.onload = evt => {
         if (_xhr.readyState === 4) {
-            // 接口连接成功
+            let _result = {};
+            // 连接成功
             if ((_xhr.status >= 200 && _xhr.status < 300) || _xhr.status === 304) {
-                success(parseResponse(_xhr.responseText));
+                debug && DEBUG.log(errorData.successConnect);
+                _result = parseResponse(_xhr.responseText);
+                success(_result);
             } 
-            // 接口连接失败
+            // 连接失败
             else if (_xhr.status >= 400) {
-                fail(parseResponse(_xhr.responseText));
+                debug && DEBUG.log(errorData.failConnect);
+                _result._type = errorData.failConnect;
+            
+                fail(_result);
             }
-            always(parseResponse(_xhr.responseText));
+            always(_result);
         }
     }
 
     // 在预设时间内没有接收到响应时触发
-    _xhr.ontimeout = timeoutFn;
+    _xhr.ontimeout = evt => {
+        debug && DEBUG.log(errorData.timeoutConnect);
+        evt._type = errorData.timeoutConnect;
+        timeoutFn(evt);
+    };
 
     // 当 readyState 属性发生变化时
     _xhr.onreadystatechange = evt => {
         // 开始调试
-        debug && debugAjax(_xhr);
+        debug && DEBUG.debugAjax(_xhr);
     };
 
     // 发送数据

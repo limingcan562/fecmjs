@@ -1,6 +1,7 @@
 import {commonConnect} from './core';
-import {isFormData} from './util';
+import {isFormData, DEBUG} from './util';
 import defaultConfig from './config/index';
+import errorData from './data/errorData';
 
 export default {
     config: defaultConfig,
@@ -17,7 +18,6 @@ export default {
     base(config = {}) {
         const requestData = {...this.config, ...config};
         const _xhr = new XMLHttpRequest();
-        requestData.type = requestData.type || this.config.type;
 
         // post 请求，设置请求头
         if (requestData.type.toLowerCase() === 'post' && !isFormData(requestData.data)) {
@@ -39,13 +39,19 @@ export default {
                     try {
                         // 接口ret === 0 成功
                         if (res[this.config.fieldName].toString() === this.config.successCode.toString()) {
-                            resolve(res[this.config.responseDataName]);
+                            requestData.debug && DEBUG.log(errorData.interfaceSuccess);
+                            const data = res[this.config.responseDataName];
+                            res._type = errorData.interfaceSuccess;
+                            resolve(data);
                         } 
                         // 接口ret !== 0 失败
                         else {
+                            requestData.debug && DEBUG.log(errorData.interfaceSuccess);
+                            res._type = errorData.interfaceFail;
                             reject(res);
                         }
                     } catch (error) {
+                        error._type = errorData.otherErrors;
                         reject(error);
                     }
                 },

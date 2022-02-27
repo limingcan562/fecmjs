@@ -18,6 +18,7 @@ This tool is currently divided into four modules
 1. `Form`: It contains general form validation methods, character judgment of user input information, etc.
 2. `Common`: It contains some methods that are often used in mobile terminal development
 3. `Info`: It contains some information about the current mobile device
+4. `Ajax`: It contains the encapsulated `ajax` request method
 
 ## Usage
 - use the `npm` method
@@ -121,7 +122,7 @@ Example:
 Common.closeTips();
 ````
 
-### `isPartOfElementInViewport(domEle)` Whether the element appears in the viewport
+### `isVisibleArea(domEle)` Whether the element appears in the viewport
 
 parameter name | description | default value
 ------| ----| -----
@@ -130,7 +131,7 @@ parameter name | description | default value
 Example:
 ````javascript
 const dom = document.getElementById('ele');
-const isShow = Common.isPartOfElementInViewport(dom);
+const isShow = Common.isVisibleArea(dom);
 // element is in viewport
 if (isShow) {
 
@@ -341,11 +342,21 @@ Ajax.base({
 ````
 
 ## `rebuild(config)` wraps the `base` method
-> This method is encapsulated once again with the `base` method according to the data format returned by the backend. So when you want to use it, you need to configure `fieldName`, `successCode`, `failCode`, `responseDataName` in the `init` method.
-The input parameters are the same as those in the `init` method. If you pass them in again, the configuration of the `init` method will be overwritten.
-
+- This method is encapsulated once again with the `base` method according to the data format returned by the backend. So when you want to use it, you need to configure `fieldName`, `successCode`, `failCode`, `responseDataName` in the `init` method.
+- The input parameters are the same as those in the `init` method. If you pass them in again, the configuration of the `init` method will be overwritten.
 - When the status code is `200` and the success status returned by the backend is satisfied, then the function is successful and returns a `Promise`. The parameters in the `then` function are the data returned by the backend
 - When the status code is `200`, and the non-successful status returned by the backend is satisfied, or it is triggered when the interface is called, `timeFn`, `error` will trigger the `catch` function
+
+> When entering the `catch` function, you can judge the type of the current error according to the `err` parameter of the `catch` function
+
+Possible values for the `catch` function `err._type` (parameter):
+  possible values | value description
+---- | ----
+`connect error` | connection error
+`connect timeout` | connection timeout
+`interface success` | The connection is successful, the interface returns success
+`interface fail` | The connection is successful, the interface returns a non-success status code
+`other errors`| Other errors, possibly due to your own code writing errors
 
 Example:
 ````javascript
@@ -383,7 +394,22 @@ Ajax.rebuild({
 })
 // If ret !== 'success', fail (including timeFn, error, will trigger catch)
 .catch(err => {
+    // connect error
+    if (err._type === 'connect error') {
 
+    }
+    // connect timeout
+    else if (err._type === 'connect timeout') {
+
+    }
+    // interface fail
+    else if (err._type === 'interface fail') {
+        
+    }
+    // other errors
+    else if (err._type === 'other errors') {
+        
+    }
 })
 ````
 

@@ -1,8 +1,8 @@
 /**!
-* fecmjs: - v0.0.10
+* fecmjs: - v1.0.0
 * https://github.com/limingcan562/fecmjs.git
 * @author: limingcan
-* @date: 2022.2.25
+* @date: 2022.2.27
 * @contact: leemimgcan@gmail.com
 */
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
@@ -4048,34 +4048,58 @@ function parseResponse(responseText) {
   }
 
   return result;
-} // debug模式下，调试接口
+}
+var DEBUG = {
+  baseLog: function baseLog() {
+    console.log('---------debug ------');
+  },
+  log: function log(text) {
+    this.baseLog();
+    console.log(text);
+  },
+  // debug模式下，调试接口
+  debugAjax: function debugAjax(xhr) {
+    switch (xhr.readyState) {
+      case 0:
+        this.log("".concat(xhr.readyState, ".\u4EE3\u7406\u88AB\u521B\u5EFA\uFF0C\u4F46\u5C1A\u672A\u8C03\u7528 open() \u65B9\u6CD5"));
+        break;
 
-function debugAjax(xhr) {
-  switch (xhr.readyState) {
-    case 0:
-      console.log("----debug ".concat(xhr.readyState, ".\u4EE3\u7406\u88AB\u521B\u5EFA\uFF0C\u4F46\u5C1A\u672A\u8C03\u7528 open() \u65B9\u6CD5----"));
-      break;
+      case 1:
+        this.log("".concat(xhr.readyState, ".open() \u65B9\u6CD5\u5DF2\u7ECF\u88AB\u8C03\u7528"));
+        break;
 
-    case 1:
-      console.log("----debug ".concat(xhr.readyState, ".open() \u65B9\u6CD5\u5DF2\u7ECF\u88AB\u8C03\u7528----"));
-      break;
+      case 2:
+        this.log("".concat(xhr.readyState, ".send() \u65B9\u6CD5\u5DF2\u7ECF\u88AB\u8C03\u7528\uFF0C\u5E76\u4E14\u5934\u90E8\u548C\u72B6\u6001\u5DF2\u7ECF\u53EF\u83B7\u5F97"));
+        break;
 
-    case 2:
-      console.log("----debug ".concat(xhr.readyState, ".send() \u65B9\u6CD5\u5DF2\u7ECF\u88AB\u8C03\u7528\uFF0C\u5E76\u4E14\u5934\u90E8\u548C\u72B6\u6001\u5DF2\u7ECF\u53EF\u83B7\u5F97----"));
-      break;
+      case 3:
+        this.log("".concat(xhr.readyState, ".\u4E0B\u8F7D\u4E2D\uFF1B responseText \u5C5E\u6027\u5DF2\u7ECF\u5305\u542B\u90E8\u5206\u6570\u636E"));
+        break;
 
-    case 3:
-      console.log("----debug ".concat(xhr.readyState, ".\u4E0B\u8F7D\u4E2D\uFF1B responseText \u5C5E\u6027\u5DF2\u7ECF\u5305\u542B\u90E8\u5206\u6570\u636E----"));
-      break;
-
-    case 4:
-      console.log("----debug ".concat(xhr.readyState, ".\u4E0B\u8F7D\u64CD\u4F5C\u5DF2\u5B8C\u6210----"));
-      break;
+      case 4:
+        this.log("".concat(xhr.readyState, ".\u4E0B\u8F7D\u64CD\u4F5C\u5DF2\u5B8C\u6210"));
+        break;
+    }
   }
-}
-function logRequestData(config) {
-  console.log(config);
-}
+};
+
+// error message
+var errorData = {
+  // 状态码为200时候的标识
+  successConnect: 'connect success',
+  // 状态码非200时候的标识
+  failConnect: 'connect fail',
+  // 连接出错时候的标识
+  errorConnect: 'connect error',
+  // 连接超时的标识
+  timeoutConnect: 'connect timeout',
+  // 接口成功的标识
+  interfaceSuccess: 'interface success',
+  // 接口失败的标识
+  interfaceFail: 'interface fail',
+  // 其他错误（可能代码书写有问题）
+  otherErrors: 'other errors'
+};
 
 function commonConnect(_xhr, config) {
   var type = config.type,
@@ -4088,8 +4112,9 @@ function commonConnect(_xhr, config) {
       fail = config.fail,
       timeoutFn = config.timeoutFn,
       always = config.always,
-      error = config.error;
-  debug && logRequestData(config); // 拼接传入的data对象
+      error = config.error; // 打印请求参数
+
+  debug && DEBUG.log(config); // 拼接传入的data对象
 
   var queryStringSeparator = indexOf(url).call(url, '?') > -1 ? '&' : '?',
       dataStr = objectToQueryString(data),
@@ -4112,31 +4137,47 @@ function commonConnect(_xhr, config) {
     forEach(_context = keys(headers)).call(_context, function (key) {
       headers[key] && _xhr.setRequestHeader(key, headers[key]);
     });
-  } // 出错
+  } // ! ---------- 绑定相关事件 -----------//
+  // 出错
 
 
-  _xhr.onerror = error; // 请求成功完成时触发
+  _xhr.onerror = function (evt) {
+    debug && DEBUG.log(errorData.errorConnect);
+    evt._type = errorData.errorConnect;
+    error(evt);
+  }; // 请求成功完成时触发
+
 
   _xhr.onload = function (evt) {
     if (_xhr.readyState === 4) {
-      // 接口连接成功
+      var _result = {}; // 连接成功
+
       if (_xhr.status >= 200 && _xhr.status < 300 || _xhr.status === 304) {
-        success(parseResponse(_xhr.responseText));
-      } // 接口连接失败
+        debug && DEBUG.log(errorData.successConnect);
+        _result = parseResponse(_xhr.responseText);
+        success(_result);
+      } // 连接失败
       else if (_xhr.status >= 400) {
-        fail(parseResponse(_xhr.responseText));
+        debug && DEBUG.log(errorData.failConnect);
+        _result._type = errorData.failConnect;
+        fail(_result);
       }
 
-      always(parseResponse(_xhr.responseText));
+      always(_result);
     }
   }; // 在预设时间内没有接收到响应时触发
 
 
-  _xhr.ontimeout = timeoutFn; // 当 readyState 属性发生变化时
+  _xhr.ontimeout = function (evt) {
+    debug && DEBUG.log(errorData.timeoutConnect);
+    evt._type = errorData.timeoutConnect;
+    timeoutFn(evt);
+  }; // 当 readyState 属性发生变化时
+
 
   _xhr.onreadystatechange = function (evt) {
     // 开始调试
-    debug && debugAjax(_xhr);
+    debug && DEBUG.debugAjax(_xhr);
   }; // 发送数据
 
 
@@ -4198,9 +4239,8 @@ var index = {
 
     var requestData = _objectSpread2(_objectSpread2({}, this.config), config);
 
-    var _xhr = new XMLHttpRequest();
+    var _xhr = new XMLHttpRequest(); // post 请求，设置请求头
 
-    requestData.type = requestData.type || this.config.type; // post 请求，设置请求头
 
     if (requestData.type.toLowerCase() === 'post' && !isFormData(requestData.data)) {
       requestData.headers = {
@@ -4225,12 +4265,18 @@ var index = {
           try {
             // 接口ret === 0 成功
             if (res[_this.config.fieldName].toString() === _this.config.successCode.toString()) {
-              resolve(res[_this.config.responseDataName]);
+              requestData.debug && DEBUG.log(errorData.interfaceSuccess);
+              var data = res[_this.config.responseDataName];
+              res._type = errorData.interfaceSuccess;
+              resolve(data);
             } // 接口ret !== 0 失败
             else {
+              requestData.debug && DEBUG.log(errorData.interfaceSuccess);
+              res._type = errorData.interfaceFail;
               reject(res);
             }
           } catch (error) {
+            error._type = errorData.otherErrors;
             reject(error);
           }
         },

@@ -1,5 +1,5 @@
 // implementation core
-import {objectToQueryString, parseResponse, debugAjax, isFormData} from '../util';
+import {objectToQueryString, isFormData} from '../util';
 
 // 建立了连接以后，公用的方法
 export function Test(_xhr, config) {
@@ -45,6 +45,7 @@ export function Test(_xhr, config) {
 
     // 出错
     _xhr.onerror = evt => {
+        console.log(2222);
         console.log("onerror ", evt);
     };
     // _xhr.onerror = error;
