@@ -278,15 +278,16 @@ console.log(str); // hello, IamlMC
 
 ## `Ajax` 模块
 
-### `init(config)` 初始化配置
+### `Ajax`module导出的是一个类
 
 > 相当于一个全局配置  
 
 参数名 | 说明  | 默认值
 ------| ----| -----
 `config.type`| 请求类型| `POST` 
-`config.debug`| 是否开启接口打印信息（生产环境建议关闭）| `1` 
-`config.headers`| 设置请求头。<br>`GET`请求时，不会设置；<br>`POST`请求时，值为：`application/x-www-form-urlencoded; charset=UTF-8`；<br>当传递的`data`为`FormData`类型时，改设置会失效| `{}` 
+`config.debug`| 是否开启接口打印信息（生产环境建议关闭）| `0` 
+`config.debugStep`| 是否开启xhr连接4个步骤的打印，方便调试| `0` 
+`config.headers`| 设置请求头。<br>`GET`请求时，值为：`application/x-www-form-urlencoded; charset=UTF-8`；<br>`POST`请求时，值为：`application/x-www-form-urlencoded; charset=UTF-8`；<br>当传递的`data`为`FormData`类型时，改设置会失效| `{}` 
 `config.url`| 请求地址| `''` 
 `config.data`| 请求参数| `{}` 
 `config.timeout`| 接口超时时间| `3000` 
@@ -301,19 +302,33 @@ console.log(str); // hello, IamlMC
 
 示例:
 ```javascript
-Ajax.int({
+import {Ajax} from 'fecmjs';
+const ajax = new Ajax({
     debug: 0,
     url: 'xxxxx',
     timeout: 2000
 });
+ajax.base({
+    success: res => {
+        console.log('状态码200 成功');
+        if (ret.ret === 0) {
+            // do someting
+        } else {
+            // fail
+        }
+    },
+    fail: res => {
+        console.log('状态码非200 失败');
+    }
+});
 ```
 
 ### `base(config)` 请求方法
-入参与`init`方法里面的入参一样，再次传入，则会覆盖`init`方法的配置
+入参与可传入默认的全局参数的里有的参数，再次传入，则会覆盖默认的全局参数
 
 示例:
 ```javascript
-Ajax.base({
+ajax.base({
     type: 'get',
     debug: 0,
     url: 'xxxxx',
@@ -333,10 +348,15 @@ Ajax.base({
 ```
 
 ### `rebuild(config)` 封装`base`方法
-- 此方法是根据后端返回的数据格式，用`base`方法再次封装了一次。所以要用时，需要在`init`方法配置`fieldName`，`successCode`，`failCode`，`responseDataName`。  
-- 入参与`init`方法里面的入参一样，再次传入，则会覆盖`init`方法的配置
+- 此方法是根据后端返回的数据格式，用`base`方法再次封装了一次。所以要用时，需要在`new Ajax()`时配置`fieldName`，`successCode`，`failCode`，`responseDataName`。  
 - 当状态码为`200`的时候，并且满足后端返回的成功状态，这时函数是成功的，返回一个`Promise`，`then`函数里面的参数，就是后台返回的数据
 - 当状态码为`200`的时候，并且满足后端返回的非成功状态，或者调用接口时触发了，`timeFn`，`error`，都会触发`catch`函数
+- 入参`config`只接受以下参数
+  - `data`
+  - `url`
+  - `type`
+  - `headers`
+  - `timeout`
 
 > 当进入到`catch`函数，可以根据`catch`函数的形参`err`来判断当前出错是什么类型
 
@@ -367,14 +387,14 @@ Ajax.base({
 }
 
 // 2. 初始化配置
-Ajax.int({
+const ajax = new Ajax({
     fieldName: 'ret',
     successCode: 'success',
     responseDataName: 'data'
 });
 
 // 3. 调用
-Ajax.rebuild({
+ajax.rebuild({
     type: 'get',
     debug: 0,
     url: 'xxxxx',
@@ -406,11 +426,18 @@ Ajax.rebuild({
 ```
 
 ## 其他
-在`dis/ajax.min.js`里，有单独抽出的`Ajax`模块，也可以直接用
+在`dis/ajax.min.js`里，有单独抽出的`Ajax`类模块，也可以直接用
 
 ```javascript
 import Ajax from 'fecmjs/plugin/ajax.esm';
-Ajax.base({
+
+const ajax = new Ajax({
+    debug: 0,
+    url: 'xxxxx',
+    timeout: 2000
+});
+
+ajax.base({
     type: 'get',
     url: 'xxxx',
     data: {
@@ -429,7 +456,13 @@ Ajax.base({
 ```html
 <script src="./ajax.min.js"></script>
 <script>
-    Ajax.rebuild({
+    const ajax = new Ajax({
+        debug: 0,
+        url: 'xxxxx',
+        timeout: 2000
+    });
+
+    ajax.rebuild({
         type: 'get',
         url: 'xxxx',
         data: {

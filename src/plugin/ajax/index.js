@@ -1,36 +1,41 @@
 import {commonConnect} from './core';
-import {isFormData, DEBUG} from './util';
+import {DEBUG} from './util';
 import defaultConfig from './config/index';
-import errorData from './data/errorData';
+import MSG from './data/index';
 
-export default {
-    config: defaultConfig,
-    // 初始化配置
-    init(myConfig) {
-        for (const key in myConfig) {
-            if (this.config[key]) {
-                this.config[key] = myConfig[key]
-            }
-        }
-    },
+let 
+xhr = null,
+initConfig = null;
+
+export default class Ajax {
+    constructor(config) {
+        initConfig = {...defaultConfig, ...config};
+    };
+
+    // 停止请求
+    abort() {
+        xhr && xhr.abort();
+    }
 
     // get,post方法集合
     base(config = {}) {
-        const requestData = {...this.config, ...config};
-        const _xhr = new XMLHttpRequest();
-
-        // post 请求，设置请求头
-        if (requestData.type.toLowerCase() === 'post' && !isFormData(requestData.data)) {
-            requestData.headers = {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
-        }
-        commonConnect(_xhr, requestData);
-    },
+        let requestData = {...initConfig, ...config};
+        xhr = new XMLHttpRequest();
+        commonConnect.call(xhr, requestData);
+    }
 
     // 根据后台返回的状态码，重构base接口
     rebuild(config = {}) {
-        const requestData = {...this.config, ...config};
+        const 
+        useful = {
+            data: config.data,
+            url: config.url,
+            type: config.type ? config.type : initConfig.type,
+            headers: config.headers ? config.headers : initConfig.headers,
+            headers: config.timeout ? config.timeout : initConfig.timeout,
+        },
+        requestData = {...initConfig, ...useful};
+
         return new Promise((resolve, reject) => {
             this.base({
                 ...requestData,
@@ -38,20 +43,20 @@ export default {
                 success: res => {
                     try {
                         // 接口ret === 0 成功
-                        if (res[this.config.fieldName].toString() === this.config.successCode.toString()) {
-                            requestData.debug && DEBUG.log(errorData.interfaceSuccess);
-                            const data = res[this.config.responseDataName];
-                            res._type = errorData.interfaceSuccess;
+                        if (res[requestData.fieldName].toString() === requestData.successCode.toString()) {
+                            requestData.debug && DEBUG.log(MSG.interfaceSuccess);
+                            const data = res[requestData.responseDataName];
+                            res._type = MSG.interfaceSuccess;
                             resolve(data);
                         } 
                         // 接口ret !== 0 失败
                         else {
-                            requestData.debug && DEBUG.log(errorData.interfaceSuccess);
-                            res._type = errorData.interfaceFail;
+                            requestData.debug && DEBUG.log(MSG.interfaceFail);
+                            res._type = MSG.interfaceFail;
                             reject(res);
                         }
                     } catch (error) {
-                        error._type = errorData.otherErrors;
+                        error._type = MSG.otherErrors;
                         reject(error);
                     }
                 },

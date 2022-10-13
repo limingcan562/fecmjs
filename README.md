@@ -287,15 +287,16 @@ attribute name | description | value description
 
 ## `Ajax` module
 
-### `init(config)` initialize configuration
+### `Ajax` module exports a class
 
 > Equivalent to a global configuration
 
 parameter name | description | default value
 ------| ----| -----
 `config.type` | request type | `POST`
-`config.debug`| Whether to enable interface printing information (recommended to be disabled in production environment) | `1`
-`config.headers`| Set request headers. <br>`GET` request, it will not be set;<br>`POST` request, the value is: `application/x-www-form-urlencoded; charset=UTF-8`;<br>When passed ` When data` is of type `FormData`, the setting will be invalid| `{}`
+`config.debug`| Whether to enable interface printing information (recommended to be disabled in production environment) | `0`
+`config.debugStep`| Whether to enable printing of the four steps of xhr connection for debugging | `0`
+`config.headers`| Set request headers. <br>`GET` request, the value is: `application/x-www-form-urlencoded; charset=UTF-8;`<br>`POST` request, the value is: `application/x-www-form-urlencoded; charset=UTF-8`;<br>When passed ` When data` is of type `FormData`, the setting will be invalid| `{}`
 `config.url`| request URL| `''`
 `config.data` | request parameters | `{}`
 `config.timeout` | interface timeout | `3000`
@@ -310,19 +311,33 @@ parameter name | description | default value
 
 Example:
 ```javascript
-Ajax.int({
+import {Ajax} from 'fecmjs';
+const ajax = new Ajax({
     debug: 0,
     url: 'xxxxx',
     timeout: 2000
 });
+ajax.base({
+    success: res => {
+        console.log('状态码200 成功');
+        if (ret.ret === 0) {
+            // do someting
+        } else {
+            // fail
+        }
+    },
+    fail: res => {
+        console.log('状态码非200 失败');
+    }
+});
 ```
 
 ## `base(config)` request method
-The input parameters are the same as those in the `init` method. If you pass them in again, the configuration of the `init` method will be overwritten.
+Enter some of the parameters that can be passed in to the default global parameters. If they are passed in again, the default global parameters will be overwritten.
 
 Example:
 ````javascript
-Ajax.base({
+ajax.base({
     type: 'get',
     debug: 0,
     url: 'xxxxx',
@@ -342,10 +357,15 @@ Ajax.base({
 ````
 
 ## `rebuild(config)` wraps the `base` method
-- This method is encapsulated once again with the `base` method according to the data format returned by the backend. So when you want to use it, you need to configure `fieldName`, `successCode`, `failCode`, `responseDataName` in the `init` method.
-- The input parameters are the same as those in the `init` method. If you pass them in again, the configuration of the `init` method will be overwritten.
+- This method is encapsulated once again with the `base` method according to the data format returned by the backend. So when you want to use it, you need to configure `fieldName`, `successCode`, `failCode` and `responseDataName` in the `new Ajax()` method
 - When the status code is `200` and the success status returned by the backend is satisfied, then the function is successful and returns a `Promise`. The parameters in the `then` function are the data returned by the backend
 - When the status code is `200`, and the non-successful status returned by the backend is satisfied, or it is triggered when the interface is called, `timeFn`, `error` will trigger the `catch` function
+- The input parameter `config` only accepts the following parameters
+  - `data`
+  - `url`
+  - `type`
+  - `headers`
+  - `timeout`
 
 > When entering the `catch` function, you can judge the type of the current error according to the `err` parameter of the `catch` function
 
@@ -375,14 +395,14 @@ Example:
 }
 
 // 2. Initialize configuration
-Ajax.int({
+const ajax = new Ajax({
     fieldName: 'ret',
     successCode: 'success',
     responseDataName: 'data'
 });
 
 // 3. call
-Ajax.rebuild({
+ajax.rebuild({
     type: 'get',
     debug: 0,
     url: 'xxxxx',
@@ -414,11 +434,20 @@ Ajax.rebuild({
 ````
 
 ## other
-In `dis/ajax.min.js`, there is a separate `Ajax` module, which can also be used directly
+In `dis/ajax.min.js`, there are `Ajax` modules extracted separately, which can also be directly used
+
 
 ````javascript
 import Ajax from 'fecmjs/plugin/ajax.esm';
-Ajax.base({
+
+const ajax = new Ajax({
+    debug: 0,
+    url: 'xxxxx',
+    timeout: 2000
+});
+
+
+ajax.base({
     type: 'get',
     url: 'xxxx',
     data: {
@@ -437,7 +466,14 @@ Ajax.base({
 ```html
 <script src="./ajax.min.js"></script>
 <script>
-    Ajax.rebuild({
+    const ajax = new Ajax({
+        debug: 0,
+        url: 'xxxxx',
+        timeout: 2000
+    });
+
+
+    ajax.rebuild({
         type: 'get',
         url: 'xxxx',
         data: {

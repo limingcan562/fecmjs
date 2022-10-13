@@ -1,7 +1,8 @@
 // request config
 export default {
     type: 'post', // 请求类型（默认post）
-    debug: 1, // 是否开启调试
+    debug: 0, // 是否开启调试
+    debugStep: 0, // 是否开启xhr连接4个步骤的打印，方便调试
     headers: { // 设置请求头
         // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
     },
