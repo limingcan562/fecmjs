@@ -357,6 +357,8 @@ ajax.base({
   - `type`
   - `headers`
   - `timeout`
+  - `debug`
+  - `debugStep`
 
 > 当进入到`catch`函数，可以根据`catch`函数的形参`err`来判断当前出错是什么类型
 
@@ -365,7 +367,7 @@ ajax.base({
 ---- | ----
 `connect error` | 连接错误
 `connect timeout` | 连接超时
-`interface success` | 连接成功，接口返回成功
+`connect fail` | 连接失败
 `interface fail` | 连接成功，接口返回非成功状态码
 `other errors`| 其他错误，可能是自己的代码书写有误
 

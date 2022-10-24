@@ -1,8 +1,8 @@
 /**!
-* fecmjs: - v1.0.4
+* fecmjs: - v1.0.5
 * https://github.com/limingcan562/fecmjs.git
 * @author: limingcan
-* @date: 2022.10.14
+* @date: 2022.10.24
 * @contact: leemimgcan@gmail.com
 */
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
@@ -4122,7 +4122,7 @@ var MSG = {
   // 连接超时的标识
   timeoutConnect: 'connect timeout',
   // 接口成功的标识
-  interfaceSuccess: 'interface success',
+  // interfaceSuccess: 'interface success',
   // 接口失败的标识
   interfaceFail: 'interface fail',
   // 其他错误（可能代码书写有问题）
@@ -4184,7 +4184,7 @@ function commonConnect(config) {
       var response_result = {}; // 连接成功
 
       if (_this.status >= 200 && _this.status < 300 || _this.status === 304) {
-        // debug && DEBUG.log(MSG.successConnect);
+        debug && DEBUG.log(MSG.successConnect);
         response_result = parseResponse(_this.responseText); // 后台接口不存在时，可能状态码为200，返回404内容（不返回任何内容）
 
         if (_typeof(response_result) !== 'object') {
@@ -4193,7 +4193,7 @@ function commonConnect(config) {
           };
           fail(_result);
         } else {
-          response_result._type = MSG.successConnect;
+          // response_result._type = MSG.successConnect;
           success(response_result);
         }
       } // 连接失败
@@ -4301,11 +4301,13 @@ var Ajax = /*#__PURE__*/function () {
       var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
       var useful = {
-        data: config.data ? config.data : initConfig.data,
-        url: config.url ? config.url : initConfig.url,
-        type: config.type ? config.type : initConfig.type,
-        headers: config.headers ? config.headers : initConfig.headers,
-        timeout: config.timeout ? config.timeout : initConfig.timeout
+        debug: config.debug !== undefined && config.debug.toString() ? config.debug : initConfig.debug,
+        debugStep: config.debugStep !== undefined && config.debugStep.toString() ? config.debugStep : initConfig.debugStep,
+        data: config.data || initConfig.data,
+        url: config.url || initConfig.url,
+        type: config.type || initConfig.type,
+        headers: config.headers || initConfig.headers,
+        timeout: config.timeout || initConfig.timeout
       },
           requestData = _objectSpread2(_objectSpread2({}, initConfig), useful);
 
@@ -4317,8 +4319,8 @@ var Ajax = /*#__PURE__*/function () {
               // 接口ret === 0 成功
               if (res[requestData.fieldName].toString() === requestData.successCode.toString()) {
                 requestData.debug && DEBUG.log(MSG.interfaceSuccess);
-                var data = res[requestData.responseDataName];
-                data._type = MSG.interfaceSuccess;
+                var data = res[requestData.responseDataName]; // data._type = MSG.interfaceSuccess;
+
                 resolve(data);
               } // 接口ret !== 0 失败
               else {

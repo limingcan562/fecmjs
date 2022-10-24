@@ -28,11 +28,13 @@ export default class Ajax {
     rebuild(config = {}) {
         const 
         useful = {
-            data: config.data ? config.data : initConfig.data,
-            url: config.url ? config.url : initConfig.url,
-            type: config.type ? config.type : initConfig.type,
-            headers: config.headers ? config.headers : initConfig.headers,
-            timeout: config.timeout ? config.timeout : initConfig.timeout,
+            debug: config.debug !== undefined && config.debug.toString() ? config.debug : initConfig.debug,
+            debugStep: config.debugStep !== undefined && config.debugStep.toString() ? config.debugStep : initConfig.debugStep,
+            data: config.data || initConfig.data,
+            url: config.url || initConfig.url,
+            type: config.type || initConfig.type,
+            headers: config.headers || initConfig.headers,
+            timeout: config.timeout || initConfig.timeout,
         },
         requestData = {...initConfig, ...useful};
 
@@ -46,7 +48,7 @@ export default class Ajax {
                         if (res[requestData.fieldName].toString() === requestData.successCode.toString()) {
                             requestData.debug && DEBUG.log(MSG.interfaceSuccess);
                             const data = res[requestData.responseDataName];
-                            data._type = MSG.interfaceSuccess;
+                            // data._type = MSG.interfaceSuccess;
                             resolve(data);
                         } 
                         // 接口ret !== 0 失败

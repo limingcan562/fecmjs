@@ -366,6 +366,8 @@ ajax.base({
   - `type`
   - `headers`
   - `timeout`
+  - `debug`
+  - `debugStep`
 
 > When entering the `catch` function, you can judge the type of the current error according to the `err` parameter of the `catch` function
 
@@ -374,7 +376,7 @@ Possible values for the `catch` function `err._type` (parameter):
 ---- | ----
 `connect error` | connection error
 `connect timeout` | connection timeout
-`interface success` | The connection is successful, the interface returns success
+`connect fail` | connection fail
 `interface fail` | The connection is successful, the interface returns a non-success status code
 `other errors`| Other errors, possibly due to your own code writing errors
 

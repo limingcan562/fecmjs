@@ -64,7 +64,7 @@ export function commonConnect(config) {
             let response_result = {};
             // 连接成功
             if ((this.status >= 200 && this.status < 300) || this.status === 304) {
-                // debug && DEBUG.log(MSG.successConnect);
+                debug && DEBUG.log(MSG.successConnect);
                 response_result = parseResponse(this.responseText);
 
                 // 后台接口不存在时，可能状态码为200，返回404内容（不返回任何内容）
@@ -73,7 +73,7 @@ export function commonConnect(config) {
                     fail(_result);
                 }
                 else {
-                    response_result._type = MSG.successConnect;
+                    // response_result._type = MSG.successConnect;
                     success(response_result);
                 }
             } 
