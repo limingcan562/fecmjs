@@ -20,48 +20,16 @@ export default {
                     format: 'esm',
                     banner: Data.bannerData
                 },
-                {
-                    file: getDirSrc(`${Data.compressedFiles}/fecmjs.js`),
-                    format: 'umd',
-                    name: 'Fecmjs',
-                    banner: Data.bannerData
-                },
             ],
             proOutput: [
                 {
                     file: getDirSrc(`${Data.compressedFiles}/fecmjs.min.js`),
                     format: 'umd',
-                    name: 'Fecmjs',
-                    banner: Data.bannerData
-                },
-            ]
-        },
-        
-        {
-            input: getDirSrc('src/plugin/ajax/index.js'),
-            devOutput: [
-                {
-                    file: getDirSrc(`${Data.pluginFiles}/ajax.esm.js`),
-                    format: 'esm',
-                    banner: Data.bannerData
-                },
-                {
-                    file: getDirSrc(`${Data.compressedFiles}/ajax.js`),
-                    format: 'umd',
-                    name: 'Ajax',
-                    banner: Data.bannerData
-                },
-            ],
-            proOutput: [
-                {
-                    file: getDirSrc(`${Data.compressedFiles}/ajax.min.js`),
-                    format: 'umd',
-                    name: 'Ajax',
-                    banner: Data.bannerData
-                    
+                    name: 'fecmjs',
+                    banner: Data.bannerData,
+                    exports: 'named',
                 },
             ]
         },
     ]
-    
 }

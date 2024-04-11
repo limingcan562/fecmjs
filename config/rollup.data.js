@@ -1,13 +1,13 @@
-import pkg from '../package.json';
+import {version, name, author, repository} from '../package.json';
 
 // banner 数据
 const bannerData =
 `/**!
-* fecmjs: - v${pkg.version}
-* ${pkg.repository.url.split('+')[1]}
-* @author: ${pkg.author}
+* ${name}: - v${version}
+* ${repository.url.split('+')[1]}
+* @author: ${author}
 * @date: ${new Date().getFullYear()}.${parseInt(new Date().getMonth()+1)}.${new Date().getDate()}
-* @contact: leemimgcan@gmail.com
+* @issues: https://github.com/limingcan562/fecmjs/issues
 */`;
 
 export default {
@@ -15,8 +15,5 @@ export default {
     bannerData,
 
     // 存放压缩文件的文件夹
-    compressedFiles: 'dist',
-
-    // 存放插件的文件夹
-    pluginFiles: 'plugin'
+    compressedFiles: 'build',
 }
