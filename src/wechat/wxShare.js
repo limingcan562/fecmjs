@@ -1,12 +1,12 @@
 // 微信分享
-export const wxShare = ({
+export default function wxShare ({
     requestUrl, 
     title, 
     desc, 
     link, 
     imgUrl, 
     successFn
-}) => {
+}) {
     Axios.get(requestUrl, {
         params: {
             url: window.location.href

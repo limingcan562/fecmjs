@@ -7,6 +7,8 @@ import postcss from 'rollup-plugin-postcss';
 import Base from './rollup.base';
 import pkg from '../package.json';
 
+console.log(pkg, 1);
+
 // let 
 // IS_PRO = process.env.NODE_ENV.includes('pro') ? true : false,
 // pluginsConfig = [
@@ -54,9 +56,47 @@ export default [
     {
         input: "./src/index.js",
         output: {
-            file: "fecm.js", // 导出文件
+            file: `build/${pkg.name}.cjs.js`, // 导出文件
+            format: 'cjs',
+            name: "fecmj",
+            exports: 'named',
+        },
+        plugins: [
+            commonjs(),
+            resolve(),
+            filesize(),
+            babel({
+                exclude: "node_modules/**",
+                babelHelpers: 'bundled',
+            }),
+        ],
+    },
+    {
+        input: "./src/index.js",
+        output: {
+            file: `build/${pkg.name}.esm.js`, // 导出文件
+            format: 'esm',
+            name: "fecmj",
+            exports: 'named',
+        },
+        plugins: [
+            commonjs(),
+            resolve(),
+            filesize(),
+            babel({
+                exclude: "node_modules/**",
+                babelHelpers: 'bundled',
+            }),
+        ],
+    },
+
+    {
+        input: "./src/index.js",
+        output: {
+            file: `dist/${pkg.name}.js`, // 导出文件
             format: "umd", // 打包文件支持的形式
-            name: "fecm",
+            name: pkg.name,
+            exports: 'named',
         },
         plugins: [
             commonjs(),
@@ -65,7 +105,25 @@ export default [
                 exclude: "node_modules/**",
                 babelHelpers: 'bundled',
             }),
-            // terser()
+        ],
+    },
+    {
+        input: "./src/index.js",
+        output: {
+            file: `dist/${pkg.name}.min.js`, // 导出文件
+            format: "umd", // 打包文件支持的形式
+            name: pkg.name,
+            exports: 'named',
+        },
+        plugins: [
+            commonjs(),
+            resolve(),
+            filesize(),
+            babel({
+                exclude: "node_modules/**",
+                babelHelpers: 'bundled',
+            }),
+            terser()
         ],
     },
     

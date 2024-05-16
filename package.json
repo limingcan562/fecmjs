@@ -2,14 +2,15 @@
   "name": "fecmjs",
   "version": "1.0.5",
   "description": "Collection of common front-end methods to facilitate normal development. Applicable to mobile terminal (some methods come from the Internet).Modular development for easy reference.Support 'tree shaking' to reduce packing volume",
-  "main": "./build/js/fecmjs.cjs.js",
-  "module": "./build/js/fecmjs.esm.js",
+  "main": "./build/fecmjs.cjs.js",
+  "module": "./build/fecmjs.esm.js",
   "files": [
     "build",
     "README_CN.md"
   ],
   "scripts": {
     "clean": "rimraf ./build",
+    "build": "cross-env rollup -c ./config/rollup.config.js",
     "build:dev": "cross-env NODE_ENV=development rollup -c ./config/rollup.config.js",
     "build:pro": "cross-env NODE_ENV=production rollup -c ./config/rollup.config.js",
     "prepublish": "npm run clean && npm run build:dev && npm run build:pro"
@@ -43,8 +44,5 @@
     "rollup-plugin-filesize": "^9.1.2",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2"
-  },
-  "dependencies": {
-    "@babel/runtime-corejs3": "^7.17.2"
   }
 }

@@ -11,11 +11,6 @@ export default {
             input: getDirSrc('src/index.js'),
             devOutput: [
                 {
-                    file: pkg.main,
-                    format: 'cjs',
-                    banner: Data.bannerData
-                },
-                {
                     file: pkg.module,
                     format: 'esm',
                     banner: Data.bannerData

@@ -1,6 +1,10 @@
-import {wxShare} from './wechat/wxShare';
+import wxShare from './wechat/wxShare';
 
 
 export {
+    wxShare
+}
+
+export default {
     wxShare
 }
