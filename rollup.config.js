@@ -56,9 +56,9 @@ const bannerData =
 * @issues: https://github.com/limingcan562/fecmjs/issues
 */`;
 
-const defaultOutBase = {compact: true, banner: bannerData, name: pkg.name, exports: "named"};
-const cjOutBase = {...defaultOutBase, format: "cjs"};
-const esmOutBase = {...defaultOutBase, format: "es"};
+const defaultOutBase = {compact: true, banner: bannerData, name: pkg.name};
+const cjOutBase = {...defaultOutBase, format: "cjs", exports: "named"};
+const esmOutBase = {...defaultOutBase, format: "es", exports: "named"};
 const umdOutBase = {...defaultOutBase, format: "umd"};
 const minOutBase = {...defaultOutBase, plugins: [ terser() ], sourcemap: true};
 

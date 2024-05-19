@@ -1,13 +1,21 @@
-import wxShare from './wechat/wxShare';
+// validate
+// import isEmail from './validate/isEmail';
+// import isPhone from './validate/isPhone';
+// import isIntlPhone from './validate/isIntlPhone';
 
-export {
-    wxShare
-}
+import core from './validate/index'
+
+// export {
+//     // isEmail,
+//     // isPhone,
+//     // isIntlPhone
+//     ...validate,
+
+// }
 
 export default {
-    wxShare
+    // isEmail,
+    // isPhone,
+    // isIntlPhone\
+    ...core
 }
-
-
-// const path = require('path');
-// console.log(path);
