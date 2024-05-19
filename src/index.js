@@ -1,6 +1,5 @@
 import wxShare from './wechat/wxShare';
 
-
 export {
     wxShare
 }
@@ -8,3 +7,7 @@ export {
 export default {
     wxShare
 }
+
+
+// const path = require('path');
+// console.log(path);

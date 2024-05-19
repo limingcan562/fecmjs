@@ -5,7 +5,7 @@
   "main": "./dist/fecmjs.cjs.js",
   "module": "./dist/fecmjs.esm.js",
   "files": [
-    "build",
+    "dist",
     "README_CN.md"
   ],
   "scripts": {
