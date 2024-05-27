@@ -1,21 +1,19 @@
-// validate
-// import isEmail from './validate/isEmail';
-// import isPhone from './validate/isPhone';
-// import isIntlPhone from './validate/isIntlPhone';
+import isEmail from './validate/isEmail';
+import isPhone from './validate/isPhone';
+import isIntlPhone from './validate/isIntlPhone';
+import $ from './dom/$';
 
-import core from './validate/index'
-
-// export {
-//     // isEmail,
-//     // isPhone,
-//     // isIntlPhone
-//     ...validate,
-
-// }
 
 export default {
-    // isEmail,
-    // isPhone,
-    // isIntlPhone\
-    ...core
+    isEmail,
+    isPhone,
+    isIntlPhone,
+    $
 }
+
+// export {
+//     isEmail,
+//     isPhone,
+//     isIntlPhone,
+//     $
+// }

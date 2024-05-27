@@ -50,7 +50,7 @@ import pkg from './package.json';
 
 const bannerData =
 `/**!
-* ${pkg.name}: - v${pkg.version}
+* ${pkg.name}: v${pkg.version}
 * @author: ${pkg.author}
 * @date: ${new Date().getFullYear()}.${parseInt(new Date().getMonth()+1)}.${new Date().getDate()}
 * @issues: https://github.com/limingcan562/fecmjs/issues
@@ -59,21 +59,21 @@ const bannerData =
 const defaultOutBase = {compact: true, banner: bannerData, name: pkg.name};
 const cjOutBase = {...defaultOutBase, format: "cjs", exports: "named"};
 const esmOutBase = {...defaultOutBase, format: "es", exports: "named"};
-const umdOutBase = {...defaultOutBase, format: "umd"};
+const umdOutBase = {...defaultOutBase, format: "umd", };
 const minOutBase = {...defaultOutBase, plugins: [ terser() ], sourcemap: true};
 
 export default [
     {
         input: "./src/index.js",
         output: [
-            {
-                ...cjOutBase,
-                file: `dist/${pkg.name}.cjs.js`,
-            },
-            {
-                ...esmOutBase,
-                file: `dist/${pkg.name}.esm.js`
-            },
+            // {
+            //     ...cjOutBase,
+            //     file: `dist/${pkg.name}.cjs.js`,
+            // },
+            // {
+            //     ...esmOutBase,
+            //     file: `dist/${pkg.name}.esm.js`
+            // },
             {
                 ...umdOutBase,
                 file: `dist/${pkg.name}.js`

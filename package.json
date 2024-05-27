@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "clean": "rimraf ./dist",
-    "build": "rollup --config",
+    "build": "npm run clean && rollup --config",
     "prepublish": "npm run clean && npm run build"
   },
   "repository": {
