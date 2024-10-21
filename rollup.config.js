@@ -19,7 +19,7 @@ const bannerData =
 const defaultOutBase = {compact: true, banner: bannerData, name: pkg.name};
 const cjOutBase = {...defaultOutBase, format: "cjs", exports: "named"};
 const esmOutBase = {...defaultOutBase, format: "es", exports: "named"};
-const umdOutBase = {...defaultOutBase, format: "umd"/* , exports: "named" */};
+const umdOutBase = {...defaultOutBase, format: "umd", esModule: false, /* , exports: "named" */};
 const minOutBase = {...defaultOutBase, plugins: [ terser() ], sourcemap: true};
 
 export default [
