@@ -4,16 +4,16 @@ import isIntlPhone from './validate/isIntlPhone';
 import $ from './dom/$';
 
 
-export default {
-    isEmail,
-    isPhone,
-    isIntlPhone,
-    $
-}
-
-// export {
+// export default {
 //     isEmail,
 //     isPhone,
 //     isIntlPhone,
 //     $
 // }
+
+export {
+    isEmail,
+    isPhone,
+    isIntlPhone,
+    $
+}
