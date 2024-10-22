@@ -22,6 +22,13 @@ import isNull from './object/isNull';
 import isNum from './object/isNum';
 import isUndefined from './object/isUndefined';
 
+// storage
+import setLocalStorage from './storage/setLocalStorage';
+import getLocalStorage from './storage/getLocalStorage';
+import clearLocalStorage from './storage/clearLocalStorage';
+import removeLocalStorage from './storage/removeLocalStorage';
+
+
 
 // export default {
 //     isEmail,
@@ -42,12 +49,17 @@ export {
     setStyle,
     isShowOnVisualArea,
     isExceedParentHeight,
-    isNum,
-    isUndefined,
 
     isArr,
     isObj,
     isStr,
     isFn,
     isNull,
+    isNum,
+    isUndefined,
+
+    setLocalStorage,
+    getLocalStorage,
+    clearLocalStorage,
+    removeLocalStorage
 }
