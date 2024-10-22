@@ -10,6 +10,7 @@ import addClass from './dom/addClass';
 import getClass from './dom/getClass';
 import setStyle from './dom/setStyle';
 import isShowOnVisualArea from './dom/isShowOnVisualArea';
+import isExceedParentHeight from './dom/isExceedParentHeight';
 
 
 // object
@@ -38,6 +39,7 @@ export {
     getClass,
     setStyle,
     isShowOnVisualArea,
+    isExceedParentHeight,
 
     isArr,
     isObj,
