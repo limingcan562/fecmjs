@@ -2,6 +2,10 @@
 import isEmail from './validate/isEmail';
 import isPhoneNum from './validate/isPhoneNum';
 import isIntlPhone from './validate/isIntlPhone';
+import hasChSpecialChar from './validate/hasChSpecialChar';
+import hasEnSpecialChar from './validate/hasEnSpecialChar';
+import isSrtFormat from './validate/isSrtFormat';
+import isAllChinese from './validate/isAllChinese';
 
 // dom
 import $ from './dom/$';
@@ -53,6 +57,11 @@ export {
     isEmail,
     isPhoneNum,
     isIntlPhone,
+    hasChSpecialChar,
+    hasEnSpecialChar,
+    isSrtFormat,
+    isAllChinese,
+    
 
     $,
     removeClass,
