@@ -1,6 +1,6 @@
 // validate
 import isEmail from './validate/isEmail';
-import isPhone from './validate/isPhone';
+import isPhoneNum from './validate/isPhoneNum';
 import isIntlPhone from './validate/isIntlPhone';
 
 // dom
@@ -44,14 +44,14 @@ import isIpad from './device/isIpad';
 
 // export default {
 //     isEmail,
-//     isPhone,
+//     isPhoneNum,
 //     isIntlPhone,
 //     $
 // }
 
 export {
     isEmail,
-    isPhone,
+    isPhoneNum,
     isIntlPhone,
 
     $,
