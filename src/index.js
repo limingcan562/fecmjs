@@ -19,6 +19,8 @@ import isStr from './object/isStr';
 import isFn from './object/isFn';
 import isObj from './object/isObj';
 import isNull from './object/isNull';
+import isNum from './object/isNum';
+import isUndefined from './object/isUndefined';
 
 
 // export default {
@@ -40,6 +42,8 @@ export {
     setStyle,
     isShowOnVisualArea,
     isExceedParentHeight,
+    isNum,
+    isUndefined,
 
     isArr,
     isObj,
