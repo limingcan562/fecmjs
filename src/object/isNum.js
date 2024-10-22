@@ -5,7 +5,7 @@
  */
 import { getType } from "./getType";
 
-export default function isArr(val) {
+export default function isNum(val) {
     const JUDGE = 'number';
     const splitValue = getType(val).split(' ')[1];
     return splitValue.includes(JUDGE);
