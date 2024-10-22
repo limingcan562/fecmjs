@@ -29,6 +29,15 @@ import clearLocalStorage from './storage/clearLocalStorage';
 import removeLocalStorage from './storage/removeLocalStorage';
 
 
+// device
+import isAndroid from './device/isAndroid';
+import isIos from './device/isIos';
+import isMoblie from './device/isMoblie';
+import isPc from './device/isPc';
+import isIphone from './device/isIphone';
+import isWechat from './device/isWechat';
+import isIpad from './device/isIpad';
+
 
 // export default {
 //     isEmail,
@@ -61,5 +70,13 @@ export {
     setLocalStorage,
     getLocalStorage,
     clearLocalStorage,
-    removeLocalStorage
+    removeLocalStorage,
+
+    isAndroid,
+    isIos,
+    isMoblie,
+    isPc,
+    isIphone,
+    isWechat,
+    isIpad,
 }
