@@ -1,8 +1,8 @@
 /**
  * @description: Getting the dom element
- * @param {string} selector class selector
- * @return {boolean} dom element
+ * @param {string} selectName class selector
+ * @return {object} dom element
  */
-export default function $(selector) {
-    return document.querySelector(selector);
+export default function $(selectName) {
+    return document.querySelector(selectName);
 }
