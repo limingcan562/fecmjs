@@ -21,6 +21,7 @@ import isObj from './object/isObj';
 import isNull from './object/isNull';
 import isNum from './object/isNum';
 import isUndefined from './object/isUndefined';
+import emptyObj from './object/emptyObj';
 
 // storage
 import setLocalStorage from './storage/setLocalStorage';
@@ -66,6 +67,7 @@ export {
     isNull,
     isNum,
     isUndefined,
+    emptyObj,
 
     setLocalStorage,
     getLocalStorage,
