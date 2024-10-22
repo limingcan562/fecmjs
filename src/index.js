@@ -9,6 +9,8 @@ import removeClass from './dom/removeClass';
 import addClass from './dom/addClass';
 import getClass from './dom/getClass';
 import setStyle from './dom/setStyle';
+import isShowOnVisualArea from './dom/isShowOnVisualArea';
+
 
 // object
 import isArr from './object/isArr';
@@ -35,6 +37,7 @@ export {
     addClass,
     getClass,
     setStyle,
+    isShowOnVisualArea,
 
     isArr,
     isObj,
