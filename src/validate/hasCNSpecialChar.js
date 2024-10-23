@@ -5,9 +5,7 @@
  * @return {boolean} Does it contain Chinese special characters
  */
 
-import SPECIALCHAR from "./specialChar";
-
-export default function hasChSpecialChar(textStr) {
-    const regex = new RegExp(SPECIALCHAR.zh); // 定义特殊字符的正则表达式
+export default function hasCNSpecialChar(textStr) {
+    const regex = /[~·！@#￥%……&*（）——+}【】={：；”‘“’|、《，》。？、-]/;
     return regex.test(textStr);
 }
