@@ -1,4 +1,5 @@
 // validate
+import isContentSrtFormat from './validate/isContentSrtFormat';
 import isEmail from './validate/isEmail';
 import isPhoneNum from './validate/isPhoneNum';
 import isIntlPhone from './validate/isIntlPhone';
@@ -8,8 +9,6 @@ import hasCN from './validate/hasCN';
 import hasEN from './validate/hasEN';
 import isAllCN from './validate/isAllCN';
 import isAllEN from './validate/isAllEN';
-import isSrtFormat from './validate/isSrtFormat';
-
 
 
 // dom
@@ -50,6 +49,19 @@ import isIphone from './device/isIphone';
 import isWechat from './device/isWechat';
 import isIpad from './device/isIpad';
 
+// file
+import getFilePreviewSrc from './file/getFilePreviewSrc';
+import getFileName from './file/getFileName';
+import getFileSuffix from './file/getFileSuffix';
+import isFilePicType from './file/isFilePicType';
+import isFileAudioType from './file/isFileAudioType';
+import isFileVideoType from './file/isFileVideoType';
+
+
+// format
+import formatFileSize from './format/formatFileSize';
+import formatVideoDuration from './format/formatVideoDuration';
+
 
 // export default {
 //     isEmail,
@@ -59,12 +71,12 @@ import isIpad from './device/isIpad';
 // }
 
 export {
+    isContentSrtFormat,
     isEmail,
     isPhoneNum,
     isIntlPhone,
     hasCNSpecialChar,
     hasENSpecialChar,
-    isSrtFormat,
     hasCN,
     hasEN,
     isAllCN,
@@ -102,4 +114,14 @@ export {
     isIphone,
     isWechat,
     isIpad,
+
+    formatFileSize,
+    formatVideoDuration,
+
+    getFilePreviewSrc,
+    getFileName,
+    getFileSuffix,
+    isFilePicType,
+    isFileAudioType,
+    isFileVideoType
 }
