@@ -64,7 +64,7 @@ import formatFileSize from './format/formatFileSize';
 import formatVideoDuration from './format/formatVideoDuration';
 
 // date
-import getTimestampByYMD from './date/getTimestampByYMD';
+import getTimestamp from './date/getTimestamp';
 
 
 // export default {
@@ -130,5 +130,5 @@ export {
     isFileAudioType,
     isFileVideoType,
 
-    getTimestampByYMD
+    getTimestamp
 }

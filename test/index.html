@@ -8,10 +8,13 @@
 <body>
     <script src="../dist/fecmjs.js"></script>
     <script>
-        console.log(fecmjs.hasEnSpecialChar('阿搜到?'));
-
-        console.log(new RegExp('[!@#$%^&*()+=_-{}|:;"<>.,?]'));
-        
+        function getTimestampByYMD2(...args) {
+            console.log(args, 1);
+            const lastArgs = args[args.length - 1];
+            console.log(lastArgs);
+        }
+        console.log(fecmjs.getTimestamp(2024, 3));
+        // getTimestampByYMD2();
     </script>
 </body>
 </html>
