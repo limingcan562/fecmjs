@@ -31,6 +31,7 @@ import isObj from './object/isObj';
 import isNull from './object/isNull';
 import isNum from './object/isNum';
 import isUndefined from './object/isUndefined';
+import isDate from './object/isDate';
 import emptyObj from './object/emptyObj';
 
 // storage
@@ -61,6 +62,9 @@ import isFileVideoType from './file/isFileVideoType';
 // format
 import formatFileSize from './format/formatFileSize';
 import formatVideoDuration from './format/formatVideoDuration';
+
+// date
+import getTimestampByYMD from './date/getTimestampByYMD';
 
 
 // export default {
@@ -100,6 +104,7 @@ export {
     isNull,
     isNum,
     isUndefined,
+    isDate,
     emptyObj,
 
     setLocalStorage,
@@ -123,5 +128,7 @@ export {
     getFileSuffix,
     isFilePicType,
     isFileAudioType,
-    isFileVideoType
+    isFileVideoType,
+
+    getTimestampByYMD
 }
