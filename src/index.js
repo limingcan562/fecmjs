@@ -65,6 +65,9 @@ import formatVideoDuration from './format/formatVideoDuration';
 
 // date
 import getTimestamp from './date/getTimestamp';
+import getCurrentTimestamp from './date/getCurrentTimestamp';
+import getDateByFewdays from './date/getDateByFewdays';
+import getDateByTimestamp from './date/getDateByTimestamp';
 
 
 // export default {
@@ -130,5 +133,8 @@ export {
     isFileAudioType,
     isFileVideoType,
 
-    getTimestamp
+    getTimestamp,
+    getCurrentTimestamp,
+    getDateByFewdays,
+    getDateByTimestamp
 }
