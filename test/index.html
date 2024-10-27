@@ -8,12 +8,10 @@
 <body>
     <script src="../dist/fecmjs.js"></script>
     <script>
-        function getTimestampByYMD2(...args) {
-            console.log(args, 1);
-            const lastArgs = args[args.length - 1];
-            console.log(lastArgs);
-        }
-        console.log(fecmjs.getTimestamp(2024, 3));
+
+        console.log(
+            fecmjs.getDateByFewdays('2024-10-27', -365)
+        );
         // getTimestampByYMD2();
     </script>
 </body>

@@ -2,14 +2,13 @@
  * @description: Get specific dates a few days before or a few days after
  * @param {string} time, month and year '2024-10-24'
  * @param {string} daysago, a few days
- * @param {string} type, - a few days ago；+ a few days later
  * @return {string} time '2024-10-24'
  */
 
-export default function getDateByFewdays(time, daysago, type = '-') {
+export default function getDateByFewdays(time, daysago) {
     const date = new Date(time);
     const intDaysage = +daysago;
-    const dateAgo = type === '-' ? date.getDate() - intDaysage : date.getDate() + intDaysage;
+    const dateAgo = date.getDate() + intDaysage;
     date.setDate(dateAgo);
 
     const newYear = date.getFullYear();
