@@ -70,6 +70,11 @@ import getDateByFewdays from './date/getDateByFewdays';
 import getDateByTimestamp from './date/getDateByTimestamp';
 
 
+// url
+import getUrlValue from './url/getUrlValue';
+import setUrlWithNorefresh from './url/setUrlWithNorefresh';
+
+
 // export default {
 //     isEmail,
 //     isPhoneNum,
@@ -136,5 +141,8 @@ export {
     getTimestamp,
     getCurrentTimestamp,
     getDateByFewdays,
-    getDateByTimestamp
+    getDateByTimestamp,
+
+    getUrlValue,
+    setUrlWithNorefresh
 }

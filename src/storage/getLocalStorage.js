@@ -1,6 +1,7 @@
 /**
  * @description: Get LocalStorage
  * @param {string} key The name of the value to be set
+ * @return {object | string}  Object or string
  */
 
 export default function getLocalStorage(key) {

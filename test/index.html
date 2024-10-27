@@ -6,12 +6,23 @@
     <title>Test</title>
 </head>
 <body>
+    <button>设置</button>
+
     <script src="../dist/fecmjs.js"></script>
     <script>
+        
+        const url = 'http://192.168.0.6:5501/test/?a=1&b=2#aa';
 
-        console.log(
-            fecmjs.getDateByFewdays('2024-10-27', -365)
-        );
+        fecmjs.$('button').addEventListener('click', evt => {
+            fecmjs.setUrlWithNorefresh({test: 1, like: 'ball'})
+            
+        })
+
+
+
+        // console.log(
+        //     fecmjs.setUrlWithNorefresh('', url)
+        // );
         // getTimestampByYMD2();
     </script>
 </body>
