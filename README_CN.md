@@ -50,7 +50,7 @@ console.log(flag); // true
 </script>
 ``` 
 
-## <a id="Date">Date</a>
+## <a id="Date">`Date`</a>
 
 - ### `getCurrentTimestamp` 
 

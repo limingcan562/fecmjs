@@ -53,7 +53,7 @@ console.log(flag); // true
 </script>
 ````
 
-## <a id="Date">`Date` module</a>
+## <a id="Date">`Date`</a>
 
 - ### `getCurrentTimestamp` 
     #### Get current timestamp
