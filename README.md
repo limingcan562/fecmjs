@@ -53,9 +53,9 @@ console.log(flag); // true
 </script>
 ````
 
-## <a id="Date">`Date`</a>module
+## <a id="Date">`Date`module</a>
 
-### `getCurrentTimestamp` 
+- ### `getCurrentTimestamp` 
 #### Get current timestamp
 
 example: 
@@ -64,7 +64,7 @@ import {getCurrentTimestamp} from 'femcjs';
 console.log(getCurrentTimestamp()) // 1730129184412
 ```
 
-### `getDateByFewdays` 
+- ### `getDateByFewdays` 
 #### Depending on the time of day, get the date a few days before or a few days after that time
 
 parameter name | description | default value
@@ -82,8 +82,8 @@ console.log(-30, '2024-10-28'); // 2024-09-28
 console.log(30, '2024-10-28'); // 2024-11-27
 ````
 
-### `getDateByTimestamp` 
-### Get the time based on the incoming timestamp
+- ### `getDateByTimestamp` 
+#### Get the time based on the incoming timestamp
 
 parameter name | description | default value
 ------| ----| -----
@@ -97,10 +97,10 @@ console.log(fecmjs.getDateByTimestamp('1730129184412')); // 2024-10-28
 console.log(fecmjs.getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
 ```
 
-### `getTimestamp` 
+- ### `getTimestamp` 
 #### Get timestamp  
 
-#### 备注：
+#### Example：
 1. Returns the timestamp of the current time by default
 2. The form of the input parameter is the same as the `new Date()` method.
 
