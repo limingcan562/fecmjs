@@ -9,7 +9,6 @@ English | [中文](README_CN.md)
 3. support `tree shaking`, in order to reduce the size of the package
 
 ## Modules
-This tool is currently divided into four modules  
 1. [`Date`: some methods for Date wrapping](#Date)
 2. [`Device`: some methods for devices](#Device)
 3. [`Dom`: some methods for `Dom` operations](#Dom)

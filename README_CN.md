@@ -7,7 +7,6 @@
 3. 支持`tree shaking`，以便减少打包体积
 
 ## 模块
-此工具目前一共分四个模块  
 1. [`Date`：关于日期的一些方法封装](#Date)
 2. [`Device`：关于设备的一些方法封装](#Device)
 3. [`Dom`：`Dom`操作一些方法封装](#Dom)
@@ -51,7 +50,7 @@ console.log(flag); // true
 </script>
 ``` 
 
-## <a id="Date">Date</a> 模块
+## <span id="Date">Date</span> 模块
 
 ### `getCurrentTimestamp` 
 #### 获取当前时间戳
