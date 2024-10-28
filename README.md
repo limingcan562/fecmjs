@@ -9,16 +9,16 @@ English | [中文](README_CN.md)
 3. support `tree shaking`, in order to reduce the size of the package
 
 ## Modules
-1. [`Date`: some methods for Date wrapping](#Date)
-2. [`Device`: some methods for devices](#Device)
-3. [`Dom`: some methods for `Dom` operations](#Dom)
-4. [`File`: Wrapping some methods around `File`](#File)
-5. [`Format`: some method wrappers for formatting](#Format)
-6. [`Object`: Wrapping some methods around `object`](#Object)
-7. [`Storage`: Wrappers for `Storage` methods](#Storage)
-8. [`Url`: Some methods around `Url`](#Url)
-9. [`Validate`: Wrapping some methods around validation](#Validate)
-10. [`Wechat`: Some method wrappers for `Wechat`](#Wechat)
+- [`Date`: some methods for Date wrapping](#Date)
+- [`Device`: some methods for devices](#Device)
+- [`Dom`: some methods for `Dom` operations](#Dom)
+- [`File`: Wrapping some methods around `File`](#File)
+- [`Format`: some method wrappers for formatting](#Format)
+- [`Object`: Wrapping some methods around `object`](#Object)
+- [`Storage`: Wrappers for `Storage` methods](#Storage)
+- [`Url`: Some methods around `Url`](#Url)
+- [`Validate`: Wrapping some methods around validation](#Validate)
+- [`Wechat`: Some method wrappers for `Wechat`](#Wechat)
 
 Translated with DeepL.com (free version)
 

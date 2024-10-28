@@ -7,16 +7,16 @@
 3. 支持`tree shaking`，以便减少打包体积
 
 ## 模块
-1. [`Date`：关于日期的一些方法封装](#Date)
-2. [`Device`：关于设备的一些方法封装](#Device)
-3. [`Dom`：`Dom`操作一些方法封装](#Dom)
-4. [`File`：关于`File`的一些方法封装](#File)
-5. [`Format`: 关于格式化的一些方法封装](#Format)
-6. [`Object`: 关于`Object`的一些方法封装](#Object)
-7. [`Storage`: 关于`Storage`的一些方法封装](#Storage)
-8. [`Url`: 关于`Url`的一些方法封装](#Url)
-9. [`Validate`: 关于校验的一些方法封装](#Validate)
-10.[ `Wechat`: 关于`Wechat`的一些方法封装](#Wechat)
+- [`Date`：关于日期的一些方法封装](#Date)
+- [`Device`：关于设备的一些方法封装](#Device)
+- [`Dom`：`Dom`操作一些方法封装](#Dom)
+- [`File`：关于`File`的一些方法封装](#File)
+- [`Format`: 关于格式化的一些方法封装](#Format)
+- [`Object`: 关于`Object`的一些方法封装](#Object)
+- [`Storage`: 关于`Storage`的一些方法封装](#Storage)
+- [`Url`: 关于`Url`的一些方法封装](#Url)
+- [`Validate`: 关于校验的一些方法封装](#Validate)
+- [`Wechat`: 关于`Wechat`的一些方法封装](#Wechat)
 
 
 
