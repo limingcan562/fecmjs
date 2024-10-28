@@ -52,8 +52,7 @@ console.log(flag); // true
 
 ## <a id="Date">Date模块</a>
 
-### `getCurrentTimestamp` 
-#### 获取当前时间戳
+`getCurrentTimestamp`  获取当前时间戳
 
 示例:
 ```javascript
