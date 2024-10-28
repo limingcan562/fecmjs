@@ -4,7 +4,7 @@
  */
 
 import isObj from "../object/isObj";
-export default function setUrlWithNorefresh(value) {
+export default function setUrlWithNorefresh(value = {}) {
     if (!isObj(value)) return;
 
     // 获取当前URL

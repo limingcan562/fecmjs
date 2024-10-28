@@ -72,6 +72,10 @@ console.log(flag); // true
     `fewdays`| The number of days to the target day to be acquired  |  `0` 
     `time`| target time  |  `new Date().getTime()` 
 
+    ##### Note：
+    1. When `fewdays` is a positive integer, get the next few days of the target date
+    2. When `fewdays` is a negative integer, get the first few days of the target date
+
     Example:
     ````javascript
     // Get the first 30 days of 2024-10-28
@@ -110,4 +114,40 @@ console.log(flag); // true
     console.log(getTimestamp()); // 1730131646512
     console.log(getTimestamp('2024-10-29')); // 1730160000000
     console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
+    ```
+
+## <a id="Url">`Url`</a>
+- ### `getUrlValue` 
+
+    #### Get the value of the `url` parameter
+
+    parameter name | description | default value
+    ------| ----| -----
+    `key`| The key of the value to get  | `''`
+    `url`| The `url` link to get  | `window.location.href` 
+
+    ##### Note：
+    1. When `key` is empty, an object consisting of the values of all the arguments of `url` is returned.
+    2. When `key` is a value, the value of `url` as `key` is returned.
+
+    Example:
+    ```javascript
+    import {getUrlValue} from 'femcjs';
+    const url = 'http://localhost:5501/test/?name=lee&age=29'
+    console.log(getUrlValue('', url)); // {name: 'lmc', age: 29}
+    console.log(getUrlValue('name', url)); // 'lmc'
+    ```
+
+- ### `setUrlWithNorefresh` 
+
+    #### Setting the url and not refreshing the page
+
+    parameter name | description | default value
+    ------| ----| -----
+    `key`| Value to be set  | `{}`
+
+    Example:
+    ```javascript
+    import {setUrlWithNorefresh} from 'femcjs';
+    console.log(setUrlWithNorefresh({name: 'lmc', age: 29}); // http://localhost:5501/test/?name=lmc&age=29
     ```

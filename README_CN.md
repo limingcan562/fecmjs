@@ -71,6 +71,10 @@ console.log(flag); // true
     `fewdays`| 要获取的距离目标日子的多少天  |  `0` 
     `time`| 目标时间  |  `new Date().getTime()` 
 
+    ##### 备注：
+    1. 当`fewdays`为正整数，则获取目标日期的后几天
+    2. 当`fewdays`为负整数，则获取目标日期的前几天
+
     示例:
     ```javascript
     // 获取2024-10-28日的前30天
@@ -110,4 +114,41 @@ console.log(flag); // true
     console.log(getTimestamp()); // 1730131646512
     console.log(getTimestamp('2024-10-29')); // 1730160000000
     console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
+    ```
+
+
+## <a id="Url">`Url`</a>
+- ### `getUrlValue` 
+
+    #### 获取`url`的参数的值  
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `key`| 要获取的值的`key`  | `''`
+    `url`| 要获取的`url`链接  | `window.location.href` 
+
+    ##### 备注：
+    1. 当`key`为空，会返回`url`所有的参数对应值组成的对象
+    2. 当`key`为某个值，则返回`url`这个`key`的值
+
+    示例:
+    ```javascript
+    import {getUrlValue} from 'femcjs';
+    const url = 'http://localhost:5501/test/?name=lee&age=29'
+    console.log(getUrlValue('', url)); // {name: 'lmc', age: 29}
+    console.log(getUrlValue('name', url)); // 'lmc'
+    ```
+
+- ### `setUrlWithNorefresh` 
+
+    #### 设置url，并且不刷新页面
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `value`| 要设置的值  | `{}`
+
+    示例:
+    ```javascript
+    import {setUrlWithNorefresh} from 'femcjs';
+    console.log(setUrlWithNorefresh({name: 'lmc', age: 29}); // http://localhost:5501/test/?name=lmc&age=29
     ```

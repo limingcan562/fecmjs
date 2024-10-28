@@ -2,7 +2,7 @@
  * @description: Get URL parameters
  * @key {string} A parameter name
  * @url {url} The link to be obtained
- * @return {boolean} Is there Chinese available
+ * @return {string | object} Returns an object consisting of a value or all values of url.
  */
 export default function getUrlValue(key, url = window.location.href){
 	// \w+ 表示匹配至少一个(数字、字母及下划线), [\u4e00-\u9fa5]+ 表示匹配至少一个中文字符
