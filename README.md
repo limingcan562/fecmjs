@@ -53,61 +53,61 @@ console.log(flag); // true
 </script>
 ````
 
-## <a id="Date">`Date`module</a>
+## <a id="Date">`Date` module</a>
 
 - ### `getCurrentTimestamp` 
-#### Get current timestamp
+    #### Get current timestamp
 
-example: 
-```javascript
-import {getCurrentTimestamp} from 'femcjs';
-console.log(getCurrentTimestamp()) // 1730129184412
-```
+    Example: 
+    ```javascript
+    import {getCurrentTimestamp} from 'femcjs';
+    console.log(getCurrentTimestamp()) // 1730129184412
+    ```
 
 - ### `getDateByFewdays` 
-#### Depending on the time of day, get the date a few days before or a few days after that time
+    #### Depending on the time of day, get the date a few days before or a few days after that time
 
-parameter name | description | default value
-------| ----| -----
-`fewdays`| The number of days to the target day to be acquired  |  `0` 
-`time`| target time  |  `new Date().getTime()` 
+    parameter name | description | default value
+    ------| ----| -----
+    `fewdays`| The number of days to the target day to be acquired  |  `0` 
+    `time`| target time  |  `new Date().getTime()` 
 
-Example:
-````javascript
-// Get the first 30 days of 2024-10-28
-import {getCurrentTimestamp} from 'femcjs';
-console.log(-30, '2024-10-28'); // 2024-09-28
+    Example:
+    ````javascript
+    // Get the first 30 days of 2024-10-28
+    import {getCurrentTimestamp} from 'femcjs';
+    console.log(-30, '2024-10-28'); // 2024-09-28
 
-// Get the last 30 days of 2024-10-28
-console.log(30, '2024-10-28'); // 2024-11-27
-````
+    // Get the last 30 days of 2024-10-28
+    console.log(30, '2024-10-28'); // 2024-11-27
+    ````
 
 - ### `getDateByTimestamp` 
-#### Get the time based on the incoming timestamp
+    #### Get the time based on the incoming timestamp
 
-parameter name | description | default value
-------| ----| -----
-`timestamp`| timestamp  | 
-`needHMS`| Whether you need to return hours, minutes and seconds  | `false` 
+    parameter name | description | default value
+    ------| ----| -----
+    `timestamp`| timestamp  | 
+    `needHMS`| Whether you need to return hours, minutes and seconds  | `false` 
 
-Example:
-```javascript
-import {getDateByTimestamp} from 'femcjs';
-console.log(fecmjs.getDateByTimestamp('1730129184412')); // 2024-10-28
-console.log(fecmjs.getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
-```
+    Example:
+    ```javascript
+    import {getDateByTimestamp} from 'femcjs';
+    console.log(fecmjs.getDateByTimestamp('1730129184412')); // 2024-10-28
+    console.log(fecmjs.getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
+    ```
 
 - ### `getTimestamp` 
-#### Get timestamp  
+    #### Get timestamp  
 
-#### Example：
-1. Returns the timestamp of the current time by default
-2. The form of the input parameter is the same as the `new Date()` method.
+    #### Note:
+    1. Returns the timestamp of the current time by default
+    2. The form of the input parameter is the same as the `new Date()` method.
 
-Example:
-```javascript
-import {getTimestamp} from 'femcjs';
-console.log(getTimestamp()); // 1730131646512
-console.log(getTimestamp('2024-10-29')); // 1730160000000
-console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
-```
+    Example:
+    ```javascript
+    import {getTimestamp} from 'femcjs';
+    console.log(getTimestamp()); // 1730131646512
+    console.log(getTimestamp('2024-10-29')); // 1730160000000
+    console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
+    ```

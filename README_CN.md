@@ -50,64 +50,64 @@ console.log(flag); // true
 </script>
 ``` 
 
-## <a id="Date">Date模块</a>
+## <a id="Date">Date 模块</a>
 
 - ### `getCurrentTimestamp` 
 
-#### 获取当前时间戳
+    #### 获取当前时间戳
 
-示例:
-```javascript
-import {getCurrentTimestamp} from 'femcjs';
-console.log(getCurrentTimestamp()) // 1730129184412
-```
+    示例:
+    ```javascript
+    import {getCurrentTimestamp} from 'femcjs';
+    console.log(getCurrentTimestamp()) // 1730129184412
+    ```
 
 - ### `getDateByFewdays` 
 
-#### 根据时间，获取该时间的前几天或后几天日期
+    #### 根据时间，获取该时间的前几天或后几天日期
 
-参数名 | 说明  | 默认值
-------| ----| -----
-`fewdays`| 要获取的距离目标日子的多少天  |  `0` 
-`time`| 目标时间  |  `new Date().getTime()` 
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `fewdays`| 要获取的距离目标日子的多少天  |  `0` 
+    `time`| 目标时间  |  `new Date().getTime()` 
 
-示例:
-```javascript
-// 获取2024-10-28日的前30天
-import {getCurrentTimestamp} from 'femcjs';
-console.log(-30, '2024-10-28'); // 2024-09-28
+    示例:
+    ```javascript
+    // 获取2024-10-28日的前30天
+    import {getCurrentTimestamp} from 'femcjs';
+    console.log(-30, '2024-10-28'); // 2024-09-28
 
-// 获取2024-10-28日的后30天
-console.log(30, '2024-10-28'); // 2024-11-27
-```
+    // 获取2024-10-28日的后30天
+    console.log(30, '2024-10-28'); // 2024-11-27
+    ```
 
 - ### `getDateByTimestamp` 
-#### 根据传入的时间戳获取时间
+    #### 根据传入的时间戳获取时间
 
-参数名 | 说明  | 默认值
-------| ----| -----
-`timestamp`| 时间戳  | 
-`needHMS`| 是否需要返回时分秒  | `false` 
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `timestamp`| 时间戳  | 
+    `needHMS`| 是否需要返回时分秒  | `false` 
 
-示例:
-```javascript
-import {getDateByTimestamp} from 'femcjs';
-console.log(fecmjs.getDateByTimestamp('1730129184412')); // 2024-10-28
-console.log(fecmjs.getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
-```
+    示例:
+    ```javascript
+    import {getDateByTimestamp} from 'femcjs';
+    console.log(fecmjs.getDateByTimestamp('1730129184412')); // 2024-10-28
+    console.log(fecmjs.getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
+    ```
 
 - ### `getTimestamp` 
 
-#### 获取时间戳  
+    #### 获取时间戳  
 
-##### 备注：
-1. 默认返回当前时间的时间戳
-2. 入参形式与`new Date()`方法相同
+    ##### 备注：
+    1. 默认返回当前时间的时间戳
+    2. 入参形式与`new Date()`方法相同
 
-示例:
-```javascript
-import {getTimestamp} from 'femcjs';
-console.log(getTimestamp()); // 1730131646512
-console.log(getTimestamp('2024-10-29')); // 1730160000000
-console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
-```
+    示例:
+    ```javascript
+    import {getTimestamp} from 'femcjs';
+    console.log(getTimestamp()); // 1730131646512
+    console.log(getTimestamp('2024-10-29')); // 1730160000000
+    console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
+    ```
