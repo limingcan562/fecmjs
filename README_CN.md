@@ -50,7 +50,7 @@ console.log(flag); // true
 </script>
 ``` 
 
-## <span id="Date">Date</span> 模块
+## <span id="Date">Date模块</span> 
 
 ### `getCurrentTimestamp` 
 #### 获取当前时间戳
