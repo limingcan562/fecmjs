@@ -1,24 +1,27 @@
 # fecmjs
+Front end common method collection
 
-English | [中文](https://github.com/limingcan562/fecmjs/blob/main/README_CN.md)
+English | [中文](README_CN.md)
 
 ## Features
+1. Front-end commonly used methods collection collection , to facilitate the usual development ( part of the method from the Internet )
+2. Modular development, easy to reference
+3. support `tree shaking`, in order to reduce the size of the package
 
-1. Collection of common front-end methods to facilitate normal development
+## Modules
+This tool is currently divided into four modules  
+1. [`Date`: some methods for Date wrapping](#Date)
+2. [`Device`: some methods for devices](#Device)
+3. [`Dom`: some methods for `Dom` operations](#Dom)
+4. [`File`: Wrapping some methods around `File`](#File)
+5. [`Format`: some method wrappers for formatting](#Format)
+6. [`Object`: Wrapping some methods around `object`](#Object)
+7. [`Storage`: Wrappers for `Storage` methods](#Storage)
+8. [`Url`: Some methods around `Url`](#Url)
+9. [`Validate`: Wrapping some methods around validation](#Validate)
+10. [`Wechat`: Some method wrappers for `Wechat`](#Wechat)
 
-2. Applicable to mobile terminal, `PC` terminal, mobile terminal first (some methods come from the Internet)
-
-3. Modular development for easy reference
-
-4. Support `tree shaking` to reduce packing volume
-
-
-## Introduce
-This tool is currently divided into four modules
-1. `Form`: It contains general form validation methods, character judgment of user input information, etc.
-2. `Common`: It contains some methods that are often used in mobile terminal development
-3. `Info`: It contains some information about the current mobile device
-4. `Ajax`: It contains the encapsulated `ajax` request method
+Translated with DeepL.com (free version)
 
 ## Usage
 - use the `npm` method
@@ -30,15 +33,14 @@ npm i fecmjs
 ````javascript
 // 1. Use all modules
 import * as Fecmjs from 'fecmjs';
-const {Form, Normal, Info} = Fecmjs;
-const flag = Form.checkEmail('limingcan562@163.com');
+const flag = Fecmjs.isEmail('limingcan562@163.com');
 console.log(flag); // true
 ````
 
 ````javascript
 // 2. When you only need to use some functions, you can import some modules (recommended)
-import {Form, Normal, Info} from 'fecmjs';
-const flag = Form.checkEmail('limingcan562@163.com');
+import {isEmail} from 'fecmjs';
+const flag = isEmail('limingcan562@163.com');
 console.log(flag); // true
 ````
 
@@ -47,100 +49,70 @@ console.log(flag); // true
 ```html
 <script src="https://cdn.xxxx/fecmjs.min.js"></script>
 <script>
-    var Form = Fecmjs.Form;
-    var flag = Form.checkEmail('limingcan562@163.com');
+    var flag = fecmjs.checkEmail('limingcan562@163.com');
     console.log(flag); // true
 </script>
 ````
 
-## `Common` module
+## <a id="Date">`Date`</a>module
 
-### `loadImage(src)` load images
+### `getCurrentTimestamp` 
+#### Get current timestamp
+
+example: 
+```javascript
+import {getCurrentTimestamp} from 'femcjs';
+console.log(getCurrentTimestamp()) // 1730129184412
+```
+
+### `getDateByFewdays` 
+#### Depending on the time of day, get the date a few days before or a few days after that time
 
 parameter name | description | default value
 ------| ----| -----
-`src`| URL of the image to load | `''`
+`fewdays`| The number of days to the target day to be acquired  |  `0` 
+`time`| target time  |  `new Date().getTime()` 
+
+Example:
+````javascript
+// Get the first 30 days of 2024-10-28
+import {getCurrentTimestamp} from 'femcjs';
+console.log(-30, '2024-10-28'); // 2024-09-28
+
+// Get the last 30 days of 2024-10-28
+console.log(30, '2024-10-28'); // 2024-11-27
+````
+
+### `getDateByTimestamp` 
+### Get the time based on the incoming timestamp
+
+parameter name | description | default value
+------| ----| -----
+`timestamp`| timestamp  | 
+`needHMS`| Whether you need to return hours, minutes and seconds  | `false` 
 
 Example:
 ```javascript
-Common
-.loadImage('http://xxxx')
-// loaded successfully
-.then(img => {
-    
-})
-// Failed to load
-.catch(err => {
-    
-});
+import {getDateByTimestamp} from 'femcjs';
+console.log(fecmjs.getDateByTimestamp('1730129184412')); // 2024-10-28
+console.log(fecmjs.getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
 ```
 
-### `wait(delay)` delay
+### `getTimestamp` 
+#### Get timestamp  
 
-parameter name | description | default value
-------| ----| -----
-`delay`| delay time | `500`
-
-Example:
-````javascript
-Common
-.wait(1000)
-// Execute after a delay of 1s
-.then( => {
-    
-});
-````
-
-### `showTips({})` Show tips popup
-
-parameter name | description | default value
-------| ----| -----
-`autoClose`| Whether to close automatically | `true`
-`delay`| how many seconds after which to automatically close | `1000`
-`text`| prompt text | `loading...`
-`closedFn`| closed callback | `() => {}`
+#### 备注：
+1. Returns the timestamp of the current time by default
+2. The form of the input parameter is the same as the `new Date()` method.
 
 Example:
-````javascript
-Common
-.showTips({
-    autoClose: false,
-    delay: 2000,
-    text: 'please waiting',
-    closedFn: () => {
-        console.log('closed');
-    }
-});
-````
+```javascript
+import {getTimestamp} from 'femcjs';
+console.log(getTimestamp()); // 1730131646512
+console.log(getTimestamp('2024-10-29')); // 1730160000000
+console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
+```
 
-### `closeTips()` close the prompt popup
-
-Description: Applicable when `autoClose: false` of `showTips`
-
-Example:
-````javascript
-Common.closeTips();
-````
-
-### `isVisibleArea(domEle)` Whether the element appears in the viewport
-
-parameter name | description | default value
-------| ----| -----
-`domEle` | `dom` element | `{}`
-
-Example:
-````javascript
-const dom = document.getElementById('ele');
-const isShow = Common.isVisibleArea(dom);
-// element is in viewport
-if (isShow) {
-
-}
-// element is not in viewport
-else {
-
-}
-````
 
 ## `Form` module
 

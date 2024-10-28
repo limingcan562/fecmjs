@@ -1,13 +1,15 @@
 /**
  * @description: Get specific dates a few days before or a few days after
+ * @param {string} fewdays, a few days
  * @param {string} time, month and year '2024-10-24'
- * @param {string} daysago, a few days
  * @return {string} time '2024-10-24'
  */
 
-export default function getDateByFewdays(time, daysago) {
+import getCurrentTimestamp from "./getCurrentTimestamp";
+
+export default function getDateByFewdays(fewdays = 0, time = getCurrentTimestamp()) {
     const date = new Date(time);
-    const intDaysage = +daysago;
+    const intDaysage = +fewdays;
     const dateAgo = date.getDate() + intDaysage;
     date.setDate(dateAgo);
 

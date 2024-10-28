@@ -1,17 +1,25 @@
 # fecmjs
+前端常用方法集合
 
 ## 特点
-1. 前端常用方法收集集合，方便平时开发
-2. 适用于移动端，`PC`端，移动端优先（部分方法来自网上）
-3. 模块化开发，方便引用
-4. 支持`tree shaking`，以便减少打包体积
+1. 前端常用方法收集集合，方便平时开发（部分方法来自网上）
+2. 模块化开发，方便引用
+3. 支持`tree shaking`，以便减少打包体积
 
-## 介绍
+## 模块
 此工具目前一共分四个模块  
-1. `Common`：里面包含移动端开发时，经常会用到的一些方法
-2. `Form`：里面包含通用的表单验证方法，用户输入信息的字符判断等方法
-3. `Info`：里面包含当前手机设备的一些信息
-4. `Ajax`：里面包含封装好的`ajax`请求方法
+1. [`Date`：关于日期的一些方法封装](#Date)
+2. [`Device`：关于设备的一些方法封装](#Device)
+3. [`Dom`：`Dom`操作一些方法封装](#Dom)
+4. [`File`：关于`File`的一些方法封装](#File)
+5. [`Format`: 关于格式化的一些方法封装](#Format)
+6. [`Object`: 关于`Object`的一些方法封装](#Object)
+7. [`Storage`: 关于`Storage`的一些方法封装](#Storage)
+8. [`Url`: 关于`Url`的一些方法封装](#Url)
+9. [`Validate`: 关于校验的一些方法封装](#Validate)
+10.[ `Wechat`: 关于`Wechat`的一些方法封装](#Wechat)
+
+
 
 ## 用法
 - 使用`npm`方式  
@@ -22,15 +30,14 @@ npm i fecmjs
 ```javascript 
 // 1. 使用所有模块
 import * as Fecmjs from 'fecmjs';
-const {Form, Normal, Info} = Fecmjs;
-const flag = Form.checkEmail('limingcan562@163.com');
+const flag = Fecmjs.isEmail('limingcan562@163.com');
 console.log(flag); // true
 ```
 
 ```javascript 
 // 2. 当你只需要用部分功能的时候，可以引入部分模块（推荐）
-import {Form, Normal, Info} from 'fecmjs';
-const flag = Form.checkEmail('limingcan562@163.com');
+import {isEmail} from 'fecmjs';
+const flag = isEmail('limingcan562@163.com');
 console.log(flag); // true
 ```
 
@@ -39,99 +46,68 @@ console.log(flag); // true
 ```html
 <script src="https://cdn.xxxx/fecmjs.min.js"></script>
 <script>
-    var Form = Fecmjs.Form;
-    var flag = Form.checkEmail('limingcan562@163.com');
+    var flag = fecmjs.checkEmail('limingcan562@163.com');
     console.log(flag); // true
 </script>
 ``` 
 
-## `Common` 模块
+## <a id="Date">`Date`</a>模块
 
-### `loadImage(src)` 加载图片
+### `getCurrentTimestamp` 
+#### 获取当前时间戳
+
+示例:
+```javascript
+import {getCurrentTimestamp} from 'femcjs';
+console.log(getCurrentTimestamp()) // 1730129184412
+```
+
+### `getDateByFewdays` 
+#### 根据时间，获取该时间的前几天或后几天日期
 
 参数名 | 说明  | 默认值
 ------| ----| -----
-`src`| 要加载的图片地址  |  `''` 
+`fewdays`| 要获取的距离目标日子的多少天  |  `0` 
+`time`| 目标时间  |  `new Date().getTime()` 
 
 示例:
 ```javascript
-Common
-.loadImage('http://xxxx')
-// 加载成功
-.then(img => {
-    
-})
-// 加载失败
-.catch(err => {
-    
-});
+// 获取2024-10-28日的前30天
+import {getCurrentTimestamp} from 'femcjs';
+console.log(-30, '2024-10-28'); // 2024-09-28
+
+// 获取2024-10-28日的后30天
+console.log(30, '2024-10-28'); // 2024-11-27
 ```
 
-### `wait(delay)` 延时
+### `getDateByTimestamp` 
+### 根据传入的时间戳获取时间
 
 参数名 | 说明  | 默认值
 ------| ----| -----
-`delay`| 延时的时间  |  `500` 
+`timestamp`| 时间戳  | 
+`needHMS`| 是否需要返回时分秒  | `false` 
 
 示例:
 ```javascript
-Common
-.wait(1000)
-// 延时1s后执行
-.then( => {
-    
-});
+import {getDateByTimestamp} from 'femcjs';
+console.log(fecmjs.getDateByTimestamp('1730129184412')); // 2024-10-28
+console.log(fecmjs.getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
 ```
 
-### `showTips({})` 显示提示弹窗
+### `getTimestamp` 
+#### 获取时间戳  
 
-参数名 | 说明  | 默认值
-------| ----| -----
-`autoClose`| 是否自动关闭  | `true` 
-`delay`| 多少秒后自动关闭  | `1000` 
-`text`| 提示文案  | `loading...` 
-`closedFn`| 关闭后的回调  | `() => {}` 
+#### 备注：
+1. 默认返回当前时间的时间戳
+2. 入参形式与`new Date()`方法相同
 
 示例:
 ```javascript
-Common
-.showTips({
-    autoClose: false,
-    delay: 2000,
-    text: 'please waiting',
-    closedFn: () => {
-        console.log('closed');
-    }
-});
-```
-
-### `closeTips()` 关闭提示弹窗  
-
-说明：适用于，当`showTips`的`autoClose: false`的情况 
-
-示例:
-```javascript
-Common.closeTips();
-```
-
-### `isVisibleArea(domEle)` 元素是否出现在可视区
-
-参数名 | 说明  | 默认值
-------| ----| -----
-`domEle`| `dom`元素  | `{}` 
-
-示例:
-```javascript
-const dom = document.getElementById('ele');
-const isShow = Common.isVisibleArea(dom);
-// 元素在可视区内
-if (isShow) {
-
-} 
-// 元素不在可视区内
-else {
-
-}
+import {getTimestamp} from 'femcjs';
+console.log(getTimestamp()); // 1730131646512
+console.log(getTimestamp('2024-10-29')); // 1730160000000
+console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
 ```
 
 ## `Form` 模块
