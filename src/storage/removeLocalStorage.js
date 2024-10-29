@@ -6,7 +6,7 @@
 import isArr from "../object/isArr";
 import isStr from "../object/isStr";
 
-export default function setLocalStorage(key) {
+export default function removeLocalStorage(key) {
     if (isArr(key)) {
         key.forEach(KEY => window.localStorage.removeItem(KEY));
     }

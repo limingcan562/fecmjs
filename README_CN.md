@@ -116,6 +116,75 @@ console.log(flag); // true
     console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
     ```
 
+## <a id="Storage">`Storage`</a>
+- ### `getLocalStorage` 
+
+    #### 获取本地储存某个值
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `key`| 要获取的key值 | 
+
+    ##### 备注：
+    1. 如果获取的`key`值是对象，则直接返回`key`值对应的对象
+    2. 否则返回`key`值对应的字符串
+
+    示例:
+    ```javascript
+    // 如果localStorage存储了info: {"name":"lee","age":29}, name: test
+    import {getLocalStorage} from 'femcjs';
+    console.log(getLocalStorage(info)); // {name: lee, age} 对象
+    console.log(getLocalStorage(name)); // test 字符串
+    ```
+
+- ### `setLocalStorage` 
+
+    #### 设置本地储存某个值
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `key`| 要设置的`key`值 | 
+    `val`| 要设置的`key`对应的值 | 
+
+
+    ##### 备注：
+    `val`可以为对象，也可以为字符串
+
+    示例:
+    ```javascript
+    import {setLocalStorage} from 'femcjs';
+    setLocalStorage('info', {name: 'lee', age: 29}); // info ->  {"name":"lee","age":29}
+    ```
+
+
+- ### `removeLocalStorage` 
+
+    #### 删除本地储存某个或多个值
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `key`| 要删除的`key`值 | 
+
+    ##### 备注：
+    1. 如果`key`为数组，则可以删除多个对应的`key`值
+    2. 如果`key`为字符串，则删除单个值
+
+    示例:
+    ```javascript
+    import {removeLocalStorage} from 'femcjs';
+    console.log(removeLocalStorage(['info', 'test'])); // 将删除info,test对应的值
+    ```
+    
+- ### `clearLocalStorage` 
+
+    #### 清除本地存储  
+
+    示例:
+    ```javascript
+    import {clearLocalStorage} from 'femcjs';
+    console.log(clearLocalStorage());
+    ```
+
 
 ## <a id="Url">`Url`</a>
 - ### `getUrlValue` 

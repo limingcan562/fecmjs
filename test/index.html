@@ -10,10 +10,18 @@
 
     <script src="../dist/fecmjs.js"></script>
     <script>
-        document.querySelector('input').addEventListener('change', evt => {
-            const file = evt.target.files[0];
-            console.log(fecmjs.formatVideoDuration());
-        })
+        // document.querySelector('input').addEventListener('change', evt => {
+        //     const file = evt.target.files[0];
+        //     console.log(fecmjs.formatVideoDuration());
+        // })
+        // const info = fecmjs.getLocalStorage('info');
+        // console.log(info);
+
+        const info = {name: 'lee',age: 29};
+        // localStorage.setItem('info2', JSON.stringify(info))
+        console.log(fecmjs.getLocalStorage('info'));
+
+        fecmjs.setLocalStorage('info2', 'test')
     </script>
 </body>
 </html>

@@ -135,7 +135,7 @@ console.log(flag); // true
 
     #### Formatted Video Duration
 
-     parameter name | description | default value
+    parameter name | description | default value
     ------| ----| -----
     `totalSeconds`| video duration  | `0`
 
@@ -143,6 +143,75 @@ console.log(flag); // true
     ```javascript
     import {formatVideoDuration} from 'femcjs';
     console.log(formatVideoDuration(3600)); // 01:00:00
+    ```
+
+## <a id="Storage">`Storage`</a>
+- ### `getLocalStorage` 
+
+    #### Getting a value from local storage
+
+    parameter name | description | default value
+    ------| ----| -----
+    `key`| The key value to get  | 
+
+
+    ##### Note：
+    1. if the `key` value is an object, return the object corresponding to the `key` value directly
+    2. otherwise, return the string corresponding to the `key` value.
+
+    Example:
+    ```javascript
+    // If localStorage stores info: {“name”: “lee”, “age”:29}, name: test
+    import {getLocalStorage} from 'femcjs';
+    console.log(getLocalStorage(info)); // {name: lee, age} objects
+    console.log(getLocalStorage(name)); // test string
+    ```
+
+- ### `setLocalStorage` 
+
+    #### Setting a LocalStorage value
+
+    parameter name | description | default value
+    ------| ----| -----
+    `key` | The value of the `key` to be set | 
+    `val`| The value corresponding to the `key` to be set | 
+
+    ##### Note:
+    `val` can be an object or a string
+
+    Example:
+    ```javascript
+    import {setLocalStorage} from 'femcjs';
+    setLocalStorage('info', {name: 'lee', age: 29}); // info ->  {"name":"lee","age":29}
+    ```
+
+- ### `removeLocalStorage` 
+
+    #### Delete one or more locally stored values
+
+    parameter name | description | default value
+    ------| ----| -----
+    `key` | value of `key` to be deleted | 
+
+    ##### 备注：
+    1. if `key` is an array, multiple corresponding `key` values can be removed
+    2. if `key` is a string, then a single value is removed
+
+
+    Example:
+    ```javascript
+    import {removeLocalStorage} from 'femcjs';
+    console.log(removeLocalStorage(['info', 'test'])); // 将删除info,test对应的值
+    ```
+    
+- ### `clearLocalStorage` 
+
+    #### Clear Local Storage  
+
+    Example:
+    ```javascript
+    import {formatFileSize} from 'femcjs';
+    console.log(formatFileSize(file)); // 1.37KB
     ```
 
 

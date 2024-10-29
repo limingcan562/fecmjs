@@ -9,7 +9,7 @@ export default function getLocalStorage(key) {
     try {
         value = JSON.parse(value);
     } catch (error) {
-        value = window.localStorage.getItem(key);
+        // value = window.localStorage.getItem(key);
     }
 
     return value;
