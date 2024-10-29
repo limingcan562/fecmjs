@@ -19,8 +19,8 @@ import getClass from './dom/getClass';
 import setStyle from './dom/setStyle';
 import isShowOnVisualArea from './dom/isShowOnVisualArea';
 import isExceedParentHeight from './dom/isExceedParentHeight';
-import setNoScroll from './dom/setNoScroll';
-import restoreScroll from './dom/restoreScroll';
+import setPageNoScroll from './dom/setPageNoScroll';
+import restorePageScroll from './dom/restorePageScroll';
 
 
 // object
@@ -102,8 +102,8 @@ export {
     setStyle,
     isShowOnVisualArea,
     isExceedParentHeight,
-    setNoScroll,
-    restoreScroll,
+    setPageNoScroll,
+    restorePageScroll,
 
     isArr,
     isObj,

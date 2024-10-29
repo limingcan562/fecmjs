@@ -116,6 +116,107 @@ console.log(flag); // true
     console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
     ```
 
+## <a id="Dom">`Dom`</a>
+
+- ### `$` 
+
+    #### 返回`Dom`对象
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `selectName`| `css`选择器 | 
+
+- ### `addClass` 
+
+    #### 给某个`Dom`对象增加类名
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `selectName`| `css`选择器 |
+    `nameList`| 要添加的类名 | 
+
+    ##### 备注：
+    1. 想添加多个类名时，`nameList`可传入数组
+    2. 想添加单个类名时，`nameList`可传入字符串
+
+    示例:
+    ```javascript
+    import {addClass} from 'femcjs';
+    addClass('#dom', ['name1', 'name2', 'nam3']);
+    ```
+
+- ### `getClass` 
+
+    #### 获取某个`Dom`对象类名
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `selectName`| `css`选择器 |
+
+    ##### 备注：
+    返回该对象类名组成的数组
+
+- ### `removeClass` 
+
+    #### 删除某个`Dom`对象一个或多个类名
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `selectName`| `css`选择器 |
+    `nameList`| 要删除的类名 | 
+
+    ##### 备注：
+    1. 想删除多个类名时，`nameList`可传入数组
+    2. 想删除单个类名时，`nameList`可传入字符串
+
+- ### `setStyle` 
+
+    #### 设置某个`Dom`对象的样式
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `selectName`| `css`选择器 |
+    `style`| 要设置的样式 | 
+
+    ##### 备注：
+    1. 想设置多个样式时，`style`可传入对象
+    2. 想设置单个样式时，`style`可传入字符串
+
+    示例:
+    ```javascript
+    import {setStyle} from 'femcjs';
+    setStyle('#dom', {color: 'red', backgroundColor: '#000'}); // 设置多个样式
+    setStyle('#dom', 'color: red'); // 设置单个样式
+    ```
+
+- ### `isExceedParentHeight` 
+
+    #### 判断子元素是否超出父元素高度
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `parentSelectName`| 父元素类名选择器 |
+    `childSelectName`| 子元素类名选择器 | 
+
+    ##### 备注：
+    父元素得设置高度
+
+- ### `isShowOnVisualArea` 
+
+    #### 判断某个元素是否出现在可视区
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `selectName`| 元素类名选择器 |
+
+- ### `setPageNoScroll` 
+
+    #### 设置页面不能滚动
+
+- ### `restorePageScroll` 
+
+    #### 恢复页面滚动
+
 ## <a id="Device">`Device`</a>
 
 - ### `isAndroid` 

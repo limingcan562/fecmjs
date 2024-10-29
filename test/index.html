@@ -6,7 +6,8 @@
     <title>Test</title>
 </head>
 <body>
-    <input type="file">
+    <input type="file" id="dom" class="test test2 test3">
+    <div style="height: 120vh"></div>
 
     <script src="../dist/fecmjs.js"></script>
     <script>
@@ -17,11 +18,25 @@
         // const info = fecmjs.getLocalStorage('info');
         // console.log(info);
 
-        const info = {name: 'lee',age: 29};
-        // localStorage.setItem('info2', JSON.stringify(info))
-        console.log(fecmjs.getLocalStorage('info'));
+        // const info = {name: 'lee',age: 29};
+        // // localStorage.setItem('info2', JSON.stringify(info))
+        // console.log(fecmjs.getLocalStorage('info'));
 
-        fecmjs.setLocalStorage('info2', 'test')
+        // console.log(fecmjs.removeClass('#dom', ['test', 'test2']));
+        // fecmjs.removeClass('#dom', 'test3')
+
+
+        // fecmjs.setNoScroll(); // 设置多个样式
+        // fecmjs.setStyle('#dom', 'color: red'); // 设置单个样式
+
+
+        setTimeout(() => {
+            fecmjs.setPageNoScroll();
+        }, 1000);
+
+        setTimeout(() => {
+            fecmjs.restorePageScroll();
+        }, 2000);
     </script>
 </body>
 </html>

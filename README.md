@@ -147,6 +147,112 @@ console.log(flag); // true
     #### Whether the current environment is WeChat
 
 
+## <a id="Dom">`Dom`</a>
+
+- ### `$` 
+
+    #### Returns the `Dom` object
+
+    parameter name | description | default value
+    ------| ----| -----
+    `selectName`| `css` selector |
+    
+    
+- ### `addClass` 
+
+    #### Adds a class name to a `Dom` object.
+
+    parameter name | description | default value
+    ------| ----| -----
+    `selectName`| `css` selector |
+    `nameList`| The name of the class to be added | 
+
+    ##### 备注：
+    1. `nameList` can be passed as an array when you want to add multiple class names.
+    2. `nameList` can be passed as a string if you want to add a single class name.
+
+    示例:
+    ```javascript
+    import {addClass} from 'femcjs';
+    addClass('#dom', ['name1', 'name2', 'nam3']);
+    ```
+
+- ### `getClass` 
+
+    #### Get the class name of a `Dom` object
+
+    parameter name | description | default value
+    ------| ----| -----
+    `selectName`| `css` selector |
+
+    ##### 备注：
+    Returns an array of the object's class names
+
+
+- ### `removeClass` 
+
+    #### Remove one or more class names from a `Dom` object.
+
+    parameter name | description | default value
+    ------| ----| -----
+    `selectName`| `css` selector |
+    `nameList`| Class name to be deleted | 
+
+    ##### 备注：
+    1. `nameList` can be passed as an array if you want to delete multiple class names.
+    2. `nameList` can be passed as a string if you want to delete a single class name.
+
+
+- ### `setStyle` 
+
+    #### Setting the style of a `Dom` object
+
+    parameter name | description | default value
+    ------| ----| -----
+    `selectName`| `css` selector |
+    `style`| The style to be set | 
+
+    ##### 备注：
+    1. `style` can be passed as an object when you want to set multiple styles.
+    2. `style` can be passed as a string when you want to set a single style.
+
+    示例:
+    ```javascript
+    import {setStyle} from 'femcjs';
+    setStyle('#dom', {color: 'red', backgroundColor: '#000'}); // set multiple styles
+    setStyle('#dom', 'color: red'); // set a single style
+    ```
+
+- ### `isExceedParentHeight` 
+
+    #### Determine if a child element exceeds the height of the parent element
+
+    parameter name | description | default value
+    ------| ----| -----
+    `parentSelectName`| Parent element class name selector |
+    `childSelectName`| Child element class name selector | 
+
+    ##### 备注：
+    The parent element has to set the height
+
+
+- ### `isShowOnVisualArea` 
+
+    #### Determine if an element appears in the visual area
+
+    parameter name | description | default value
+    ------| ----| -----
+    `selectName`| Element class name selector |
+
+- ### `setPageNoScroll` 
+
+    #### Setting the page not to scroll
+
+- ### `restorePageScroll` 
+
+    #### Resume page scrolling
+
+
 ## <a id="Format">`Format`</a>
 - ### `formatFileSize` 
 

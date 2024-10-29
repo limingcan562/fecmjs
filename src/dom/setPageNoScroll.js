@@ -4,7 +4,7 @@
  */
 import setStyle from '../dom/setStyle';
 
-export default function setNoScroll() {
+export default function setPageNoScroll() {
     const style = {
         height:  `${window.innerHeight}px`,
         overflow: 'hidden'
