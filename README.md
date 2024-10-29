@@ -326,7 +326,7 @@ console.log(flag); // true
 
     parameter name | description | default value
     ------| ----| -----
-    `file`| `file`对象 | 
+    `file`| `file` objects | 
 
 - ### `isFilePicType` 
 
@@ -334,7 +334,7 @@ console.log(flag); // true
 
     parameter name | description | default value
     ------| ----| -----
-    `file`| `file`对象 | 
+    `file`| `file` objects | 
 
 - ### `isFileVideoType` 
 
@@ -342,7 +342,7 @@ console.log(flag); // true
 
     parameter name | description | default value
     ------| ----| -----
-    `file`| `file`对象 | 
+    `file`| `file` objects | 
 
 
 ## <a id="Object">`Object`</a>
