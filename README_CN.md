@@ -146,6 +146,40 @@ console.log(flag); // true
 
     #### 当前是否为微信环境
 
+## <a id="Object">`Object`</a>
+- ### `emptyObj` 
+
+    #### 当前对象是否没有值
+
+- ### `isArr` 
+
+    #### 当前是否为`array`类型
+
+- ### `isDate` 
+
+    #### 当前是否为`Date`类型
+
+- ### `isFn` 
+
+    #### 当前是否为`function`类型
+
+    
+- ### `isNull` 
+
+    #### 当前是否为`null`
+
+- ### `isObj` 
+
+    #### 当前是否为`object`类型
+
+- ### `isStr` 
+
+    #### 当前是否为`string`类型
+
+- ### `isUndefined` 
+
+    #### 当前是否为`Undefined`类型
+
 
 ## <a id="Storage">`Storage`</a>
 - ### `getLocalStorage` 

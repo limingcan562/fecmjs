@@ -176,6 +176,41 @@ console.log(flag); // true
     console.log(formatVideoDuration(3600)); // 01:00:00
     ```
 
+## <a id="Object">`Object`</a>
+- ### `emptyObj` 
+
+    #### Whether the current object has no value
+
+- ### `isArr` 
+
+    #### Whether the current type is `array` or not
+
+- ### `isDate` 
+
+    #### Whether the current type is `Date` or not
+
+- ### `isFn` 
+
+    #### Whether the current type is `function` or not
+
+- ### `isNull` 
+
+    #### Whether the current is `null` or not
+
+- ### `isObj` 
+
+    #### Whether the current type is `Object` or not
+
+- ### `isStr` 
+
+    ####  Whether the current type is `String` or not
+
+- ### `isUndefined` 
+
+    #### Whether the current type is `Undefined` or not
+
+    
+
 ## <a id="Storage">`Storage`</a>
 - ### `getLocalStorage` 
 
