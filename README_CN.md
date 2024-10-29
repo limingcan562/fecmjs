@@ -8,8 +8,8 @@
 
 ## 模块
 - [`Date`：关于日期的一些方法封装](#Date)
-- [`Device`：关于设备的一些方法封装](#Device)
 - [`Dom`：`Dom`操作一些方法封装](#Dom)
+- [`Device`：关于设备的一些方法封装](#Device)
 - [`File`：关于`File`的一些方法封装](#File)
 - [`Format`: 关于格式化的一些方法封装](#Format)
 - [`Object`: 关于`Object`的一些方法封装](#Object)
@@ -246,6 +246,68 @@ console.log(flag); // true
 - ### `isWechat` 
 
     #### 当前是否为微信环境
+
+## <a id="File">`File`</a>
+- ### `getFileName` 
+
+    #### 获取上传的`file`名字
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `file`| `file`对象 | 
+
+- ### `getFileSuffix` 
+
+    #### 获取上传的`file`文件后缀
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `file`| `file`对象 | 
+
+- ### `getFilePreviewSrc` 
+
+    #### 获取上传的`file`预览地址
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `file`| `file`对象 | 
+
+    ##### 备注：
+    1. 主要用于预览上传的图片
+    2. 注意使用`revokeObjectURL`方法回收内存
+
+    示例:
+    ```javascript
+    import {getFilePreviewSrc, $} from 'femcjs';
+    const previewSrc = getFilePreviewSrc(file);
+    $('#preview_img').src = previewSrc;
+    ```
+
+- ### `isFileAudioType` 
+
+    #### 上传的文件是不是音频类型
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `file`| `file`对象 | 
+
+- ### `isFilePicType` 
+
+    #### 上传的文件是不是图片类型
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `file`| `file`对象 | 
+
+- ### `isFileVideoType` 
+
+    #### 上传的文件是不是视频类型
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `file`| `file`对象 | 
+
+
 
 ## <a id="Object">`Object`</a>
 - ### `emptyObj` 

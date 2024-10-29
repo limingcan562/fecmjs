@@ -10,8 +10,8 @@ English | [中文](README_CN.md)
 
 ## Modules
 - [`Date`: some methods for Date wrapping](#Date)
-- [`Device`: some methods for devices](#Device)
 - [`Dom`: some methods for `Dom` operations](#Dom)
+- [`Device`: some methods for devices](#Device)
 - [`File`: Wrapping some methods around `File`](#File)
 - [`Format`: some method wrappers for formatting](#Format)
 - [`Object`: Wrapping some methods around `object`](#Object)
@@ -167,11 +167,11 @@ console.log(flag); // true
     `selectName`| `css` selector |
     `nameList`| The name of the class to be added | 
 
-    ##### 备注：
+    ##### Note：
     1. `nameList` can be passed as an array when you want to add multiple class names.
     2. `nameList` can be passed as a string if you want to add a single class name.
 
-    示例:
+    Example:
     ```javascript
     import {addClass} from 'femcjs';
     addClass('#dom', ['name1', 'name2', 'nam3']);
@@ -185,7 +185,7 @@ console.log(flag); // true
     ------| ----| -----
     `selectName`| `css` selector |
 
-    ##### 备注：
+    ##### Note：
     Returns an array of the object's class names
 
 
@@ -198,7 +198,7 @@ console.log(flag); // true
     `selectName`| `css` selector |
     `nameList`| Class name to be deleted | 
 
-    ##### 备注：
+    ##### Note：
     1. `nameList` can be passed as an array if you want to delete multiple class names.
     2. `nameList` can be passed as a string if you want to delete a single class name.
 
@@ -212,11 +212,11 @@ console.log(flag); // true
     `selectName`| `css` selector |
     `style`| The style to be set | 
 
-    ##### 备注：
+    ##### Note：
     1. `style` can be passed as an object when you want to set multiple styles.
     2. `style` can be passed as a string when you want to set a single style.
 
-    示例:
+    Example:
     ```javascript
     import {setStyle} from 'femcjs';
     setStyle('#dom', {color: 'red', backgroundColor: '#000'}); // set multiple styles
@@ -232,7 +232,7 @@ console.log(flag); // true
     `parentSelectName`| Parent element class name selector |
     `childSelectName`| Child element class name selector | 
 
-    ##### 备注：
+    ##### Note：
     The parent element has to set the height
 
 
@@ -281,6 +281,69 @@ console.log(flag); // true
     import {formatVideoDuration} from 'femcjs';
     console.log(formatVideoDuration(3600)); // 01:00:00
     ```
+
+## <a id="File">`File`</a>
+- ### `getFileName` 
+
+    #### Get the name of the `file` uploaded
+
+    parameter name | description | default value
+    ------| ----| -----
+    `file`| `file` objects | 
+
+    
+- ### `getFileSuffix` 
+
+    #### Get the suffix of the uploaded `file` file
+
+    parameter name | description | default value
+    ------| ----| -----
+    `file`| `file` objects | 
+
+- ### `getFilePreviewSrc` 
+
+    #### Get the address of the uploaded `file` preview
+
+    parameter name | description | default value
+    ------| ----| -----
+    `file`| `file` objects | 
+
+    ##### Note：
+    1. Mainly used for previewing uploaded images
+    2. Note the use of the `revokeObjectURL` method to reclaim memory.
+
+    Example:
+    ```javascript
+    import {getFilePreviewSrc, $} from 'femcjs';
+    const previewSrc = getFilePreviewSrc(file);
+    $('#preview_img').src = previewSrc;
+    ```
+
+    
+- ### `isFileAudioType` 
+
+    #### Is the uploaded file an audio type
+
+    parameter name | description | default value
+    ------| ----| -----
+    `file`| `file`对象 | 
+
+- ### `isFilePicType` 
+
+    #### Is the uploaded file an image type
+
+    parameter name | description | default value
+    ------| ----| -----
+    `file`| `file`对象 | 
+
+- ### `isFileVideoType` 
+
+    #### Is the uploaded file an video type
+
+    parameter name | description | default value
+    ------| ----| -----
+    `file`| `file`对象 | 
+
 
 ## <a id="Object">`Object`</a>
 - ### `emptyObj` 

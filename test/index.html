@@ -7,14 +7,19 @@
 </head>
 <body>
     <input type="file" id="dom" class="test test2 test3">
-    <div style="height: 120vh"></div>
+    <img src="" id="preview_img" alt="">
+
 
     <script src="../dist/fecmjs.js"></script>
     <script>
-        // document.querySelector('input').addEventListener('change', evt => {
-        //     const file = evt.target.files[0];
-        //     console.log(fecmjs.formatVideoDuration());
-        // })
+        document.querySelector('input').addEventListener('change', evt => {
+            const file = evt.target.files[0];
+            const src = fecmjs.getFilePreviewSrc(file)
+            fecmjs.$('#preview_img').src = src
+            
+            console.log(file.type);
+            console.log(fecmjs.isFileAudioType(file));
+        })
         // const info = fecmjs.getLocalStorage('info');
         // console.log(info);
 
@@ -30,13 +35,6 @@
         // fecmjs.setStyle('#dom', 'color: red'); // 设置单个样式
 
 
-        setTimeout(() => {
-            fecmjs.setPageNoScroll();
-        }, 1000);
-
-        setTimeout(() => {
-            fecmjs.restorePageScroll();
-        }, 2000);
     </script>
 </body>
 </html>
