@@ -56,7 +56,7 @@ console.log(flag); // true
 ## <a id="Date">`Date`</a>
 
 - ### `getCurrentTimestamp` 
-    #### Get current timestamp
+    > #### Get current timestamp
 
     Example: 
     ```javascript
@@ -65,14 +65,14 @@ console.log(flag); // true
     ```
 
 - ### `getDateByFewdays` 
-    #### Depending on the time of day, get the date a few days before or a few days after that time
+    > #### Depending on the time of day, get the date a few days before or a few days after that time
 
     parameter name | description | default value
     ------| ----| -----
     `fewdays`| The number of days to the target day to be acquired  |  `0` 
     `time`| target time  |  `new Date().getTime()` 
 
-    ##### Note：
+    #> #### Note：
     1. When `fewdays` is a positive integer, get the next few days of the target date
     2. When `fewdays` is a negative integer, get the first few days of the target date
 
@@ -87,7 +87,7 @@ console.log(flag); // true
     ````
 
 - ### `getDateByTimestamp` 
-    #### Get the time based on the incoming timestamp
+    > #### Get the time based on the incoming timestamp
 
     parameter name | description | default value
     ------| ----| -----
@@ -102,9 +102,9 @@ console.log(flag); // true
     ```
 
 - ### `getTimestamp` 
-    #### Get timestamp  
+    > #### Get timestamp  
 
-    #### Note:
+    > #### Note:
     1. Returns the timestamp of the current time by default
     2. The form of the input parameter is the same as the `new Date()` method.
 
@@ -120,38 +120,38 @@ console.log(flag); // true
 
 - ### `isAndroid` 
 
-    #### Is it currently Android
+    > #### Is it currently Android
 
 - ### `isIos` 
 
-    #### Is the current system ios
+    > #### Is the current system ios
 
 - ### `isIpad` 
 
-    #### Currently is not an ipad device
+    > #### Currently is not an ipad device
 
 - ### `isIphone` 
 
-    #### Currently not an iphone device
+    > #### Currently not an iphone device
 
 - ### `isMoblie` 
 
-    #### Is it currently mobile
+    > #### Is it currently mobile
     
 - ### `isPc` 
 
-    #### Is it currently a pc
+    > #### Is it currently a pc
 
 - ### `isWechat` 
 
-    #### Whether the current environment is WeChat
+    > #### Whether the current environment is WeChat
 
 
 ## <a id="Dom">`Dom`</a>
 
 - ### `$` 
 
-    #### Returns the `Dom` object
+    > #### Returns the `Dom` object
 
     parameter name | description | default value
     ------| ----| -----
@@ -160,14 +160,14 @@ console.log(flag); // true
     
 - ### `addClass` 
 
-    #### Adds a class name to a `Dom` object.
+    > #### Adds a class name to a `Dom` object.
 
     parameter name | description | default value
     ------| ----| -----
     `selectName`| `css` selector |
     `nameList`| The name of the class to be added | 
 
-    ##### Note：
+    #> #### Note：
     1. `nameList` can be passed as an array when you want to add multiple class names.
     2. `nameList` can be passed as a string if you want to add a single class name.
 
@@ -179,40 +179,40 @@ console.log(flag); // true
 
 - ### `getClass` 
 
-    #### Get the class name of a `Dom` object
+    > #### Get the class name of a `Dom` object
 
     parameter name | description | default value
     ------| ----| -----
     `selectName`| `css` selector |
 
-    ##### Note：
+    #> #### Note：
     Returns an array of the object's class names
 
 
 - ### `removeClass` 
 
-    #### Remove one or more class names from a `Dom` object.
+    > #### Remove one or more class names from a `Dom` object.
 
     parameter name | description | default value
     ------| ----| -----
     `selectName`| `css` selector |
     `nameList`| Class name to be deleted | 
 
-    ##### Note：
+    #> #### Note：
     1. `nameList` can be passed as an array if you want to delete multiple class names.
     2. `nameList` can be passed as a string if you want to delete a single class name.
 
 
 - ### `setStyle` 
 
-    #### Setting the style of a `Dom` object
+    > #### Setting the style of a `Dom` object
 
     parameter name | description | default value
     ------| ----| -----
     `selectName`| `css` selector |
     `style`| The style to be set | 
 
-    ##### Note：
+    #> #### Note：
     1. `style` can be passed as an object when you want to set multiple styles.
     2. `style` can be passed as a string when you want to set a single style.
 
@@ -225,20 +225,20 @@ console.log(flag); // true
 
 - ### `isExceedParentHeight` 
 
-    #### Determine if a child element exceeds the height of the parent element
+    > #### Determine if a child element exceeds the height of the parent element
 
     parameter name | description | default value
     ------| ----| -----
     `parentSelectName`| Parent element class name selector |
     `childSelectName`| Child element class name selector | 
 
-    ##### Note：
+    #> #### Note：
     The parent element has to set the height
 
 
 - ### `isShowOnVisualArea` 
 
-    #### Determine if an element appears in the visual area
+    > #### Determine if an element appears in the visual area
 
     parameter name | description | default value
     ------| ----| -----
@@ -246,17 +246,17 @@ console.log(flag); // true
 
 - ### `setPageNoScroll` 
 
-    #### Setting the page not to scroll
+    > #### Setting the page not to scroll
 
 - ### `restorePageScroll` 
 
-    #### Resume page scrolling
+    > #### Resume page scrolling
 
 
 ## <a id="Format">`Format`</a>
 - ### `formatFileSize` 
 
-    #### Formatting File Size  
+    > #### Formatting File Size  
 
     parameter name | description | default value
     ------| ----| -----
@@ -270,7 +270,7 @@ console.log(flag); // true
 
 - ### `formatVideoDuration` 
 
-    #### Formatted Video Duration
+    > #### Formatted Video Duration
 
     parameter name | description | default value
     ------| ----| -----
@@ -285,7 +285,7 @@ console.log(flag); // true
 ## <a id="File">`File`</a>
 - ### `getFileName` 
 
-    #### Get the name of the `file` uploaded
+    > #### Get the name of the `file` uploaded
 
     parameter name | description | default value
     ------| ----| -----
@@ -294,7 +294,7 @@ console.log(flag); // true
     
 - ### `getFileSuffix` 
 
-    #### Get the suffix of the uploaded `file` file
+    > #### Get the suffix of the uploaded `file` file
 
     parameter name | description | default value
     ------| ----| -----
@@ -302,13 +302,13 @@ console.log(flag); // true
 
 - ### `getFilePreviewSrc` 
 
-    #### Get the address of the uploaded `file` preview
+    > #### Get the address of the uploaded `file` preview
 
     parameter name | description | default value
     ------| ----| -----
     `file`| `file` objects | 
 
-    ##### Note：
+    #> #### Note：
     1. Mainly used for previewing uploaded images
     2. Note the use of the `revokeObjectURL` method to reclaim memory.
 
@@ -322,7 +322,7 @@ console.log(flag); // true
     
 - ### `isFileAudioType` 
 
-    #### Is the uploaded file an audio type
+    > #### Is the uploaded file an audio type
 
     parameter name | description | default value
     ------| ----| -----
@@ -330,7 +330,7 @@ console.log(flag); // true
 
 - ### `isFilePicType` 
 
-    #### Is the uploaded file an image type
+    > #### Is the uploaded file an image type
 
     parameter name | description | default value
     ------| ----| -----
@@ -338,7 +338,7 @@ console.log(flag); // true
 
 - ### `isFileVideoType` 
 
-    #### Is the uploaded file an video type
+    > #### Is the uploaded file an video type
 
     parameter name | description | default value
     ------| ----| -----
@@ -348,49 +348,49 @@ console.log(flag); // true
 ## <a id="Object">`Object`</a>
 - ### `emptyObj` 
 
-    #### Whether the current object has no value
+    > #### Whether the current object has no value
 
 - ### `isArr` 
 
-    #### Whether the current type is `array` or not
+    > #### Whether the current type is `array` or not
 
 - ### `isDate` 
 
-    #### Whether the current type is `Date` or not
+    > #### Whether the current type is `Date` or not
 
 - ### `isFn` 
 
-    #### Whether the current type is `function` or not
+    > #### Whether the current type is `function` or not
 
 - ### `isNull` 
 
-    #### Whether the current is `null` or not
+    > #### Whether the current is `null` or not
 
 - ### `isObj` 
 
-    #### Whether the current type is `Object` or not
+    > #### Whether the current type is `Object` or not
 
 - ### `isStr` 
 
-    ####  Whether the current type is `String` or not
+    > ####  Whether the current type is `String` or not
 
 - ### `isUndefined` 
 
-    #### Whether the current type is `Undefined` or not
+    > #### Whether the current type is `Undefined` or not
 
     
 
 ## <a id="Storage">`Storage`</a>
 - ### `getLocalStorage` 
 
-    #### Getting a value from local storage
+    > #### Getting a value from local storage
 
     parameter name | description | default value
     ------| ----| -----
     `key`| The key value to get  | 
 
 
-    ##### Note：
+    #> #### Note：
     1. if the `key` value is an object, return the object corresponding to the `key` value directly
     2. otherwise, return the string corresponding to the `key` value.
 
@@ -404,14 +404,14 @@ console.log(flag); // true
 
 - ### `setLocalStorage` 
 
-    #### Setting a LocalStorage value
+    > #### Setting a LocalStorage value
 
     parameter name | description | default value
     ------| ----| -----
     `key` | The value of the `key` to be set | 
     `val`| The value corresponding to the `key` to be set | 
 
-    ##### Note:
+    #> #### Note:
     `val` can be an object or a string
 
     Example:
@@ -422,13 +422,13 @@ console.log(flag); // true
 
 - ### `removeLocalStorage` 
 
-    #### Delete one or more locally stored values
+    > #### Delete one or more locally stored values
 
     parameter name | description | default value
     ------| ----| -----
     `key` | value of `key` to be deleted | 
 
-    ##### Note：
+    #> #### Note：
     1. if `key` is an array, multiple corresponding `key` values can be removed
     2. if `key` is a string, then a single value is removed
 
@@ -436,17 +436,17 @@ console.log(flag); // true
     Example:
     ```javascript
     import {removeLocalStorage} from 'femcjs';
-    console.log(removeLocalStorage(['info', 'test'])); // 将删除info,test对应的值
+    console.log(removeLocalStorage(['info', 'test'])); // The values of info,test will be deleted.
     ```
 
 - ### `clearLocalStorage` 
 
-    #### Clear Local Storage  
+    > #### Clear Local Storage  
 
     Example:
     ```javascript
-    import {formatFileSize} from 'femcjs';
-    console.log(formatFileSize(file)); // 1.37KB
+    import {clearLocalStorage} from 'femcjs';
+    clearLocalStorage();
     ```
 
 
@@ -454,14 +454,14 @@ console.log(flag); // true
 ## <a id="Url">`Url`</a>
 - ### `getUrlValue` 
 
-    #### Get the value of the `url` parameter
+    > #### Get the value of the `url` parameter
 
     parameter name | description | default value
     ------| ----| -----
     `key`| The key of the value to get  | `''`
     `url`| The `url` link to get  | `window.location.href` 
 
-    ##### Note：
+    #> #### Note：
     1. When `key` is empty, an object consisting of the values of all the arguments of `url` is returned.
     2. When `key` is a value, the value of `url` as `key` is returned.
 
@@ -475,7 +475,7 @@ console.log(flag); // true
 
 - ### `setUrlWithNorefresh` 
 
-    #### Setting the url and not refreshing the page
+    > #### Setting the url and not refreshing the page
 
     parameter name | description | default value
     ------| ----| -----
