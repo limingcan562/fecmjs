@@ -72,7 +72,7 @@ console.log(flag); // true
     `fewdays`| The number of days to the target day to be acquired  |  `0` 
     `time`| target time  |  `new Date().getTime()` 
 
-    #> #### Note：
+    ##### Note：
     1. When `fewdays` is a positive integer, get the next few days of the target date
     2. When `fewdays` is a negative integer, get the first few days of the target date
 
@@ -167,7 +167,7 @@ console.log(flag); // true
     `selectName`| `css` selector |
     `nameList`| The name of the class to be added | 
 
-    #> #### Note：
+    ##### Note：
     1. `nameList` can be passed as an array when you want to add multiple class names.
     2. `nameList` can be passed as a string if you want to add a single class name.
 
@@ -185,7 +185,7 @@ console.log(flag); // true
     ------| ----| -----
     `selectName`| `css` selector |
 
-    #> #### Note：
+    ##### Note：
     Returns an array of the object's class names
 
 
@@ -198,7 +198,7 @@ console.log(flag); // true
     `selectName`| `css` selector |
     `nameList`| Class name to be deleted | 
 
-    #> #### Note：
+    ##### Note：
     1. `nameList` can be passed as an array if you want to delete multiple class names.
     2. `nameList` can be passed as a string if you want to delete a single class name.
 
@@ -212,7 +212,7 @@ console.log(flag); // true
     `selectName`| `css` selector |
     `style`| The style to be set | 
 
-    #> #### Note：
+    ##### Note：
     1. `style` can be passed as an object when you want to set multiple styles.
     2. `style` can be passed as a string when you want to set a single style.
 
@@ -232,7 +232,7 @@ console.log(flag); // true
     `parentSelectName`| Parent element class name selector |
     `childSelectName`| Child element class name selector | 
 
-    #> #### Note：
+    ##### Note：
     The parent element has to set the height
 
 
@@ -308,7 +308,7 @@ console.log(flag); // true
     ------| ----| -----
     `file`| `file` objects | 
 
-    #> #### Note：
+    ##### Note：
     1. Mainly used for previewing uploaded images
     2. Note the use of the `revokeObjectURL` method to reclaim memory.
 
@@ -390,7 +390,7 @@ console.log(flag); // true
     `key`| The key value to get  | 
 
 
-    #> #### Note：
+    ##### Note：
     1. if the `key` value is an object, return the object corresponding to the `key` value directly
     2. otherwise, return the string corresponding to the `key` value.
 
@@ -411,7 +411,7 @@ console.log(flag); // true
     `key` | The value of the `key` to be set | 
     `val`| The value corresponding to the `key` to be set | 
 
-    #> #### Note:
+    ##### Note:
     `val` can be an object or a string
 
     Example:
@@ -428,7 +428,7 @@ console.log(flag); // true
     ------| ----| -----
     `key` | value of `key` to be deleted | 
 
-    #> #### Note：
+    ##### Note：
     1. if `key` is an array, multiple corresponding `key` values can be removed
     2. if `key` is a string, then a single value is removed
 
@@ -461,7 +461,7 @@ console.log(flag); // true
     `key`| The key of the value to get  | `''`
     `url`| The `url` link to get  | `window.location.href` 
 
-    #> #### Note：
+    ##### Note：
     1. When `key` is empty, an object consisting of the values of all the arguments of `url` is returned.
     2. When `key` is a value, the value of `url` as `key` is returned.
 

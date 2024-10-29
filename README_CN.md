@@ -71,7 +71,7 @@ console.log(flag); // true
     `fewdays`| 要获取的距离目标日子的多少天  |  `0` 
     `time`| 目标时间  |  `new Date().getTime()` 
 
-    #> #### 备注：
+    ##### 备注：
     1. 当`fewdays`为正整数，则获取目标日期的后几天
     2. 当`fewdays`为负整数，则获取目标日期的前几天
 
@@ -104,7 +104,7 @@ console.log(flag); // true
 
     > #### 获取时间戳  
 
-    #> #### 备注：
+    ##### 备注：
     1. 默认返回当前时间的时间戳
     2. 入参形式与`new Date()`方法相同
 
@@ -135,7 +135,7 @@ console.log(flag); // true
     `selectName`| `css`选择器 |
     `nameList`| 要添加的类名 | 
 
-    #> #### 备注：
+    ##### 备注：
     1. 想添加多个类名时，`nameList`可传入数组
     2. 想添加单个类名时，`nameList`可传入字符串
 
@@ -153,7 +153,7 @@ console.log(flag); // true
     ------| ----| -----
     `selectName`| `css`选择器 |
 
-    #> #### 备注：
+    ##### 备注：
     返回该对象类名组成的数组
 
 - ### `removeClass` 
@@ -165,7 +165,7 @@ console.log(flag); // true
     `selectName`| `css`选择器 |
     `nameList`| 要删除的类名 | 
 
-    #> #### 备注：
+    ##### 备注：
     1. 想删除多个类名时，`nameList`可传入数组
     2. 想删除单个类名时，`nameList`可传入字符串
 
@@ -178,7 +178,7 @@ console.log(flag); // true
     `selectName`| `css`选择器 |
     `style`| 要设置的样式 | 
 
-    #> #### 备注：
+    ##### 备注：
     1. 想设置多个样式时，`style`可传入对象
     2. 想设置单个样式时，`style`可传入字符串
 
@@ -198,7 +198,7 @@ console.log(flag); // true
     `parentSelectName`| 父元素类名选择器 |
     `childSelectName`| 子元素类名选择器 | 
 
-    #> #### 备注：
+    ##### 备注：
     父元素得设置高度
 
 - ### `isShowOnVisualArea` 
@@ -272,7 +272,7 @@ console.log(flag); // true
     ------| ----| -----
     `file`| `file`对象 | 
 
-    #> #### 备注：
+    ##### 备注：
     1. 主要用于预览上传的图片
     2. 注意使用`revokeObjectURL`方法回收内存
 
@@ -353,7 +353,7 @@ console.log(flag); // true
     ------| ----| -----
     `key`| 要获取的key值 | 
 
-    #> #### 备注：
+    ##### 备注：
     1. 如果获取的`key`值是对象，则直接返回`key`值对应的对象
     2. 否则返回`key`值对应的字符串
 
@@ -375,7 +375,7 @@ console.log(flag); // true
     `val`| 要设置的`key`对应的值 | 
 
 
-    #> #### 备注：
+    ##### 备注：
     `val`可以为对象，也可以为字符串
 
     示例:
@@ -393,7 +393,7 @@ console.log(flag); // true
     ------| ----| -----
     `key`| 要删除的`key`值 | 
 
-    #> #### 备注：
+    ##### 备注：
     1. 如果`key`为数组，则可以删除多个对应的`key`值
     2. 如果`key`为字符串，则删除单个值
 
@@ -424,7 +424,7 @@ console.log(flag); // true
     `key`| 要获取的值的`key`  | `''`
     `url`| 要获取的`url`链接  | `window.location.href` 
 
-    #> #### 备注：
+    ##### 备注：
     1. 当`key`为空，会返回`url`所有的参数对应值组成的对象
     2. 当`key`为某个值，则返回`url`这个`key`的值
 
