@@ -116,6 +116,37 @@ console.log(flag); // true
     console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
     ```
 
+## <a id="Device">`Device`</a>
+
+- ### `isAndroid` 
+
+    #### 当前是不是安卓系统
+
+- ### `isIos` 
+
+    #### 当前是不是ios系统
+
+- ### `isIpad` 
+
+    #### 当前是不是ipad设备
+
+- ### `isIphone` 
+
+    #### 当前是不是iphone设备
+
+- ### `isMoblie` 
+
+    #### 当前是否为移动端
+
+- ### `isPc` 
+
+    #### 当前是否为pc端
+
+- ### `isWechat` 
+
+    #### 当前是否为微信环境
+
+
 ## <a id="Storage">`Storage`</a>
 - ### `getLocalStorage` 
 
@@ -174,7 +205,7 @@ console.log(flag); // true
     import {removeLocalStorage} from 'femcjs';
     console.log(removeLocalStorage(['info', 'test'])); // 将删除info,test对应的值
     ```
-    
+
 - ### `clearLocalStorage` 
 
     #### 清除本地存储  

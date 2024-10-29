@@ -116,6 +116,37 @@ console.log(flag); // true
     console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
     ```
 
+## <a id="Device">`Device`</a>
+
+- ### `isAndroid` 
+
+    #### Is it currently Android
+
+- ### `isIos` 
+
+    #### Is the current system ios
+
+- ### `isIpad` 
+
+    #### Currently is not an ipad device
+
+- ### `isIphone` 
+
+    #### Currently not an iphone device
+
+- ### `isMoblie` 
+
+    #### Is it currently mobile
+    
+- ### `isPc` 
+
+    #### Is it currently a pc
+
+- ### `isWechat` 
+
+    #### Whether the current environment is WeChat
+
+
 ## <a id="Format">`Format`</a>
 - ### `formatFileSize` 
 
@@ -193,7 +224,7 @@ console.log(flag); // true
     ------| ----| -----
     `key` | value of `key` to be deleted | 
 
-    ##### 备注：
+    ##### Note：
     1. if `key` is an array, multiple corresponding `key` values can be removed
     2. if `key` is a string, then a single value is removed
 
@@ -203,7 +234,7 @@ console.log(flag); // true
     import {removeLocalStorage} from 'femcjs';
     console.log(removeLocalStorage(['info', 'test'])); // 将删除info,test对应的值
     ```
-    
+
 - ### `clearLocalStorage` 
 
     #### Clear Local Storage  
