@@ -6,16 +6,14 @@
     <title>Test</title>
 </head>
 <body>
-    <button>设置</button>
+    <input type="file">
 
     <script src="../dist/fecmjs.js"></script>
     <script>
-        // console.log(fecmjs.getDateByTimestamp('1730129184412'))  
-        console.log();
-
-        setTimeout(() => {
-            fecmjs.setUrlWithNorefresh({name: 'lmc', age: 29})
-        }, 1000);
+        document.querySelector('input').addEventListener('change', evt => {
+            const file = evt.target.files[0];
+            console.log(fecmjs.formatVideoDuration());
+        })
     </script>
 </body>
 </html>

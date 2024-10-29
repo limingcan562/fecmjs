@@ -152,3 +152,33 @@ console.log(flag); // true
     import {setUrlWithNorefresh} from 'femcjs';
     console.log(setUrlWithNorefresh({name: 'lmc', age: 29}); // http://localhost:5501/test/?name=lmc&age=29
     ```
+
+
+## <a id="Format">`Format`</a>
+- ### `formatFileSize` 
+
+    #### 格式化文件大小  
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `file`| 文件对象  | `{}`
+
+    示例:
+    ```javascript
+    import {formatFileSize} from 'femcjs';
+    console.log(formatFileSize(file)); // 1.37KB
+    ```
+
+- ### `formatVideoDuration` 
+
+    #### 格式化视频时长
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `totalSeconds`| 视频时长  | `0`
+
+    示例:
+    ```javascript
+    import {formatVideoDuration} from 'femcjs';
+    console.log(formatVideoDuration(3600)); // 01:00:00
+    ```

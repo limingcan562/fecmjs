@@ -116,6 +116,37 @@ console.log(flag); // true
     console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
     ```
 
+## <a id="Format">`Format`</a>
+- ### `formatFileSize` 
+
+    #### Formatting File Size  
+
+    parameter name | description | default value
+    ------| ----| -----
+    `file`| file object  | `{}`
+
+    Example:
+    ```javascript
+    import {formatFileSize} from 'femcjs';
+    console.log(formatFileSize(file)); // 1.37KB
+    ```
+
+- ### `formatVideoDuration` 
+
+    #### Formatted Video Duration
+
+     parameter name | description | default value
+    ------| ----| -----
+    `totalSeconds`| video duration  | `0`
+
+    Example:
+    ```javascript
+    import {formatVideoDuration} from 'femcjs';
+    console.log(formatVideoDuration(3600)); // 01:00:00
+    ```
+
+
+
 ## <a id="Url">`Url`</a>
 - ### `getUrlValue` 
 

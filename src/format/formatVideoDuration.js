@@ -3,7 +3,7 @@
  * @param {string} totalSeconds Video duration
  * @return {string} Return the formatted duration "01:01:01"
  */
-export default function formatVideoDuration(totalSeconds) {
+export default function formatVideoDuration(totalSeconds = 0) {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
