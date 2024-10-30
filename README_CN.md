@@ -49,7 +49,7 @@ console.log(flag); // true
 </script>
 ``` 
 
-## <a id="Date">`Date`</a> [⬆](#Module)
+## <a id="Date">`Date`</a>
 
 - ### `getCurrentTimestamp` 
 
@@ -115,7 +115,7 @@ console.log(flag); // true
     console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
     ```
 
-## <a id="Dom">`Dom`</a> [⬆](#Module)
+## <a id="Dom">`Dom`</a>
 
 - ### `$` 
 
@@ -216,7 +216,7 @@ console.log(flag); // true
 
     > #### 恢复页面滚动
 
-## <a id="Device">`Device`</a> [⬆](#Module)
+## <a id="Device">`Device`</a>
 
 - ### `isAndroid` 
 
@@ -246,7 +246,7 @@ console.log(flag); // true
 
     > #### 当前是否为微信环境
 
-## <a id="File">`File`</a> [⬆](#Module)
+## <a id="File">`File`</a>
 - ### `getFileName` 
 
     > #### 获取上传的`file`名字
@@ -316,7 +316,7 @@ console.log(flag); // true
 
 
 
-## <a id="Object">`Object`</a> [⬆](#Module)
+## <a id="Object">`Object`</a>
 - ### `emptyObj` 
 
     > #### 当前对象是否没有值
@@ -351,7 +351,7 @@ console.log(flag); // true
     > #### 当前是否为`Undefined`类型
 
 
-## <a id="Storage">`Storage`</a> [⬆](#Module)
+## <a id="Storage">`Storage`</a>
 - ### `getLocalStorage` 
 
     > #### 获取本地储存某个值
@@ -421,7 +421,7 @@ console.log(flag); // true
     ```
 
 
-## <a id="Url">`Url`</a> [⬆](#Module)
+## <a id="Url">`Url`</a>
 
 - ### `getUrlValue` 
 
@@ -459,7 +459,7 @@ console.log(flag); // true
     ```
 
 
-## <a id="validate">`validate`</a> [⬆](#Module)
+## <a id="validate">`validate`</a>
 - ### `containCN` 
 
     > #### 是否包含中文  
@@ -553,7 +553,7 @@ console.log(flag); // true
     ------| ----| -----
     `phoneNumber`| 国际手机号码  |
 
-## <a id="Format">`Format`</a> [⬆](#Module)
+## <a id="Format">`Format`</a>
 - ### `formatFileSize` 
 
     > #### 格式化文件大小  
