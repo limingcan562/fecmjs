@@ -5,7 +5,7 @@
  * @return {boolean} Does it contain Chinese special characters
  */
 
-export default function hasCNSpecialChar(textStr) {
+export default function containCNSpecialChar(textStr) {
     const regex = /[~·！@#￥%……&*（）——+}【】={：；”‘“’|、《，》。？、-]/;
     return regex.test(textStr);
 }

@@ -344,6 +344,14 @@ console.log(flag); // true
     ------| ----| -----
     `file`| `file` objects | 
 
+- ### `isContentSrtFormat` 
+
+    > #### Is the content format an srt file format
+
+    parameter name | description | default value
+    ------| ----| -----
+    `textStr`| Contents text | 
+
 
 ## <a id="Object">`Object`</a>
 - ### `emptyObj` 
@@ -449,6 +457,100 @@ console.log(flag); // true
     clearLocalStorage();
     ```
 
+
+## <a id="validate">`validate`</a>
+- ### `containCN` 
+
+    > #### Does it contain Chinese  
+
+    parameter name | description | default value
+    ------| ----| -----
+    `textStr`| Contents text  | 
+
+    ##### Note:
+    Returns `true` whenever there is a Chinese character.
+
+- ### `containEN` 
+
+    > #### Does it contain English  
+
+    parameter name | description | default value
+    ------| ----| -----
+    `textStr`| Contents text  | 
+
+    ##### Note:
+    Returns `true` whenever there is English.
+
+    - ### `containCNSpecialChar` 
+
+    > #### Whether to include Chinese special characters  
+    
+    parameter name | description | default value
+    ------| ----| -----
+    `textStr`| Contents text  | 
+
+    ##### Note:
+    Returns `true` whenever there are Chinese special characters.
+
+- ### `containENSpecialChar` 
+
+    > #### Whether to include English special characters  
+
+    parameter name | description | default value
+    ------| ----| -----
+    `textStr`| Contents text  | 
+
+    ##### Note:
+    Returns `true` whenever there is an English special character.
+
+- ### `isAllCN` 
+
+    > #### Is it all in Chinese?  
+
+    parameter name | description | default value
+    ------| ----| -----
+    `textStr`| Contents text  | 
+
+    ##### Note:
+    Is it in pure Chinese （Contains Chinese special characters and numbers; Excluding English and special English characters）
+
+- ### `isAllEN` 
+
+    > #### Is it all in English?  
+
+    parameter name | description | default value
+    ------| ----| -----
+    `textStr`| Contents text  | 
+
+    ##### Note:
+    Is it in pure English （Contains English special characters and numbers; Excluding English and special English characters）
+
+- ### `isEmail` 
+
+    > #### Is it a mail format?  
+
+    parameter name | description | default value
+    ------| ----| -----
+    `email`| email  | 
+
+- ### `isPhoneNum` 
+
+    > #### Is it a cell phone number format
+
+    parameter name | description | default value
+    ------| ----| -----
+    `phoneNumber`| mobile telephone number  | 
+
+    ##### Note:
+    Verify Mainland China Cell Phone Number
+
+- ### `isIntlPhone` 
+
+    > #### Is it an international cell phone number format
+
+    parameter name | description | default value
+    ------| ----| -----
+    `phoneNumber`| international cell phone number  |
 
 
 ## <a id="Url">`Url`</a>

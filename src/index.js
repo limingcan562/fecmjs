@@ -1,12 +1,11 @@
 // validate
-import isContentSrtFormat from './validate/isContentSrtFormat';
 import isEmail from './validate/isEmail';
 import isPhoneNum from './validate/isPhoneNum';
 import isIntlPhone from './validate/isIntlPhone';
-import hasCNSpecialChar from './validate/hasCNSpecialChar';
-import hasENSpecialChar from './validate/hasENSpecialChar';
-import hasCN from './validate/hasCN';
-import hasEN from './validate/hasEN';
+import containCNSpecialChar from './validate/containCNSpecialChar';
+import containENSpecialChar from './validate/containENSpecialChar';
+import containCN from './validate/containCN';
+import containEN from './validate/containEN';
 import isAllCN from './validate/isAllCN';
 import isAllEN from './validate/isAllEN';
 
@@ -57,6 +56,7 @@ import getFileSuffix from './file/getFileSuffix';
 import isFilePicType from './file/isFilePicType';
 import isFileAudioType from './file/isFileAudioType';
 import isFileVideoType from './file/isFileVideoType';
+import isContentSrtFormat from './file/isContentSrtFormat';
 
 
 // format
@@ -83,14 +83,13 @@ import setUrlWithNorefresh from './url/setUrlWithNorefresh';
 // }
 
 export {
-    isContentSrtFormat,
     isEmail,
     isPhoneNum,
     isIntlPhone,
-    hasCNSpecialChar,
-    hasENSpecialChar,
-    hasCN,
-    hasEN,
+    containCNSpecialChar,
+    containENSpecialChar,
+    containCN,
+    containEN,
     isAllCN,
     isAllEN,
     
@@ -137,6 +136,7 @@ export {
     isFilePicType,
     isFileAudioType,
     isFileVideoType,
+    isContentSrtFormat,
 
     getTimestamp,
     getCurrentTimestamp,

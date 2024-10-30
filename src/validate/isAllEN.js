@@ -5,10 +5,10 @@
  * @return {boolean} Is it in pure English （Contains English special characters and numbers; Excluding English and special English characters）
  */
 
-import hasCN from "./hasCN";
-import hasEN from "./hasEN";
-import hasCNSpecialChar from "./hasCNSpecialChar";
+import containCN from "./containCN";
+import containEN from "./containEN";
+import containCNSpecialChar from "./containCNSpecialChar";
 
 export default function isAllEN(textStr) {
-    return hasEN(textStr) && !hasCN(textStr) && !hasCNSpecialChar(textStr);
+    return containEN(textStr) && !containCN(textStr) && !containCNSpecialChar(textStr);
 }

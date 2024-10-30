@@ -5,7 +5,7 @@
  * @return {boolean} Does it contain english special characters
  */
 
-export default function hasENSpecialChar(textStr) {
-    const regex = /[!@#$%^&*()+=_-{}|:;"<>.,?]/; // 定义特殊字符的正则表达式
+export default function containENSpecialChar(textStr) {
+    const regex = /[!@#$%^&*()+=_}|:-;"<>{.,?]/; // 定义特殊字符的正则表达式
     return regex.test(textStr);
 }

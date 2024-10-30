@@ -5,7 +5,7 @@
  * @return {boolean} Is there English available
  */
 
-export default function hasEN(textStr) {
+export default function containEN(textStr) {
     const regex = /[a-zA-Z]/;
     return regex.test(textStr);
 }

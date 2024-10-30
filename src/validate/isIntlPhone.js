@@ -1,6 +1,6 @@
 /**
  * @description: Verify international phone number
- * @param {num} num - Mobile phone number
+ * @param {num} phoneNumber - Mobile phone number
  * @return {boolean} Is it a international phone number 
  */
 export default function isIntlPhone(phoneNumber) {
