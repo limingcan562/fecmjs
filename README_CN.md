@@ -6,7 +6,7 @@
 2. 模块化开发，方便引用
 3. 支持`tree shaking`，以便减少打包体积
 
-## 模块
+## <a id="Module">模块</a>
 - [`Date`：关于日期的一些方法封装](#Date)
 - [`Dom`：`Dom`操作一些方法封装](#Dom)
 - [`Device`：关于设备的一些方法封装](#Device)
@@ -16,7 +16,6 @@
 - [`Storage`: 关于`Storage`的一些方法封装](#Storage)
 - [`Url`: 关于`Url`的一些方法封装](#Url)
 - [`Validate`: 关于校验的一些方法封装](#Validate)
-- [`Wechat`: 关于`Wechat`的一些方法封装](#Wechat)
 
 
 
@@ -50,7 +49,7 @@ console.log(flag); // true
 </script>
 ``` 
 
-## <a id="Date">`Date`</a>
+## <a id="Date">`Date`</a> [⬆](#Module)
 
 - ### `getCurrentTimestamp` 
 
@@ -116,7 +115,7 @@ console.log(flag); // true
     console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
     ```
 
-## <a id="Dom">`Dom`</a>
+## <a id="Dom">`Dom`</a> [⬆](#Module)
 
 - ### `$` 
 
@@ -217,7 +216,7 @@ console.log(flag); // true
 
     > #### 恢复页面滚动
 
-## <a id="Device">`Device`</a>
+## <a id="Device">`Device`</a> [⬆](#Module)
 
 - ### `isAndroid` 
 
@@ -247,7 +246,7 @@ console.log(flag); // true
 
     > #### 当前是否为微信环境
 
-## <a id="File">`File`</a>
+## <a id="File">`File`</a> [⬆](#Module)
 - ### `getFileName` 
 
     > #### 获取上传的`file`名字
@@ -315,7 +314,9 @@ console.log(flag); // true
     ------| ----| -----
     `textStr`| 内容文本 | 
 
-## <a id="Object">`Object`</a>
+
+
+## <a id="Object">`Object`</a> [⬆](#Module)
 - ### `emptyObj` 
 
     > #### 当前对象是否没有值
@@ -350,7 +351,7 @@ console.log(flag); // true
     > #### 当前是否为`Undefined`类型
 
 
-## <a id="Storage">`Storage`</a>
+## <a id="Storage">`Storage`</a> [⬆](#Module)
 - ### `getLocalStorage` 
 
     > #### 获取本地储存某个值
@@ -420,7 +421,8 @@ console.log(flag); // true
     ```
 
 
-## <a id="Url">`Url`</a>
+## <a id="Url">`Url`</a> [⬆](#Module)
+
 - ### `getUrlValue` 
 
     > #### 获取`url`的参数的值  
@@ -457,7 +459,7 @@ console.log(flag); // true
     ```
 
 
-## <a id="validate">`validate`</a>
+## <a id="validate">`validate`</a> [⬆](#Module)
 - ### `containCN` 
 
     > #### 是否包含中文  
@@ -551,7 +553,7 @@ console.log(flag); // true
     ------| ----| -----
     `phoneNumber`| 国际手机号码  |
 
-## <a id="Format">`Format`</a>
+## <a id="Format">`Format`</a> [⬆](#Module)
 - ### `formatFileSize` 
 
     > #### 格式化文件大小  

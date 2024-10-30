@@ -18,7 +18,6 @@ English | [中文](README_CN.md)
 - [`Storage`: Wrappers for `Storage` methods](#Storage)
 - [`Url`: Some methods around `Url`](#Url)
 - [`Validate`: Wrapping some methods around validation](#Validate)
-- [`Wechat`: Some method wrappers for `Wechat`](#Wechat)
 
 Translated with DeepL.com (free version)
 
