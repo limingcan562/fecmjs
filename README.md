@@ -155,6 +155,10 @@ console.log(flag); // true
     parameter name | description | default value
     ------| ----| -----
     `selectName`| `css` selector |
+
+    ##### Note：
+    1. if there is more than one `Dom`, then return an array
+    2. if there is only one `Dom`, return a single `Dom`.
     
     
 - ### `addClass` 

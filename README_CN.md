@@ -125,6 +125,11 @@ console.log(flag); // true
     ------| ----| -----
     `selectName`| `css`选择器 | 
 
+    ##### 备注：
+    1. 如果有多个`Dom`，则返回数组
+    2. 如果只有一个`Dom`，则返回单个`Dom`
+
+
 - ### `addClass` 
 
     > #### 给某个`Dom`对象增加类名
