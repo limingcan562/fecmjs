@@ -5,7 +5,7 @@
  */
 import { getType } from "./getType";
 
-export default function isStr(val) {
+export default function isHtmlObj(val) {
     const JUDGE = 'html';
     const splitValue = getType(val).split(' ')[1];
     return splitValue.includes(JUDGE);
