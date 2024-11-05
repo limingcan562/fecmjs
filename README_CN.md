@@ -136,7 +136,7 @@ console.log(flag); // true
 
     参数名 | 说明  | 默认值
     ------| ----| -----
-    `selectName`| `css`选择器 |
+    `selectName`| `css`选择器或者是`dom`对象 |
     `nameList`| 要添加的类名 | 
 
     ##### 备注：
@@ -155,7 +155,7 @@ console.log(flag); // true
 
     参数名 | 说明  | 默认值
     ------| ----| -----
-    `selectName`| `css`选择器 |
+    `selectName`| `css`选择器或者是`dom`对象 |
 
     ##### 备注：
     返回该对象类名组成的数组
@@ -166,7 +166,7 @@ console.log(flag); // true
 
     参数名 | 说明  | 默认值
     ------| ----| -----
-    `selectName`| `css`选择器 |
+    `selectName`| `css`选择器或者是`dom`对象 |
     `nameList`| 要删除的类名 | 
 
     ##### 备注：
@@ -179,7 +179,7 @@ console.log(flag); // true
 
     参数名 | 说明  | 默认值
     ------| ----| -----
-    `selectName`| `css`选择器 |
+    `selectName`| `css`选择器或者是`dom`对象 |
     `style`| 要设置的样式 | 
 
     ##### 备注：
@@ -199,8 +199,8 @@ console.log(flag); // true
 
     参数名 | 说明  | 默认值
     ------| ----| -----
-    `parentSelectName`| 父元素类名选择器 |
-    `childSelectName`| 子元素类名选择器 | 
+    `parentSelectName`| 父元素类名选择器或者是`dom`对象 |
+    `childSelectName`| 子元素类名选择器或者是`dom`对象 | 
 
     ##### 备注：
     父元素得设置高度
@@ -211,7 +211,7 @@ console.log(flag); // true
 
     参数名 | 说明  | 默认值
     ------| ----| -----
-    `selectName`| 元素类名选择器 |
+    `selectName`| 元素类名选择器或者是`dom`对象 |
 
 - ### `setPageNoScroll` 
 
@@ -354,6 +354,10 @@ console.log(flag); // true
 - ### `isUndefined` 
 
     > #### 当前是否为`Undefined`类型
+
+- ### `isHtmlObj` 
+
+    > #### 当前是否为`htmlDom`对象
 
 
 ## <a id="Storage">`Storage`</a>

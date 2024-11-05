@@ -1,14 +1,16 @@
 // import 
 /**
  * @description: Does the child element exceed the height of the parent element
- * @param {string} parentSelectName class selector
- * @param {string} childSelectName class selector
+ * @param {string | object} parent parent element || Parent element selector
+ * @param {string | object} child parent element || child element selector
  */
 import $ from './$';
-export default function isExceedParentHeight(parentSelectName, childSelectName) {
-    const parentDom = $(parentSelectName);
-    const childDom = $(childSelectName);
-    
+import isHtmlObj from '../object/isHtmlObj';
+
+export default function isExceedParentHeight(parent, child) {
+    const parentDom = isHtmlObj(parent) ? parent : $(parent);
+    const childDom = isHtmlObj(child) ? child : $(child);
+
     const parentHeight = parentDom.getBoundingClientRect().height;
     const childHeight = childDom.getBoundingClientRect().height;
 

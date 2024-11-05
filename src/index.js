@@ -31,6 +31,7 @@ import isNull from './object/isNull';
 import isNum from './object/isNum';
 import isUndefined from './object/isUndefined';
 import isDate from './object/isDate';
+import isHtmlObj from './object/isHtmlObj';
 import emptyObj from './object/emptyObj';
 
 // storage
@@ -110,6 +111,7 @@ export {
     isFn,
     isNull,
     isNum,
+    isHtmlObj,
     isUndefined,
     isDate,
     emptyObj,

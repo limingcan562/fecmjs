@@ -167,7 +167,7 @@ console.log(flag); // true
 
     parameter name | description | default value
     ------| ----| -----
-    `selectName`| `css` selector |
+    `selectName`| `css` selector or `dom` object |
     `nameList`| The name of the class to be added | 
 
     ##### Note：
@@ -186,7 +186,7 @@ console.log(flag); // true
 
     parameter name | description | default value
     ------| ----| -----
-    `selectName`| `css` selector |
+    `selectName`| `css` selector or `dom` object |
 
     ##### Note：
     Returns an array of the object's class names
@@ -198,7 +198,7 @@ console.log(flag); // true
 
     parameter name | description | default value
     ------| ----| -----
-    `selectName`| `css` selector |
+    `selectName`| `css` selector or `dom` object |
     `nameList`| Class name to be deleted | 
 
     ##### Note：
@@ -212,7 +212,7 @@ console.log(flag); // true
 
     parameter name | description | default value
     ------| ----| -----
-    `selectName`| `css` selector |
+    `selectName`| `css` selector or `dom` object |
     `style`| The style to be set | 
 
     ##### Note：
@@ -232,8 +232,8 @@ console.log(flag); // true
 
     parameter name | description | default value
     ------| ----| -----
-    `parentSelectName`| Parent element class name selector |
-    `childSelectName`| Child element class name selector | 
+    `parentSelectName`| Parent element class name selector or `dom` object |
+    `childSelectName`| Child element class name selector or `dom` object | 
 
     ##### Note：
     The parent element has to set the height
@@ -245,7 +245,7 @@ console.log(flag); // true
 
     parameter name | description | default value
     ------| ----| -----
-    `selectName`| Element class name selector |
+    `selectName`| Element class name selector or `dom` object |
 
 - ### `setPageNoScroll` 
 
@@ -388,6 +388,11 @@ console.log(flag); // true
 - ### `isUndefined` 
 
     > #### Whether the current type is `Undefined` or not
+
+    
+- ### `isHtmlObj` 
+
+    > #### Whether the current object is an `htmlDom` object.
 
     
 
