@@ -226,6 +226,23 @@ console.log(flag); // true
     setStyle('#dom', 'color: red'); // set a single style
     ```
 
+- ### `getDomInfo` 
+
+    > #### Get information about a `dom`, or a `NodeList`.
+
+    parameter name | description | default value
+    ------| ----| -----
+    `selectName`| A `css` selector or a `dom` object, or a set of `NodeList`s.
+
+    ##### Note：
+    1. If `selectName` is a set of `NodeList`s, return an array of information consisting of the `NodeList`s.
+
+    Example:
+    ```javascript
+    import {setStyle} from 'femcjs';
+    console.log(getDomInfo($('li'))); // [DOMRect, DOMRect]
+    ```
+
 - ### `isExceedParentHeight` 
 
     > #### Determine if a child element exceeds the height of the parent element
@@ -393,6 +410,10 @@ console.log(flag); // true
 - ### `isHtmlObj` 
 
     > #### Whether the current object is an `htmlDom` object.
+
+- ### `isNodeList` 
+
+    > #### Whether the current object is `NodeList` or not.
 
     
 

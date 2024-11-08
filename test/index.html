@@ -9,6 +9,12 @@
     <input type="file" id="dom" class="test test2 test3">
     <img src="" id="preview_img" alt="">
 
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
 
     <script src="../dist/fecmjs.js"></script>
     <script>
@@ -39,10 +45,19 @@
         //     return regex.test(textStr);
         // }
         // console.log(fecmjs.isAllCN('哦我asdsl？'));
-        fecmjs.addClass(document.querySelector('#dom'), ['name'])
-        console.log(fecmjs.isHtmlObj(document.querySelector('#dom')));
+        // fecmjs.addClass(document.querySelector('#dom'), ['name'])
+        // console.log(fecmjs.isHtmlObj(document.querySelector('#dom')));
 
-        console.log(fecmjs);
+        // console.log(fecmjs);
+
+        const {getDomInfo ,$, isNodeList} = fecmjs;
+
+        console.log(getDomInfo($('li')))
+
+        console.log(getDomInfo($('li')[0]))
+
+
+
 
     </script>
 </body>

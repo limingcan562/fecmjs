@@ -193,6 +193,24 @@ console.log(flag); // true
     setStyle('#dom', 'color: red'); // 设置单个样式
     ```
 
+- ### `getDomInfo` 
+
+    > #### 获取某个`dom`的信息，或者获取某组`NodeList`的信息
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `selectName`| `css`选择器或者是`dom`对象，或者是一组`NodeList` |
+    `style`| 要设置的样式 | 
+
+    ##### 备注：
+    1. 如果`selectName`是一组`NodeList`，则返回这个`NodeList`组成的信息数组
+
+    示例:
+    ```javascript
+    import {setStyle} from 'femcjs';
+    console.log(getDomInfo($('li'))); // [DOMRect, DOMRect]
+    ```
+
 - ### `isExceedParentHeight` 
 
     > #### 判断子元素是否超出父元素高度
@@ -358,6 +376,10 @@ console.log(flag); // true
 - ### `isHtmlObj` 
 
     > #### 当前是否为`htmlDom`对象
+
+- ### `isNodeList` 
+
+    > #### 当前是否为`NodeList`对象
 
 
 ## <a id="Storage">`Storage`</a>

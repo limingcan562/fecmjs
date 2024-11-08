@@ -16,6 +16,7 @@ import removeClass from './dom/removeClass';
 import addClass from './dom/addClass';
 import getClass from './dom/getClass';
 import setStyle from './dom/setStyle';
+import getDomInfo from './dom/getDomInfo';
 import isShowOnVisualArea from './dom/isShowOnVisualArea';
 import isExceedParentHeight from './dom/isExceedParentHeight';
 import setPageNoScroll from './dom/setPageNoScroll';
@@ -32,6 +33,7 @@ import isNum from './object/isNum';
 import isUndefined from './object/isUndefined';
 import isDate from './object/isDate';
 import isHtmlObj from './object/isHtmlObj';
+import isNodeList from './object/isNodeList';
 import emptyObj from './object/emptyObj';
 
 // storage
@@ -100,6 +102,7 @@ export {
     addClass,
     getClass,
     setStyle,
+    getDomInfo,
     isShowOnVisualArea,
     isExceedParentHeight,
     setPageNoScroll,
@@ -112,6 +115,7 @@ export {
     isNull,
     isNum,
     isHtmlObj,
+    isNodeList,
     isUndefined,
     isDate,
     emptyObj,
