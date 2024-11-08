@@ -200,7 +200,6 @@ console.log(flag); // true
     参数名 | 说明  | 默认值
     ------| ----| -----
     `selectName`| `css`选择器或者是`dom`对象，或者是一组`NodeList` |
-    `style`| 要设置的样式 | 
 
     ##### 备注：
     1. 如果`selectName`是一组`NodeList`，则返回这个`NodeList`组成的信息数组
