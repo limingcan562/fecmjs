@@ -26,10 +26,10 @@ export default [
     {
         input: "./src/index.js",
         output: [
-            // {
-            //     ...cjOutBase,
-            //     file: `dist/${pkg.name}.cjs.js`,
-            // },
+            {
+                ...cjOutBase,
+                file: `dist/${pkg.name}.cjs.js`,
+            },
             {
                 ...esmOutBase,
                 file: `dist/${pkg.name}.esm.js`
