@@ -394,6 +394,10 @@ console.log(flag); // true
 
     > #### Whether the current is `null` or not
 
+- ### `isNum` 
+
+    > #### Whether the current type is `number` or not
+
 - ### `isObj` 
 
     > #### Whether the current type is `Object` or not

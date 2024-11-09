@@ -360,6 +360,10 @@ console.log(flag); // true
 
     > #### 当前是否为`null`
 
+- ### `isNum` 
+
+    > #### 当前是否为`number`类型
+
 - ### `isObj` 
 
     > #### 当前是否为`object`类型
