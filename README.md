@@ -96,8 +96,8 @@ console.log(flag); // true
     Example:
     ```javascript
     import {getDateByTimestamp} from 'femcjs';
-    console.log(fecmjs.getDateByTimestamp('1730129184412')); // 2024-10-28
-    console.log(fecmjs.getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
+    console.log(getDateByTimestamp('1730129184412')); // 2024-10-28
+    console.log(getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
     ```
 
 - ### `getTimestamp` 

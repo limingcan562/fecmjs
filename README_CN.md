@@ -78,10 +78,10 @@ console.log(flag); // true
     ```javascript
     // 获取2024-10-28日的前30天
     import {getCurrentTimestamp} from 'femcjs';
-    console.log(-30, '2024-10-28'); // 2024-09-28
+    console.log(getCurrentTimestamp(-30, '2024-10-28')); // 2024-09-28
 
     // 获取2024-10-28日的后30天
-    console.log(30, '2024-10-28'); // 2024-11-27
+    console.log(getCurrentTimestamp(30, '2024-10-28')); // 2024-11-27
     ```
 
 - ### `getDateByTimestamp` 
@@ -95,8 +95,8 @@ console.log(flag); // true
     示例:
     ```javascript
     import {getDateByTimestamp} from 'femcjs';
-    console.log(fecmjs.getDateByTimestamp('1730129184412')); // 2024-10-28
-    console.log(fecmjs.getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
+    console.log(getDateByTimestamp('1730129184412')); // 2024-10-28
+    console.log(getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
     ```
 
 - ### `getTimestamp` 
