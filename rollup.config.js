@@ -1,9 +1,10 @@
 import babel from '@rollup/plugin-babel';
+import path from 'path';
 // import commonjs from '@rollup/plugin-commonjs';
 // import resolve from '@rollup/plugin-node-resolve';
 import filesize from 'rollup-plugin-filesize';
 import {terser} from 'rollup-plugin-terser';
-// import postcss from 'rollup-plugin-postcss';
+import postcss from 'rollup-plugin-postcss';
 import pkg from './package.json';
 
 const bannerData =
@@ -24,11 +25,11 @@ const minOutBase = {...defaultOutBase, plugins: [ terser() ], sourcemap: true};
 
 export default [
     {
-        input: "./src/index.js",
+        input: './src/index.js',
         output: [
             {
                 ...cjOutBase,
-                file: `dist/${pkg.name}.cjs.js`,
+                file: `dist/${pkg.name}.cjs.js`
             },
             {
                 ...esmOutBase,
@@ -54,6 +55,11 @@ export default [
             // 如果源码使用commonjs规范编写，则需要开启
             // resolve(), 
             // commonjs()
+
+            postcss({
+                extract: path.resolve('dist/styles/ani.css'), // 将 CSS 提取到单独的文件
+                minimize: false
+            }),
         ]
     },
 ]

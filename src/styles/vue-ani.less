@@ -1,0 +1,92 @@
+// 从上往下淡入
+.top-to-bottom-enter-active,
+.top-to-bottom-leave-active {
+    transition: all .2s ease;
+}
+
+.top-to-bottom-enter-from,
+.top-to-bottom-leave-to {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all .2s ease;
+}
+
+
+// 淡入
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+
+// 从右往左淡入
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+    transition: all .2s ease-out;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+    transition: all .2s ease-out;
+}
+
+
+
+.fade-modal-enter-from,
+.fade-modal-appear-from {
+    opacity: 0;
+}
+
+.fade-modal-enter-to,
+.fade-modal-appear-to {
+    opacity: 1;
+}
+
+.fade-modal-enter-active,
+.fade-modal-appear-active,
+.fade-modal-leave-active {
+    transition: opacity 0.4s ease;
+}
+
+.fade-modal-leave-from {
+    opacity: 1;
+}
+
+.fade-modal-leave-to {
+    opacity: 0;
+}
+
+.zoom-modal-enter-from,
+.zoom-modal-appear-from {
+    transform: scale(0.5, 0.5);
+    opacity: 0;
+}
+
+.zoom-modal-enter-to,
+.zoom-modal-appear-to {
+    transform: scale(1, 1);
+    opacity: 1;
+}
+
+.zoom-modal-enter-active,
+.zoom-modal-appear-active,
+.zoom-modal-leave-active {
+    transition: opacity 0.4s ease-in, transform 0.4s ease-in;
+}
+
+.zoom-modal-leave-from {
+    transform: scale(1, 1);
+    opacity: 1;
+}
+
+.zoom-modal-leave-to {
+    transform: scale(0.5, 0.5);
+    opacity: 0;
+}

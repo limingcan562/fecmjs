@@ -1,3 +1,7 @@
+// css
+import './styles/vue-ani.less';
+import './styles/css-ani.less';
+
 // validate
 import isEmail from './validate/isEmail';
 import isPhoneNum from './validate/isPhoneNum';
