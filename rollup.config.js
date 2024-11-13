@@ -5,6 +5,7 @@ import path from 'path';
 import filesize from 'rollup-plugin-filesize';
 import {terser} from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
+import copy from 'rollup-plugin-copy';
 import pkg from './package.json';
 
 const bannerData =
@@ -56,10 +57,16 @@ export default [
             // resolve(), 
             // commonjs()
 
-            postcss({
-                extract: path.resolve('dist/styles/ani.css'), // 将 CSS 提取到单独的文件
-                minimize: false
-            }),
+            // postcss({
+            //     extract: path.resolve('dist/styles/ani.css'), // 将 CSS 提取到单独的文件
+            //     minimize: false
+            // }),
+
+            copy({
+                targets: [
+                    { src: 'public/styles', dest: 'dist' },
+                ]
+            })
         ]
     },
 ]

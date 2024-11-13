@@ -1,6 +1,6 @@
-// css
-import './styles/vue-ani.less';
-import './styles/css-ani.less';
+
+// import '../public/styles/css-ani.less'
+// import '../public/styles/vue-ani.less'
 
 // validate
 import isEmail from './validate/isEmail';
