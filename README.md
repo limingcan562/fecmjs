@@ -18,6 +18,7 @@ English | [中文](README_CN.md)
 - [`Storage`: Wrappers for `Storage` methods](#Storage)
 - [`Url`: Some methods around `Url`](#Url)
 - [`Validate`: Wrapping some methods around validation](#Validate)
+- [`Animation`: about `css`, `vue` usable animations]( #Animation )
 
 Translated with DeepL.com (free version)
 
