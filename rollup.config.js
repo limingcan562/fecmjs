@@ -1,11 +1,10 @@
 import babel from '@rollup/plugin-babel';
-import path from 'path';
+// import path from 'path';
 // import commonjs from '@rollup/plugin-commonjs';
 // import resolve from '@rollup/plugin-node-resolve';
 import filesize from 'rollup-plugin-filesize';
 import {terser} from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
-import copy from 'rollup-plugin-copy';
 import pkg from './package.json';
 
 const bannerData =
@@ -56,17 +55,29 @@ export default [
             // 如果源码使用commonjs规范编写，则需要开启
             // resolve(), 
             // commonjs()
+        ]
+    },
 
-            // postcss({
-            //     extract: path.resolve('dist/styles/ani.css'), // 将 CSS 提取到单独的文件
-            //     minimize: false
-            // }),
-
-            copy({
-                targets: [
-                    { src: 'public/styles', dest: 'dist' },
-                ]
+    {
+        input: './src/styles/vue-ani.less',
+        output: {
+            file: `dist/styles/vue-ani.css`
+        },
+        plugins: [
+            postcss({
+                extract: true
             })
         ]
     },
+    {
+        input: './src/styles/css-ani.less',
+        output: {
+            file: `dist/styles/css-ani.css`
+        },
+        plugins: [
+            postcss({
+                extract: true
+            })
+        ]
+    }
 ]
