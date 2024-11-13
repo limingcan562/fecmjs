@@ -16,6 +16,8 @@
 - [`Storage`: 关于`Storage`的一些方法封装](#Storage)
 - [`Url`: 关于`Url`的一些方法封装](#Url)
 - [`Validate`: 关于校验的一些方法封装](#Validate)
+- [`Animation`: 关于`css`，`vue`可使用的动画](#Animation)
+
 
 
 
@@ -614,4 +616,32 @@ console.log(flag); // true
     ```javascript
     import {formatVideoDuration} from 'femcjs';
     console.log(formatVideoDuration(3600)); // 01:00:00
+    ```
+
+## <a id="Animation">`Animation`</a>
+- ### `vue`动画  
+
+    #### 支持的动画有：
+    - `fade-in`：淡入
+    - `fade-right-to-left`：从右往左淡入
+    - `fade-top-to-bottom`：从上往下淡入
+    - `fade-zoom-in`：放大淡入
+
+
+    示例:
+    ```html
+    <Transition name="fade-right-to-left">
+        <components v-if="show" />
+    </Transition>
+    ```
+- ### `css`动画
+
+    ##### 备注：
+    具体可查看`dist/styles/css-ani.css`
+   
+
+    示例:
+    ```html
+    <!-- 该元素将会延迟500ms，以750ms，进行循环闪烁动画 -->
+    <div class="shine time750 delay500"></div>
     ```

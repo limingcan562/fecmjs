@@ -621,3 +621,32 @@ console.log(flag); // true
     import {setUrlWithNorefresh} from 'femcjs';
     console.log(setUrlWithNorefresh({name: 'lmc', age: 29}); // http://localhost:5501/test/?name=lmc&age=29
     ```
+
+
+
+## <a id="Animation">`Animation`</a>
+- ### `vue` animation    
+
+    #### Supported animations are
+    - `fade-in`: fade-in
+    - `fade-right-to-left`: fade in from right to left
+    - `fade-top-to-bottom`: fade in from top to bottom
+    - `fade-zoom-in`: zoom in
+
+
+    Example:
+    ```html
+    <Transition name="fade-right-to-left">
+        <components v-if="show" />
+    </Transition>
+    ```
+- ### `css` animation
+
+    ##### Note:
+    See `dist/styles/css-ani.css` for details.
+
+    Example:
+    ```html
+    <!-- The element will be delayed 500ms to 750ms for a cyclic blinking animation -->
+    <div class="shine time750 delay500"></div>
+    ```

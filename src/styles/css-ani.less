@@ -1,468 +1,323 @@
-// ----自定义动画 ---//
-// ----闪烁动画 ---//
-.shine{
+// ------ 常用 css动画 ------ //
+
+// 闪烁
+@keyframes shine {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+.shine {
     animation-name: shine;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
-@keyframes shine{
-    0%{opacity: 1;}
-    50%{opacity: 0;}
-    100%{opacity: 1;}
+
+
+
+// 旋转
+@keyframes rotate_ani {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
 }
-
-// ----旋转动画 ---//
-.rotateAni{
-    animation-name: rotateAni;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes rotateAni{
-    0%{transform: rotateZ(0deg);}
-    100%{transform: rotateZ(360deg);}
-}
-
-
-// ----叶子往左动画 ---//
-.rotateLeft{
-    animation-name: rotateLeft;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes rotateLeft{
-    0%{transform: rotateZ(0deg);}
-    50%{transform: rotateZ(15deg);}
-    100%{transform: rotateZ(0deg);}
-}
-
-// ----叶子往右动画 ---//
-.rotateRight{
-    animation-name: rotateRight;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes rotateRight{
-    0%{transform: rotateZ(0deg);}
-    50%{transform: rotateZ(-15deg);}
-    100%{transform: rotateZ(0deg);}
-}
-
-
-
-// ----背景动画 ---//
-.bgAni{
-    animation-name: bgAni;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes bgAni{
-    0%{transform: translate3d(0, 0, 0);}
-    100%{transform: translate3d(-200%, 0, 0);}
-}
-
-.loadingIconAni{
-    animation-name: loadingIconAni;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes loadingIconAni{
-    0%{transform: rotateZ(0deg) scale3d(1, 1, 1); opacity: .6;}
-    50%{transform: rotateZ(360deg) scale3d(1.2, 1.2, 1.2); opacity: 1;}
-    100%{transform: rotateZ(360deg) scale3d(1, 1, 1); opacity: .6;}
-}
-
-
-// ----弹幕一效果 ---//
-.arrowAni{
-    animation-name: arrowAni;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes arrowAni{
-    0%{transform: translate3d(0, 0, 0);}
-    50%{transform: translate3d(0, -20%, 0);}
-    100%{transform: translate3d(0, 0, 0);}
-}
-
-// ----弹幕一效果 ---//
-.hand_tip_Ani{
-    animation-name: hand_tip_Ani;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes hand_tip_Ani{
-    0%{transform: scale3d(1, 1, 1) rotateZ(-30deg);}
-    50%{transform: scale3d(1.2, 1.2, 1.2) rotateZ(-30deg);}
-    100%{transform: scale3d(1, 1, 1) rotateZ(-30deg);}
-}
-
-
-// ----文字轮播效果 ---//
-@keyframes slide_text_Ani{
-    0%{transform: translate3d(0, 0, 0);}
-    5%,25%{transform: translate3d(0, -30px, 0);}
-    30%,50%{transform: translate3d(0, -60px, 0);}
-    55%,75%{transform: translate3d(0, -90px, 0);}
-    80%,100%{transform: translate3d(0, -120px, 0);}
-}
-.slide_text_Ani{
-    animation-name: slide_text_Ani;
+.rotate_ani {
+    animation-name: rotate_ani;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
 
 
-.text_2_Ani{
-    animation-name: text_2_Ani;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-@keyframes text_2_Ani{
-    0%{transform: translate3d(0, 0, 0);}
-    100%{transform: translate3d(1100px, 0, 0);}
-}
+// 向右旋转15deg
+@keyframes rotate_left_15 {
+    0% {
+        transform: rotateZ(0deg);
+    }
 
-.upTipAni{
-    animation-name: upTipAni;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-@keyframes upTipAni{
-    0%{transform: translate3d(0, 0, 0);}
-    50%{transform: translate3d(0, -5px, 0);}
-    100%{transform: translate3d(0, 0, 0);}
-}
+    50% {
+        transform: rotateZ(15deg);
+    }
 
-
-// ----光移动动画 ---//
-.light_move{
-    animation-name: light_move;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    100% {
+        transform: rotateZ(0deg);
+    }
 }
-@keyframes light_move{
-    0%{transform: translate3d(0, 0, 0) rotateZ(45deg);}
-    100%{transform: translate3d(600px, 0, 0) rotateZ(45deg);}
-}
-
-// ----光移动动画 ---//
-.light_tip{
-    animation-name: light_tip;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-@keyframes light_tip{
-    0%{opacity: 0;transform: scale3d(.8, .8, .8);}
-    50%{opacity: 1;transform: scale3d(1, 1, 1);}
-    90%{opacity: 0;}
-    100%{opacity: 0;}
-}
-
-
-
-// ----浮动动画 ---//
-.floatAni{
-    animation-name: floatAni;
+.rotate_left_15 {
+    animation-name: rotate_left_15;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
-@keyframes floatAni{
-    0%{transform: translate3d(0,0,0);}
-    50%{transform: translate3d(0,10px,0);}
-    100%{transform: translate3d(0,0,0);}
-}
+// 向左旋转15deg
+@keyframes rotate_left_15 {
+    0% {
+        transform: rotateZ(0deg);
+    }
 
-.floatAni_1{
-    animation-name: floatAni_1;
+    50% {
+        transform: rotateZ(-15deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+.-rotate_left_15 {
+    animation-name: rotate_left_15;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
-@keyframes floatAni_1{
-    0%{transform: translate3d(0,0,0);}
-    50%{transform: translate3d(0, -10px,0);}
-    100%{transform: translate3d(0,0,0);}
-}
 
-.floatAni_2{
-    animation-name: floatAni_2;
+// icon动画
+@keyframes loading_icon_ani {
+    0% {
+        transform: rotateZ(0deg) scale3d(1, 1, 1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: rotateZ(360deg) scale3d(1.2, 1.2, 1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotateZ(360deg) scale3d(1, 1, 1);
+        opacity: 0.6;
+    }
+}
+.loading_icon_ani {
+    animation-name: loading_icon_ani;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
-@keyframes floatAni_2{
-    0%{transform: translate3d(0,0,0);}
-    50%{transform: translate3d(0, 8px,0);}
-    100%{transform: translate3d(0,0,0);}
+
+
+
+// 向上浮动动画
+@keyframes float_ani {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -20%, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
 }
-
-
-.floatAni_3{
-    animation-name: floatAni_3;
+.float_ani {
+    animation-name: float_ani;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
-@keyframes floatAni_3{
-    0%{transform: translate3d(0,0,0);}
-    50%{transform: translate3d(0, -8px,0);}
-    100%{transform: translate3d(0,0,0);}
-}
 
-
-// ----圆周运动 ---//
+// 圆周运动
 @keyframes around {
-    0% { transform: rotate(0) translateX(15px) rotate(0);}
-    100% {transform: rotate(360deg) translateX(15px) rotate(-360deg); }
+    0% {
+        transform: rotate(0) translateX(5px) rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(5px) rotate(-360deg);
+    }
 }
 
 .around {
     animation-name: around;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    // ----transform: rotate(0) translateX(5px) rotate(0); ---//
 }
 
-@keyframes around_1 {
-    0% { transform: rotate(0) translateX(5px) rotate(0);}
-    100% {transform: rotate(360deg) translateX(5px) rotate(-360deg); }
+
+// 放大缩小
+@keyframes scale_ani {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
 }
 
-.around_1 {
-    animation-name: around_1;
+.scale_ani {
+    animation-name: scale_ani;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    // ----transform: rotate(0) translateX(5px) rotate(0); ---//
-}
-
-@keyframes around_2 {
-    0% { transform: rotate(0) translateX(-5px) rotate(0);}
-    100% {transform: rotate(360deg) translateX(-5px) rotate(-360deg); }
-}
-
-.around_2 {
-    animation-name: around_2;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    // ----transform: rotate(0) translateX(5px) rotate(0); ---//
-}
-
-@keyframes around_3 {
-    0% { transform: rotate(0) translateX(-8px) rotate(0);}
-    100% {transform: rotate(360deg) translateX(-8px) rotate(-360deg); }
-}
-
-.around_3 {
-    animation-name: around_3;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    // ----transform: rotate(0) translateX(5px) rotate(0); ---//
-}
-
-// ----放大缩小 ---//
-@keyframes scaleAni {
-    0% { transform: scale3d(1,1,1);}
-    50% {transform: scale3d(.9,.9,.9) }
-    100% { transform: scale3d(1,1,1);}
-}
-
-.scaleAni {
-    animation-name: scaleAni;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    // ----transform: rotate(0) translateX(5px) rotate(0); ---//
-}
-@keyframes scaleAni_1 {
-    0% { transform: scale3d(1.1,1.1,1.1);}
-    50% {transform: scale3d(.9,.9,.9) }
-    100% { transform: scale3d(1.1,1.1,1.1);}
-}
-
-.scaleAni_1 {
-    animation-name: scaleAni_1;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    // ----transform: rotate(0) translateX(5px) rotate(0); ---//
 }
 
 
+// 向下震动动画
 @keyframes bounce {
+
     from,
     20%,
     53%,
     80%,
     to {
         animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-        transform: translate3d(0, 0, 0) scale3d(1.2, 1.2, 1.2);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
     }
 
     40%,
     43% {
         animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-        transform: translate3d(0, -30px, 0) scale3d(1.2, 1.2, 1.2);
+        transform: translate3d(0, -30px, 0) scale3d(1, 1, 1);
     }
 
     70% {
         animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-        transform: translate3d(0, -15px, 0) scale3d(1.2, 1.2, 1.2);
+        transform: translate3d(0, -15px, 0) scale3d(1, 1, 1);
     }
 
     90% {
-        transform: translate3d(0, -4px, 0) scale3d(1.2, 1.2, 1.2);
+        transform: translate3d(0, -4px, 0) scale3d(1, 1, 1);
     }
 }
+
 .bounce {
     animation-name: bounce;
     animation-iteration-count: infinite;
 }
 
 
-
-
-
-// ----延时 ---//
-.delay01{
-    animation-delay: .1s;
-}
-.delay02{
-    animation-delay: .2s;
-}
-.delay03{
-    animation-delay: .3s;
-}
-.delay04{
-    animation-delay: .4s;
-}
-.delay05{
-    animation-delay: .5s;
-}
-.delay102{
-    animation-delay: 1.2s;
-}
-
-.delay1{
-    animation-delay: 1s;
-}
-.delay2{
-    animation-delay: 2s;
-}
-.delay3{
-    animation-delay: 3s;
-}
-
-// ----运动时间 ---//
-.time075{
-    animation-duration: .75s;
-}
-.time1{
-    animation-duration: 1s;
-}
-.time15{
-    animation-duration: 1.5s;
-}
-.time2{
-    animation-duration: 2s;
-}
-.time205{
-    animation-duration: 2.5s;
-}
-.time3{
-    animation-duration: 3s;
-}
-.time4{
-    animation-duration: 4s;
-}
-.time5{
-    animation-duration: 5s;
-}
-.time6{
-    animation-duration: 6s;
-}
-.time7{
-    animation-duration: 7s;
-}
-.time8{
-    animation-duration: 8s;
-}
-.time12{
-    animation-duration: 12s;
-}
-.time25{
-    animation-duration: 25s;
-}
-.time30{
-    animation-duration: 30s;
-}
-
-
-.paused{
-    animation-play-state: paused; 
-    -webkit-animation-play-state: paused;
-
-    // ----兼容ios11 ---//
-    // animation: none !important;
-}
-
-
-
-// svg 动画
-.loading_circle_Ani{
-    animation-name: loading_circle_Ani;
+// svg动画
+.loading_circle_ani {
+    animation-name: loading_circle_ani;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
-@keyframes loading_circle_Ani{
-    0%{stroke-dasharray: 0 1000;}
-    100%{stroke-dasharray: 1000 0;}
-}
 
-
-
-
-@-webkit-keyframes fadeInUp {
+@keyframes loading_circle_ani {
     0% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 50%, 0);
-        transform: translate3d(0, 50%, 0)
+        stroke-dasharray: 0 1000;
     }
 
     100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none
+        stroke-dasharray: 1000 0;
     }
 }
 
+
+// 向上淡入
 @keyframes fadeInUp {
     0% {
         opacity: 0;
         -webkit-transform: translate3d(0, 50%, 0);
         -ms-transform: translate3d(0, 50%, 0);
-        transform: translate3d(0, 50%, 0)
+        transform: translate3d(0, 50%, 0);
     }
 
     100% {
         opacity: 1;
         -webkit-transform: none;
         -ms-transform: none;
-        transform: none
+        transform: none;
     }
 }
 
 .fadeInUp {
     -webkit-animation-name: fadeInUp;
     animation-name: fadeInUp;
-
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;
+}
+
+
+
+// 延迟
+.delay500 {
+    animation-delay: 500ms;
+}
+.delay1000 {
+    animation-delay: 1000ms;
+}
+.delay1500 {
+    animation-delay: 1500ms;
+}
+
+.delay2000 {
+    animation-delay: 2000ms;
+}
+
+.delay2500 {
+    animation-delay: 2500ms;
+}
+
+.delay3000 {
+    animation-delay: 3000ms;
+}
+
+
+
+
+
+// 动画时间
+.time150 {
+    animation-duration: 150ms;
+}
+
+.time300 {
+    animation-duration: 300ms;
+}
+
+.time350 {
+    animation-duration: 350ms;
+}
+
+.time500 {
+    animation-duration: 500ms;
+}
+
+.time750 {
+    animation-duration: 750ms;
+}
+
+.time1000 {
+    animation-duration: 1000ms;
+}
+
+.time1500 {
+    animation-duration: 1500ms;
+}
+
+.time2000 {
+    animation-duration: 2000ms;
+}
+.time2500 {
+    animation-duration: 2500ms;
+}
+
+.time3000 {
+    animation-duration: 3000ms;
+}
+
+
+
+// 暂停
+.paused {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
 }
