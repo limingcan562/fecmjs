@@ -101,9 +101,13 @@ console.log(flag); // true
     console.log(getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
     ```
 
-- ### `getTimestamp` 
+- ### `getTimestampByDate` 
 
-    > #### 获取时间戳  
+    > #### 根据具体日期获取时间戳  
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `time`| 具体日期。格式与`new Date()`传入的格式一样  | `new Date().getTime()`
 
     ##### 备注：
     1. 默认返回当前时间的时间戳
@@ -111,10 +115,10 @@ console.log(flag); // true
 
     示例:
     ```javascript
-    import {getTimestamp} from 'femcjs';
-    console.log(getTimestamp()); // 1730131646512
-    console.log(getTimestamp('2024-10-29')); // 1730160000000
-    console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
+    import {getTimestampByDate} from 'femcjs';
+    console.log(getTimestampByDate()); // 1730131646512
+    console.log(getTimestampByDate('2024-10-29')); // 1730160000000
+    console.log(getTimestampByDate('2024-10-29 01:30')); // 1730136600000
     ```
 
 ## <a id="Dom">`Dom`</a>

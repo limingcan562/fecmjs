@@ -101,8 +101,12 @@ console.log(flag); // true
     console.log(getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
     ```
 
-- ### `getTimestamp` 
-    > #### Get timestamp  
+- ### `getTimestampByDate` 
+    > #### Get timestamps based on specific dates  
+
+    parameter name | description | default value
+    ------| ----| -----
+    `time`| Specific date. The format is the same as that passed in by `new Date()`  | `new Date().getTime()`
 
     > #### Note:
     1. Returns the timestamp of the current time by default
@@ -110,10 +114,10 @@ console.log(flag); // true
 
     Example:
     ```javascript
-    import {getTimestamp} from 'femcjs';
-    console.log(getTimestamp()); // 1730131646512
-    console.log(getTimestamp('2024-10-29')); // 1730160000000
-    console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
+    import {getTimestampByDate} from 'femcjs';
+    console.log(getTimestampByDate()); // 1730131646512
+    console.log(getTimestampByDate('2024-10-29')); // 1730160000000
+    console.log(getTimestampByDate('2024-10-29 01:30')); // 1730136600000
     ```
 
 ## <a id="Device">`Device`</a>

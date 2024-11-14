@@ -71,7 +71,7 @@ import formatFileSize from './format/formatFileSize';
 import formatVideoDuration from './format/formatVideoDuration';
 
 // date
-import getTimestamp from './date/getTimestamp';
+import getTimestampByDate from './date/getTimestampByDate';
 import getCurrentTimestamp from './date/getCurrentTimestamp';
 import getDateByFewdays from './date/getDateByFewdays';
 import getDateByTimestamp from './date/getDateByTimestamp';
@@ -148,7 +148,7 @@ export {
     isFileVideoType,
     isContentSrtFormat,
 
-    getTimestamp,
+    getTimestampByDate,
     getCurrentTimestamp,
     getDateByFewdays,
     getDateByTimestamp,
