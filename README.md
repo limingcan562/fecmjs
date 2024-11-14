@@ -1,7 +1,13 @@
 # fecmjs
 Front end common method collection
 
+![npm](https://img.shields.io/npm/v/fecmjs?logo=npm)
+![download](https://img.shields.io/npm/dm/fecmjs)
+![license](https://img.shields.io/npm/l/fecmjs)
+
 English | [中文](README_CN.md)
+
+
 
 ## Features
 1. Front-end commonly used methods collection collection , to facilitate the usual development ( part of the method from the Internet )

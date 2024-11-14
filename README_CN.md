@@ -1,6 +1,10 @@
 # fecmjs
 前端常用方法集合
 
+![npm](https://img.shields.io/npm/v/fecmjs?logo=npm)
+![download](https://img.shields.io/npm/dm/fecmjs)
+![license](https://img.shields.io/npm/l/fecmjs)
+
 ## 特点
 1. 前端常用方法收集集合，方便平时开发（部分方法来自网上）
 2. 模块化开发，方便引用
