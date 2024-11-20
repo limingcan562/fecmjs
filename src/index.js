@@ -81,6 +81,11 @@ import getDateByTimestamp from './date/getDateByTimestamp';
 import getUrlValue from './url/getUrlValue';
 import setUrlWithNorefresh from './url/setUrlWithNorefresh';
 
+// array
+import { chunkArrayBySize } from './array/chunkArrayBySize';
+import { removeArrayItem } from './array/removeArrayItem';
+
+
 
 // export default {
 //     isEmail,
@@ -154,5 +159,8 @@ export {
     getDateByTimestamp,
 
     getUrlValue,
-    setUrlWithNorefresh
+    setUrlWithNorefresh,
+
+    chunkArrayBySize,
+    removeArrayItem
 }

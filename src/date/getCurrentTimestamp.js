@@ -3,7 +3,7 @@
  * @return {string}  current timestamp
  */
 
-import getTimestamp from "./getTimestamp";
+import getTimestampByDate from "./getTimestampByDate";
 export default function getCurrentTimestamp() {
-    return getTimestamp();
+    return getTimestampByDate();
 } 

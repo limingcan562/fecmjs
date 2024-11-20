@@ -21,6 +21,7 @@ English | [中文](README_CN.md)
 - [`File`: Wrapping some methods around `File`](#File)
 - [`Format`: some method wrappers for formatting](#Format)
 - [`Object`: Wrapping some methods around `object`](#Object)
+- [`Array`: Some method encapsulation on `array`](#Array)
 - [`Storage`: Wrappers for `Storage` methods](#Storage)
 - [`Url`: Some methods around `Url`](#Url)
 - [`Validate`: Wrapping some methods around validation](#Validate)
@@ -431,6 +432,50 @@ console.log(flag); // true
     > #### Whether the current object is `NodeList` or not.
 
     
+## <a id="Array">`Array`</a>
+- ### `chunkArrBySize` 
+
+    > #### Returns an array grouped according to a specified size.
+
+
+    parameter name | description | default value
+    ------| ----| -----
+    `array`| array being manipulated | 
+    `size`| Size to specify | 
+
+    Example:
+    ```javascript
+    import {chunkArrBySize} from 'femcjs';
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    const SIZE = 3;
+    console.log(chunkArrBySize(arr, SIZE)); // [[1,2,3], [4,5,6], [7,8]]
+    ```
+
+    
+- ### `removeArrayItem` 
+
+    > #### Deleting an item in an array
+
+    parameter name | description | default value
+    ------| ----| -----
+    `array`| array being manipulated | 
+    `item`| Items to be deleted |
+    `newone` | Whether to return a new array without changing the size of the original array | 
+
+    ##### Note：
+    1. `item` can only be of type **string** or **numeric**.
+    2. if `newone = false`; changes the size of the original array
+    3. if `newone = true`; does not change the size of the original array, returns a new target array
+
+    Example:
+    ```javascript
+    import {removeArrayItem} from 'femcjs';
+    const arr = [1, 2, 3, 4, 'hello', 'lee', 7, 8];
+    console.log(removeArrayItem(arr, 'hello', true)); // [1, 2, 3, 4, 'lee', 7, 8];
+    console.log(arr); // [1, 2, 3, 4, 'hello', 'lee', 7, 8];
+    ```
+
+
 
 ## <a id="Storage">`Storage`</a>
 - ### `getLocalStorage` 
