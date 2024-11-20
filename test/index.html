@@ -14,6 +14,8 @@
 
     <script src="../dist/fecmjs.js"></script>
     <script>
+        const {$, setStyle, chunkArrBySize, removeArrayItem} = fecmjs;
+
         document.querySelector('input').addEventListener('change', evt => {
             const file = evt.target.files[0];
             const src = fecmjs.getFilePreviewSrc(file)
@@ -22,9 +24,10 @@
             console.log(file.type);
             console.log(fecmjs.isFileAudioType(file));
         })
-        const {$, setStyle} = fecmjs;
-        setStyle($('#test'), {width: '200px', height: '200px', 'background': '#000', color: '#fff'})
+        setStyle($('#test'), {width: '200px', height: '200px', 'background': '#000', color: '#fff'});
 
+        const arr = [1, 2, 3, 4, 'hello', 'lee', 7, 8];
+        console.log(removeArrayItem(arr, {name: '123'}), arr);
     </script>
 </body>
 </html>

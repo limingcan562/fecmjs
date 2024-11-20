@@ -71,7 +71,7 @@ import formatFileSize from './format/formatFileSize';
 import formatVideoDuration from './format/formatVideoDuration';
 
 // date
-import getTimestamp from './date/getTimestamp';
+import getTimestampByDate from './date/getTimestampByDate';
 import getCurrentTimestamp from './date/getCurrentTimestamp';
 import getDateByFewdays from './date/getDateByFewdays';
 import getDateByTimestamp from './date/getDateByTimestamp';
@@ -80,6 +80,11 @@ import getDateByTimestamp from './date/getDateByTimestamp';
 // url
 import getUrlValue from './url/getUrlValue';
 import setUrlWithNorefresh from './url/setUrlWithNorefresh';
+
+// array
+import { chunkArrayBySize } from './array/chunkArrayBySize';
+import { removeArrayItem } from './array/removeArrayItem';
+
 
 
 // export default {
@@ -148,11 +153,14 @@ export {
     isFileVideoType,
     isContentSrtFormat,
 
-    getTimestamp,
+    getTimestampByDate,
     getCurrentTimestamp,
     getDateByFewdays,
     getDateByTimestamp,
 
     getUrlValue,
-    setUrlWithNorefresh
+    setUrlWithNorefresh,
+
+    chunkArrayBySize,
+    removeArrayItem
 }

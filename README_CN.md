@@ -1,6 +1,10 @@
 # fecmjs
 前端常用方法集合
 
+![npm](https://img.shields.io/npm/v/fecmjs?logo=npm)
+![download](https://img.shields.io/npm/dm/fecmjs)
+![license](https://img.shields.io/npm/l/fecmjs)
+
 ## 特点
 1. 前端常用方法收集集合，方便平时开发（部分方法来自网上）
 2. 模块化开发，方便引用
@@ -13,6 +17,7 @@
 - [`File`：关于`File`的一些方法封装](#File)
 - [`Format`: 关于格式化的一些方法封装](#Format)
 - [`Object`: 关于`Object`的一些方法封装](#Object)
+- [`Array`: 关于`array`的一些方法封装](#Array)
 - [`Storage`: 关于`Storage`的一些方法封装](#Storage)
 - [`Url`: 关于`Url`的一些方法封装](#Url)
 - [`Validate`: 关于校验的一些方法封装](#Validate)
@@ -101,9 +106,13 @@ console.log(flag); // true
     console.log(getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
     ```
 
-- ### `getTimestamp` 
+- ### `getTimestampByDate` 
 
-    > #### 获取时间戳  
+    > #### 根据具体日期获取时间戳  
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `time`| 具体日期。格式与`new Date()`传入的格式一样  | `new Date().getTime()`
 
     ##### 备注：
     1. 默认返回当前时间的时间戳
@@ -111,10 +120,10 @@ console.log(flag); // true
 
     示例:
     ```javascript
-    import {getTimestamp} from 'femcjs';
-    console.log(getTimestamp()); // 1730131646512
-    console.log(getTimestamp('2024-10-29')); // 1730160000000
-    console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
+    import {getTimestampByDate} from 'femcjs';
+    console.log(getTimestampByDate()); // 1730131646512
+    console.log(getTimestampByDate('2024-10-29')); // 1730160000000
+    console.log(getTimestampByDate('2024-10-29 01:30')); // 1730136600000
     ```
 
 ## <a id="Dom">`Dom`</a>
@@ -385,6 +394,48 @@ console.log(flag); // true
 - ### `isNodeList` 
 
     > #### 当前是否为`NodeList`对象
+
+
+## <a id="Array">`Array`</a>
+- ### `chunkArrBySize` 
+
+    > #### 返回根据指定大小分好组的数组
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `array`| 被操作的数组 | 
+    `size`| 要指定的大小 | 
+
+    示例:
+    ```javascript
+    import {chunkArrBySize} from 'femcjs';
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    const SIZE = 3;
+    console.log(chunkArrBySize(arr, SIZE)); // [[1,2,3], [4,5,6], [7,8]]
+    ```
+
+- ### `removeArrayItem` 
+
+    > #### 删除数组某项
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `array`| 被操作的数组 | 
+    `item`| 要删除的项 |
+    `newone` | 是否返回一个新的数组，不改变原数组大小 | `false`
+
+    ##### 备注：
+    1. `item`只能是**字符串**或者**数值**类型
+    2. 如果`newone = false`；会改变原始数组大小
+    3. 如果`newone = true`；不会改变原始数组大小，返回一个新的目标数组
+
+    示例:
+    ```javascript
+    import {removeArrayItem} from 'femcjs';
+    const arr = [1, 2, 3, 4, 'hello', 'lee', 7, 8];
+    console.log(removeArrayItem(arr, 'hello', true)); // [1, 2, 3, 4, 'lee', 7, 8];
+    console.log(arr); // [1, 2, 3, 4, 'hello', 'lee', 7, 8];
+    ```
 
 
 ## <a id="Storage">`Storage`</a>

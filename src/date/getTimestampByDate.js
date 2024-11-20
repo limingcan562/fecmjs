@@ -3,6 +3,6 @@
  * @param {string} time
  * @return {string} time stamp
  */
-export default function getTimestamp(...time) {
+export default function getTimestampByDate(...time) {
     return time ? new Date(...time).getTime() : new Date().getTime();
 }

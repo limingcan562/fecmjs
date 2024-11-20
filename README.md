@@ -1,7 +1,13 @@
 # fecmjs
 Front end common method collection
 
+![npm](https://img.shields.io/npm/v/fecmjs?logo=npm)
+![download](https://img.shields.io/npm/dm/fecmjs)
+![license](https://img.shields.io/npm/l/fecmjs)
+
 English | [中文](README_CN.md)
+
+
 
 ## Features
 1. Front-end commonly used methods collection collection , to facilitate the usual development ( part of the method from the Internet )
@@ -15,6 +21,7 @@ English | [中文](README_CN.md)
 - [`File`: Wrapping some methods around `File`](#File)
 - [`Format`: some method wrappers for formatting](#Format)
 - [`Object`: Wrapping some methods around `object`](#Object)
+- [`Array`: Some method encapsulation on `array`](#Array)
 - [`Storage`: Wrappers for `Storage` methods](#Storage)
 - [`Url`: Some methods around `Url`](#Url)
 - [`Validate`: Wrapping some methods around validation](#Validate)
@@ -101,8 +108,12 @@ console.log(flag); // true
     console.log(getDateByTimestamp('1730129184412', true)); // 2024-10-28 23:26:24
     ```
 
-- ### `getTimestamp` 
-    > #### Get timestamp  
+- ### `getTimestampByDate` 
+    > #### Get timestamps based on specific dates  
+
+    parameter name | description | default value
+    ------| ----| -----
+    `time`| Specific date. The format is the same as that passed in by `new Date()`  | `new Date().getTime()`
 
     > #### Note:
     1. Returns the timestamp of the current time by default
@@ -110,10 +121,10 @@ console.log(flag); // true
 
     Example:
     ```javascript
-    import {getTimestamp} from 'femcjs';
-    console.log(getTimestamp()); // 1730131646512
-    console.log(getTimestamp('2024-10-29')); // 1730160000000
-    console.log(getTimestamp('2024-10-29 01:30')); // 1730136600000
+    import {getTimestampByDate} from 'femcjs';
+    console.log(getTimestampByDate()); // 1730131646512
+    console.log(getTimestampByDate('2024-10-29')); // 1730160000000
+    console.log(getTimestampByDate('2024-10-29 01:30')); // 1730136600000
     ```
 
 ## <a id="Device">`Device`</a>
@@ -421,6 +432,50 @@ console.log(flag); // true
     > #### Whether the current object is `NodeList` or not.
 
     
+## <a id="Array">`Array`</a>
+- ### `chunkArrBySize` 
+
+    > #### Returns an array grouped according to a specified size.
+
+
+    parameter name | description | default value
+    ------| ----| -----
+    `array`| array being manipulated | 
+    `size`| Size to specify | 
+
+    Example:
+    ```javascript
+    import {chunkArrBySize} from 'femcjs';
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    const SIZE = 3;
+    console.log(chunkArrBySize(arr, SIZE)); // [[1,2,3], [4,5,6], [7,8]]
+    ```
+
+    
+- ### `removeArrayItem` 
+
+    > #### Deleting an item in an array
+
+    parameter name | description | default value
+    ------| ----| -----
+    `array`| array being manipulated | 
+    `item`| Items to be deleted |
+    `newone` | Whether to return a new array without changing the size of the original array |  `false`
+
+    ##### Note：
+    1. `item` can only be of type **string** or **numeric**.
+    2. if `newone = false`; changes the size of the original array
+    3. if `newone = true`; does not change the size of the original array, returns a new target array
+
+    Example:
+    ```javascript
+    import {removeArrayItem} from 'femcjs';
+    const arr = [1, 2, 3, 4, 'hello', 'lee', 7, 8];
+    console.log(removeArrayItem(arr, 'hello', true)); // [1, 2, 3, 4, 'lee', 7, 8];
+    console.log(arr); // [1, 2, 3, 4, 'hello', 'lee', 7, 8];
+    ```
+
+
 
 ## <a id="Storage">`Storage`</a>
 - ### `getLocalStorage` 
