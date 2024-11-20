@@ -460,7 +460,7 @@ console.log(flag); // true
     ------| ----| -----
     `array`| array being manipulated | 
     `item`| Items to be deleted |
-    `newone` | Whether to return a new array without changing the size of the original array | 
+    `newone` | Whether to return a new array without changing the size of the original array |  `false`
 
     ##### Note：
     1. `item` can only be of type **string** or **numeric**.
