@@ -14,20 +14,26 @@
 
     <script src="../dist/fecmjs.js"></script>
     <script>
-        const {$, setStyle, chunkArrBySize, removeArrayItem} = fecmjs;
-
+        const {$, setStyle, chunkArrBySize, removeArrayItem, isFileAudioType, containCN, hasEmoji, getNoEmojiStr, containSpace, strToArray, remove, removeStrSpace} = fecmjs;
         document.querySelector('input').addEventListener('change', evt => {
             const file = evt.target.files[0];
             const src = fecmjs.getFilePreviewSrc(file)
-            fecmjs.$('#preview_img').src = src
+            $('#preview_img').src = src
             
             console.log(file.type);
-            console.log(fecmjs.isFileAudioType(file));
+            console.log(isFileAudioType(file));
         })
         setStyle($('#test'), {width: '200px', height: '200px', 'background': '#000', color: '#fff'});
 
         const arr = [1, 2, 3, 4, 'hello', 'lee', 7, 8];
         console.log(removeArrayItem(arr, {name: '123'}), arr);
+
+        const str = '你 好 吗 ？💫';
+        console.log(hasEmoji(str));
+        console.log(containSpace(str));
+        console.log(getNoEmojiStr(str));
+        console.log(strToArray(str));
+        console.log(removeStrSpace(str));
     </script>
 </body>
 </html>
