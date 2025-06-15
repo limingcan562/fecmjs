@@ -109,7 +109,26 @@
 
 
 // 向上浮动动画
-@keyframes float_ani {
+@keyframes float_ani_10 {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -10%, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.float_ani_10 {
+    animation-name: float_ani_10;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes float_ani_20 {
     0% {
         transform: translate3d(0, 0, 0);
     }
@@ -122,15 +141,15 @@
         transform: translate3d(0, 0, 0);
     }
 }
-.float_ani {
-    animation-name: float_ani;
+.float_ani_20 {
+    animation-name: float_ani_20;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
 
 // 圆周运动
-@keyframes around {
+@keyframes around_ani {
     0% {
         transform: rotate(0) translateX(5px) rotate(0);
     }
@@ -140,8 +159,8 @@
     }
 }
 
-.around {
-    animation-name: around;
+.around_ani {
+    animation-name: around_ani;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
@@ -312,6 +331,19 @@
 
 .time3000 {
     animation-duration: 3000ms;
+}
+.time3500 {
+    animation-duration: 3500ms;
+}
+
+.time4000 {
+    animation-duration: 4000ms;
+}
+.time4500 {
+    animation-duration: 4500ms;
+}
+.time5000 {
+    animation-duration: 5000ms;
 }
 
 
