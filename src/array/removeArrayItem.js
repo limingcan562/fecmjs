@@ -9,7 +9,7 @@
 import isNum from "../object/isNum";
 import isStr from "../object/isStr";
 
-export const removeArrayItem = (array, item, newone = false) => {
+export default function removeArrayItem (array, item, newone = false) {
     if (!isNum(array) && !isStr(array)) return array;
 
     if (!newone) {

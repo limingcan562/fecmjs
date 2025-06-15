@@ -5,7 +5,7 @@
  * @returns {array} Returns an array grouped by size.
  */
 
-export const chunkArrayBySize = (array, size) => {
+export default function chunkArrayBySize  (array, size) {
     const result = [];
     for (let i = 0; i < array.length; i += size) {
         result.push(array.slice(i, i + size));

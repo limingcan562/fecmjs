@@ -82,9 +82,16 @@ import getUrlValue from './url/getUrlValue';
 import setUrlWithNorefresh from './url/setUrlWithNorefresh';
 
 // array
-import { chunkArrayBySize } from './array/chunkArrayBySize';
-import { removeArrayItem } from './array/removeArrayItem';
+import chunkArrayBySize from './array/chunkArrayBySize';
+import removeArrayItem from './array/removeArrayItem';
 
+
+// string
+import hasEmoji from './string/hasEmoji';
+import strToArray from './string/strToArray';
+import getNoEmojiStr from './string/getNoEmojiStr';
+import containSpace from './string/containSpace';
+import removeStrSpace from './string/removeStrSpace';
 
 
 // export default {
@@ -104,7 +111,6 @@ export {
     containEN,
     isAllCN,
     isAllEN,
-    
 
     $,
     removeClass,
@@ -162,5 +168,11 @@ export {
     setUrlWithNorefresh,
 
     chunkArrayBySize,
-    removeArrayItem
+    removeArrayItem,
+
+    hasEmoji,
+    strToArray,
+    getNoEmojiStr,
+    containSpace,
+    removeStrSpace,
 }
