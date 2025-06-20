@@ -93,6 +93,9 @@ import getNoEmojiStr from './string/getNoEmojiStr';
 import containSpace from './string/containSpace';
 import removeStrSpace from './string/removeStrSpace';
 
+// other
+import getRandomInt from './other/getRandomInt';
+
 
 // export default {
 //     isEmail,
@@ -175,4 +178,6 @@ export {
     getNoEmojiStr,
     containSpace,
     removeStrSpace,
+
+    getRandomInt
 }

@@ -25,6 +25,7 @@ English | [中文](README_CN.md)
 - [`Storage`: Wrappers for `Storage` methods](#Storage)
 - [`Url`: Some methods around `Url`](#Url)
 - [`Validate`: Wrapping some methods around validation](#Validate)
+- [`Other`: Wrapping some methods around validation](#Validate)
 - [`Animation`: about `css`, `vue` usable animations]( #Animation )
 
 Translated with DeepL.com (free version)
@@ -678,6 +679,23 @@ console.log(flag); // true
     console.log(setUrlWithNorefresh({name: 'lmc', age: 29}); // http://localhost:5501/test/?name=lmc&age=29
     ```
 
+## <a id="Other">`Other`</a>
+- ### `getRandomInt` 
+
+    > #### Generate random integers between [min, max]
+
+    parameter name | description | default value
+    ------| ----| -----
+    `min`| minimum value  | 
+    `max`| maximum value  | 
+
+    Example:
+    ```javascript
+    import {getRandomInt} from 'femcjs';
+    //Example: Generate a random integer between 1 and 10
+    const randomNum = getRandomInt(1, 10);
+    console.log(randomNum); // Possible outputs are 1, 2 .. Any number in 10
+    ```
 
 
 ## <a id="Animation">`Animation`</a>

@@ -1,6 +1,6 @@
 {
   "name": "fecmjs",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Collection of common front-end methods to facilitate normal development. Applicable to mobile terminal (some methods come from the Internet).Modular development for easy reference.Support 'tree shaking' to reduce packing volume",
   "module": "./dist/fecmjs.esm.js",
   "main": "./dist/fecmjs.cjs.js",

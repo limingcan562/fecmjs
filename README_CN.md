@@ -21,6 +21,7 @@
 - [`Storage`: 关于`Storage`的一些方法封装](#Storage)
 - [`Url`: 关于`Url`的一些方法封装](#Url)
 - [`Validate`: 关于校验的一些方法封装](#Validate)
+- [`Other`: 关于一些日常用到的方法](#Other)
 - [`Animation`: 关于`css`，`vue`可使用的动画](#Animation)
 
 
@@ -667,6 +668,24 @@ console.log(flag); // true
     ```javascript
     import {formatVideoDuration} from 'femcjs';
     console.log(formatVideoDuration(3600)); // 01:00:00
+    ```
+
+## <a id="Other">`Other`</a>
+- ### `getRandomInt` 
+
+    > #### 生成 [min, max] 之间的随机整数  
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `min`| 最小值  | 
+    `max`| 最大值  | 
+
+    示例:
+    ```javascript
+    import {getRandomInt} from 'femcjs';
+    // 示例：生成 1 到 10 之间的随机整数
+    const randomNum = getRandomInt(1, 10);
+    console.log(randomNum); // 可能输出 1, 2, ..., 10 中的任意数
     ```
 
 ## <a id="Animation">`Animation`</a>
