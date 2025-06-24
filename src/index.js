@@ -95,7 +95,7 @@ import removeStrSpace from './string/removeStrSpace';
 
 // other
 import getRandomInt from './other/getRandomInt';
-
+import getRemByPx from './other/getRemByPx'
 
 // export default {
 //     isEmail,
@@ -179,5 +179,6 @@ export {
     containSpace,
     removeStrSpace,
 
-    getRandomInt
+    getRandomInt,
+    getRemByPx
 }
