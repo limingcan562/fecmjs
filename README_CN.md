@@ -547,7 +547,7 @@ console.log(flag); // true
     ```
 
 
-## <a id="validate">`validate`</a>
+## <a id="Validate">`validate`</a>
 - ### `containCN` 
 
     > #### 是否包含中文  
@@ -687,6 +687,26 @@ console.log(flag); // true
     const randomNum = getRandomInt(1, 10);
     console.log(randomNum); // 可能输出 1, 2, ..., 10 中的任意数
     ```
+
+- ### `getRemByPx` 
+
+    > #### 根据px转换成rem单位  
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `px`| `px`值  | 
+    `rootValue`| 要转换的基准（如果设计稿是750，传750） | `1920`
+    `unit` | 是否需要返回转换后的单位字符串 | `true`
+
+    示例:
+    ```javascript
+    import {getRemByPx} from 'femcjs';
+    // 根据1920的基准，得到100px转换后的rem
+    const result = getRemByPx(100, 1920);
+    console.log(result); // 10rem
+    ```
+
+    
 
 ## <a id="Animation">`Animation`</a>
 - ### `vue`动画  

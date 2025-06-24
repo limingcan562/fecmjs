@@ -25,7 +25,7 @@ English | [中文](README_CN.md)
 - [`Storage`: Wrappers for `Storage` methods](#Storage)
 - [`Url`: Some methods around `Url`](#Url)
 - [`Validate`: Wrapping some methods around validation](#Validate)
-- [`Other`: Wrapping some methods around validation](#Validate)
+- [`Other`: Wrapping some methods around validation](#Other)
 - [`Animation`: about `css`, `vue` usable animations]( #Animation )
 
 Translated with DeepL.com (free version)
@@ -548,7 +548,7 @@ console.log(flag); // true
     ```
 
 
-## <a id="validate">`validate`</a>
+## <a id="Validate">`validate`</a>
 - ### `containCN` 
 
     > #### Does it contain Chinese  
@@ -695,6 +695,24 @@ console.log(flag); // true
     //Example: Generate a random integer between 1 and 10
     const randomNum = getRandomInt(1, 10);
     console.log(randomNum); // Possible outputs are 1, 2 .. Any number in 10
+    ```
+
+- ### `getRemByPx` 
+
+    > #### Convert px to rem units   
+
+    parameter name | description | default value
+    ------| ----| -----
+    `px`| `px` value  | 
+    `rootValue`| The benchmark to be converted (if the design draft is 750, transmit 750) | `1920`
+    `unit` | Return the converted unit string | `true`
+
+    Example:
+    ```javascript
+    import {getRemByPx} from 'femcjs';
+    // Based on the benchmark of 1920, obtain the converted rem of 100px
+    const result = getRemByPx(100, 1920);
+    console.log(result); // 10rem
     ```
 
 
