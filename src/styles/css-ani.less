@@ -230,7 +230,7 @@
 
 // ----- 向上浮动动画 -----//
 // xs
-@keyframes float-up-ani-xs {
+@keyframes float-y-ani-xs {
     0% {
         transform: translate3d(0, 0, 0);
     }
@@ -243,13 +243,13 @@
         transform: translate3d(0, 0, 0);
     }
 }
-.float-up-ani-xs {
-    animation-name: float-up-ani-xs;
+.float-y-ani-xs {
+    animation-name: float-y-ani-xs;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 // sm
-@keyframes float-up-ani-sm {
+@keyframes float-y-ani-sm {
     0% {
         transform: translate3d(0, 0, 0);
     }
@@ -262,13 +262,13 @@
         transform: translate3d(0, 0, 0);
     }
 }
-.float-up-ani-sm {
-    animation-name: float-up-ani-sm;
+.float-y-ani-sm {
+    animation-name: float-y-ani-sm;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 // md
-@keyframes float-up-ani-md {
+@keyframes float-y-ani-md {
     0% {
         transform: translate3d(0, 0, 0);
     }
@@ -281,13 +281,13 @@
         transform: translate3d(0, 0, 0);
     }
 }
-.float-up-ani-md {
-    animation-name: float-up-ani-md;
+.float-y-ani-md {
+    animation-name: float-y-ani-md;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 // lg
-@keyframes float-up-ani-lg {
+@keyframes float-y-ani-lg {
     0% {
         transform: translate3d(0, 0, 0);
     }
@@ -300,8 +300,8 @@
         transform: translate3d(0, 0, 0);
     }
 }
-.float-up-ani-lg {
-    animation-name: float-up-ani-lg;
+.float-y-ani-lg {
+    animation-name: float-y-ani-lg;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
@@ -309,7 +309,7 @@
 
 // ----- 向下浮动动画 -----//
 // xs
-@keyframes -float-up-ani-xs {
+@keyframes -float-y-ani-xs {
     0% {
         transform: translate3d(0, 0, 0);
     }
@@ -322,13 +322,13 @@
         transform: translate3d(0, 0, 0);
     }
 }
-.-float-up-ani-xs {
-    animation-name: -float-up-ani-xs;
+.-float-y-ani-xs {
+    animation-name: -float-y-ani-xs;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 // sm
-@keyframes -float-up-ani-sm {
+@keyframes -float-y-ani-sm {
     0% {
         transform: translate3d(0, 0, 0);
     }
@@ -341,13 +341,13 @@
         transform: translate3d(0, 0, 0);
     }
 }
-.-float-up-ani-sm {
-    animation-name: -float-up-ani-sm;
+.-float-y-ani-sm {
+    animation-name: -float-y-ani-sm;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 // md
-@keyframes -float-up-ani-md {
+@keyframes -float-y-ani-md {
     0% {
         transform: translate3d(0, 0, 0);
     }
@@ -360,13 +360,13 @@
         transform: translate3d(0, 0, 0);
     }
 }
-.-float-up-ani-md {
-    animation-name: -float-up-ani-md;
+.-float-y-ani-md {
+    animation-name: -float-y-ani-md;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 // lg
-@keyframes -float-up-ani-lg {
+@keyframes -float-y-ani-lg {
     0% {
         transform: translate3d(0, 0, 0);
     }
@@ -379,11 +379,172 @@
         transform: translate3d(0, 0, 0);
     }
 }
-.-float-up-ani-lg {
-    animation-name: -float-up-ani-lg;
+.-float-y-ani-lg {
+    animation-name: -float-y-ani-lg;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
+
+
+// ----- 向右浮动动画 -----//
+// xs
+@keyframes float-x-ani-xs {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(var(--translate-xs), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.float-x-ani-xs {
+    animation-name: float-x-ani-xs;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+// sm
+@keyframes float-x-ani-sm {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(var(--translate-sm), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.float-x-ani-sm {
+    animation-name: float-x-ani-sm;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+// md
+@keyframes float-x-ani-md {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(var(--translate-md), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.float-x-ani-md {
+    animation-name: float-x-ani-md;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+// lg
+@keyframes float-x-ani-lg {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(var(--translate-lg), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.float-x-ani-lg {
+    animation-name: float-x-ani-lg;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+
+// ----- 向左浮动动画 -----//
+// xs
+@keyframes -float-x-ani-xs {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(calc(-1 * var(--translate-xs)), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.-float-x-ani-xs {
+    animation-name: -float-x-ani-xs;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+// sm
+@keyframes -float-x-ani-sm {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(calc(-1 * var(--translate-sm)), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.-float-x-ani-sm {
+    animation-name: -float-x-ani-sm;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+// md
+@keyframes -float-x-ani-md {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(calc(-1 * var(--translate-md)), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.-float-x-ani-md {
+    animation-name: -float-x-ani-md;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+// lg
+@keyframes -float-x-ani-lg {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(calc(-1 * var(--translate-lg)), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.-float-x-ani-lg {
+    animation-name: -float-x-ani-lg;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
 
 
 
@@ -732,7 +893,14 @@
 
 
 // 暂停
-.paused {
+.ani-paused {
     animation-play-state: paused;
     -webkit-animation-play-state: paused;
 }
+// 动画保留最后一帧
+// .ani-forwards {
+//     animation-iteration-count: 1;
+//     -webkit-animation-iteration-count: 1;
+//     animation-fill-mode: forwards;
+//     -webkit-animation-fill-mode: forwards;
+// }
