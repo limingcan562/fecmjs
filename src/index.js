@@ -39,6 +39,8 @@ import isDate from './object/isDate';
 import isHtmlObj from './object/isHtmlObj';
 import isNodeList from './object/isNodeList';
 import emptyObj from './object/emptyObj';
+import isFormData from './object/isFormData';
+
 
 // storage
 import setLocalStorage from './storage/setLocalStorage';
@@ -137,6 +139,7 @@ export {
     isUndefined,
     isDate,
     emptyObj,
+    isFormData,
 
     setLocalStorage,
     getLocalStorage,

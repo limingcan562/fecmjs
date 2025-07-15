@@ -432,6 +432,10 @@ console.log(flag); // true
 
     > #### Whether the current object is `NodeList` or not.
 
+- ### `isFormData` 
+
+    > #### Whether the current object is `FormData` or not.
+
     
 ## <a id="Array">`Array`</a>
 - ### `chunkArrBySize` 

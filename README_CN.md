@@ -396,6 +396,10 @@ console.log(flag); // true
 
     > #### 当前是否为`NodeList`对象
 
+- ### `isFormData` 
+
+    > #### 当前是否为`isFormData`对象
+
 
 ## <a id="Array">`Array`</a>
 - ### `chunkArrBySize` 

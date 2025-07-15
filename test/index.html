@@ -29,8 +29,8 @@
 
 
     <script src="../dist/fecmjs.js"></script>
-    <!-- <script>
-        const { $, setStyle, chunkArrBySize, removeArrayItem, isFileAudioType, containCN, hasEmoji, getNoEmojiStr, containSpace, strToArray, remove, removeStrSpace } = fecmjs;
+    <script>
+        const { $, setStyle, chunkArrBySize, removeArrayItem, isFileAudioType, containCN, hasEmoji, getNoEmojiStr, containSpace, strToArray, remove, removeStrSpace, isFormData } = fecmjs;
         document.querySelector('input').addEventListener('change', evt => {
             const file = evt.target.files[0];
             const src = fecmjs.getFilePreviewSrc(file)
@@ -50,7 +50,13 @@
         console.log(getNoEmojiStr(str));
         console.log(strToArray(str));
         console.log(removeStrSpace(str));
-    </script> -->
+
+        const formData = new FormData();
+        console.log(isFormData(formData));
+        
+
+
+    </script>
 </body>
 
 </html>
