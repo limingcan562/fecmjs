@@ -30,7 +30,7 @@
 
     <script src="../dist/fecmjs.js"></script>
     <script>
-        const { $, setStyle, chunkArrBySize, removeArrayItem, isFileAudioType, containCN, hasEmoji, getNoEmojiStr, containSpace, strToArray, remove, removeStrSpace, isFormData } = fecmjs;
+        const { $, setStyle, chunkArrBySize, removeArrayItem, isFileAudioType, containCN, hasEmoji, getNoEmojiStr, containSpace, strToArray, remove, removeStrSpace, isFormData, getTodayDate } = fecmjs;
         document.querySelector('input').addEventListener('change', evt => {
             const file = evt.target.files[0];
             const src = fecmjs.getFilePreviewSrc(file)
@@ -54,7 +54,8 @@
         const formData = new FormData();
         console.log(isFormData(formData));
         
-
+        console.log(getTodayDate('-'));
+        
 
     </script>
 </body>

@@ -127,6 +127,22 @@ console.log(flag); // true
     console.log(getTimestampByDate('2024-10-29 01:30')); // 1730136600000
     ```
 
+- ### `getTodayDate` 
+
+    > #### 获取今天的日期  
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `symbolStr`| 字符串连接符  | `-`
+
+    ##### 备注：
+    1. 返回今天的日期
+
+    示例:
+    ```javascript
+    import {getTodayDate} from 'femcjs';
+    console.log(getTodayDate(':')); // 2025:11:20
+
 ## <a id="Dom">`Dom`</a>
 
 - ### `$` 

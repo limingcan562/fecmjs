@@ -77,6 +77,8 @@ import getTimestampByDate from './date/getTimestampByDate';
 import getCurrentTimestamp from './date/getCurrentTimestamp';
 import getDateByFewdays from './date/getDateByFewdays';
 import getDateByTimestamp from './date/getDateByTimestamp';
+import getTodayDate from './date/getTodayDate';
+
 
 
 // url
@@ -169,6 +171,7 @@ export {
     getCurrentTimestamp,
     getDateByFewdays,
     getDateByTimestamp,
+    getTodayDate,
 
     getUrlValue,
     setUrlWithNorefresh,

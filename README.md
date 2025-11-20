@@ -128,6 +128,22 @@ console.log(flag); // true
     console.log(getTimestampByDate('2024-10-29 01:30')); // 1730136600000
     ```
 
+- ### `getTodayDate` 
+
+    > #### Get today's date  
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `symbolStr`| String concatenator  | `-`
+
+    ##### Note
+    1. Return the date of today
+
+    Example:
+    ```javascript
+    import {getTodayDate} from 'femcjs';
+    console.log(getTodayDate(':')); // 2025:11:20
+
 ## <a id="Device">`Device`</a>
 
 - ### `isAndroid` 
