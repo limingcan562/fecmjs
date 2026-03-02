@@ -78,7 +78,7 @@ import getCurrentTimestamp from './date/getCurrentTimestamp';
 import getDateByFewdays from './date/getDateByFewdays';
 import getDateByTimestamp from './date/getDateByTimestamp';
 import getTodayDate from './date/getTodayDate';
-
+import getLastWeekRange from './date/getLastWeekRange';
 
 
 // url
@@ -172,6 +172,7 @@ export {
     getDateByFewdays,
     getDateByTimestamp,
     getTodayDate,
+    getLastWeekRange,
 
     getUrlValue,
     setUrlWithNorefresh,

@@ -132,7 +132,7 @@ console.log(flag); // true
 
     > #### Get today's date  
 
-    参数名 | 说明  | 默认值
+    parameter name | description | default value
     ------| ----| -----
     `symbolStr`| String concatenator  | `-`
 
@@ -143,6 +143,19 @@ console.log(flag); // true
     ```javascript
     import {getTodayDate} from 'femcjs';
     console.log(getTodayDate(':')); // 2025:11:20
+    
+- ### `getLastWeekRange` 
+
+    > #### Retrieve the date range for the previous week  
+
+    parameter name | description | default value
+    ------| ----| -----
+    `baseDate`| Base date  | `new Date()`
+
+    Example:
+    ```javascript
+    import {getLastWeekRange} from 'femcjs';
+    console.log(getTodayDate('2026-05-12')); // {start: 2026-05-04, end: 2026-05-10}
 
 ## <a id="Device">`Device`</a>
 
