@@ -157,6 +157,19 @@ console.log(flag); // true
     import {getLastWeekRange} from 'femcjs';
     console.log(getTodayDate('2026-05-12')); // {start: 2026-05-04, end: 2026-05-10}
 
+- ### `getLastMonthRange` 
+
+    > #### Retrieve the date range for the previous week  
+
+    parameter name | description | default value 
+    ------| ----| -----
+    `baseDate`| base Date | `new Date()`
+
+    Example:
+    ```javascript
+    import {getLastMonthRange} from 'femcjs';
+    console.log(getTodayDate('2026-05-12')); // {start: 2026-04-01, end: 2026-04-30}
+
 ## <a id="Device">`Device`</a>
 
 - ### `isAndroid` 

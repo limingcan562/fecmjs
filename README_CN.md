@@ -156,6 +156,19 @@ console.log(flag); // true
     import {getLastWeekRange} from 'femcjs';
     console.log(getTodayDate('2026-05-12')); // {start: 2026-05-04, end: 2026-05-10}
 
+- ### `getLastMonthRange` 
+
+    > #### 获取上个星期的日期范围  
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `baseDate`| baseDate 基准日期  | `new Date()`
+
+    示例:
+    ```javascript
+    import {getLastMonthRange} from 'femcjs';
+    console.log(getTodayDate('2026-05-12')); // {start: 2026-04-01, end: 2026-04-30}
+
 ## <a id="Dom">`Dom`</a>
 
 - ### `$` 
