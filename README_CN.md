@@ -169,6 +169,15 @@ console.log(flag); // true
     import {getLastMonthRange} from 'femcjs';
     console.log(getTodayDate('2026-05-12')); // {start: 2026-04-01, end: 2026-04-30}
 
+- ### `getYesterdayDate` 
+
+    > #### 获取昨天时间  
+
+    示例:
+    ```javascript
+    import {getYesterdayDate} from 'femcjs';
+    console.log(getYesterdayDate()); // 假设今天是2026-03-06，则返回2026-03-05
+
 ## <a id="Dom">`Dom`</a>
 
 - ### `$` 

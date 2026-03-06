@@ -170,6 +170,15 @@ console.log(flag); // true
     import {getLastMonthRange} from 'femcjs';
     console.log(getTodayDate('2026-05-12')); // {start: 2026-04-01, end: 2026-04-30}
 
+- ### `getYesterdayDate` 
+
+    > #### Get yesterday's time  
+
+    Example:
+    ```javascript
+    import {getYesterdayDate} from 'femcjs';
+    console.log(getYesterdayDate()); // Assuming today is 2026-03-06, the result would be 2026-03-05
+
 ## <a id="Device">`Device`</a>
 
 - ### `isAndroid` 
