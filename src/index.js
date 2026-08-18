@@ -89,6 +89,7 @@ import setUrlWithNorefresh from './url/setUrlWithNorefresh';
 // array
 import chunkArrayBySize from './array/chunkArrayBySize';
 import removeArrayItem from './array/removeArrayItem';
+import getArrayDiffByField from './array/getArrayDiffByField';
 
 
 // string
@@ -182,6 +183,7 @@ export {
 
     chunkArrayBySize,
     removeArrayItem,
+    getArrayDiffByField,
 
     hasEmoji,
     strToArray,

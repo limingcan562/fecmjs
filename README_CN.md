@@ -493,6 +493,33 @@ console.log(flag); // true
     console.log(arr); // [1, 2, 3, 4, 'hello', 'lee', 7, 8];
     ```
 
+- ### `getArrayDiffByField`
+
+    > #### 根据指定字段或取值函数，找出 A 中有、B 中没有的数据
+
+    参数名 | 说明  | 默认值
+    ------| ----| -----
+    `arrayA`| 要查找的数据源数组 | 
+    `arrayB`| 用来对比的目标数组 | 
+    `fieldA`| `arrayA`中用于判断的字段名，或返回判断值的函数 |
+    `fieldB`| `arrayB`中用于判断的字段名，或返回判断值的函数 | `fieldA`
+
+    ##### 备注：
+    1. 返回的是`arrayA`中的原始数据项，不会改变原数组
+    2. 如果`arrayA`和`arrayB`字段名不同，可分别传入`fieldA`和`fieldB`
+    3. 如果需要多个字段组合判断，可传入函数并返回组合后的判断值
+
+    示例:
+    ```javascript
+    import {getArrayDiffByField} from 'femcjs';
+    const arrayA = [{name: 'a', no: '001'}, {name: 'b', no: '002'}];
+    const arrayB = [{name: 'a', num: '001'}];
+    console.log(getArrayDiffByField(arrayA, arrayB, 'no', 'num')); // [{name: 'b', no: '002'}]
+
+    // 多字段组合判断
+    console.log(getArrayDiffByField(arrayA, arrayB, item => `${item.name}-${item.no}`, item => `${item.name}-${item.num}`));
+    ```
+
 
 ## <a id="Storage">`Storage`</a>
 - ### `getLocalStorage` 
