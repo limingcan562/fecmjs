@@ -558,6 +558,33 @@ console.log(flag); // true
     console.log(getArrayDiffByField(arrayA, arrayB, item => `${item.name}-${item.no}`, item => `${item.name}-${item.num}`));
     ```
 
+- ### `getArrayIntersectionByField`
+
+    > #### Find items that exist in both arrayA and arrayB by field or getter.
+
+    parameter name | description | default value
+    ------| ----| -----
+    `arrayA`| source array | 
+    `arrayB`| target array for comparison | 
+    `fieldA`| field name of `arrayA`, or a getter function that returns the comparison value |
+    `fieldB`| field name of `arrayB`, or a getter function that returns the comparison value | `fieldA`
+
+    ##### Note：
+    1. returns original items from `arrayA` and does not change the original arrays
+    2. pass both `fieldA` and `fieldB` when the field names are different
+    3. pass getter functions when multiple fields need to be combined
+
+    Example:
+    ```javascript
+    import {getArrayIntersectionByField} from 'femcjs';
+    const arrayA = [{name: 'a', no: '001'}, {name: 'b', no: '002'}];
+    const arrayB = [{name: 'a', num: '001'}];
+    console.log(getArrayIntersectionByField(arrayA, arrayB, 'no', 'num')); // [{name: 'a', no: '001'}]
+
+    // Compare by multiple fields.
+    console.log(getArrayIntersectionByField(arrayA, arrayB, item => `${item.name}-${item.no}`, item => `${item.name}-${item.num}`));
+    ```
+
 
 
 ## <a id="Storage">`Storage`</a>

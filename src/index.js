@@ -90,6 +90,7 @@ import setUrlWithNorefresh from './url/setUrlWithNorefresh';
 import chunkArrayBySize from './array/chunkArrayBySize';
 import removeArrayItem from './array/removeArrayItem';
 import getArrayDiffByField from './array/getArrayDiffByField';
+import getArrayIntersectionByField from './array/getArrayIntersectionByField';
 
 
 // string
@@ -184,6 +185,7 @@ export {
     chunkArrayBySize,
     removeArrayItem,
     getArrayDiffByField,
+    getArrayIntersectionByField,
 
     hasEmoji,
     strToArray,
